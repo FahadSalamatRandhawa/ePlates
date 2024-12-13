@@ -5,7 +5,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
-import { Border, Plate, PlateSize } from "../../../PlateStyles";
+import { Border, GelColors, Plate, PlateSize } from "../../../PlateStyles";
 
 // Create a rounded rectangle shape
 const createRoundedRectShape = (width: number, height: number, radius: number) => {
@@ -93,12 +93,17 @@ interface PlateProps{
   isRear:boolean,
   size:PlateSize,
   border:Border,
+  frontGelColor:GelColors|null,
+  rearGelColor:GelColors|null,
 }
 
-const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,border }: PlateProps) => {
+const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,border,frontGelColor,rearGelColor }: PlateProps) => {
   const mountRef = useRef<HTMLDivElement | null>(null);
   const [scene, setScene] = useState<THREE.Scene | null>(null);
   const [textMesh, setTextMesh] = useState<THREE.Mesh | null>(null);
+
+  console.log(rearGelColor," Rear Gel Color")
+  console.log(frontGelColor, " Front Gel Color")
 
   useEffect(() => {
     if (!mountRef.current) return;
@@ -136,14 +141,6 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
     const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.9);
     directionalLight2.position.set(-1, -0.4, 5);
     scene.add(directionalLight2);
-
-    // // Add spotlight
-    // addSpotlight(scene, 
-    //   { x: size.width * 0.8, y: size.height * 0.2, z: 30 }, // Position the light 1/5th from the top and on the right side
-    //   { x: 0, y: 0, z: 0 }, // Target the center of the plate
-    //   0xffffff, // Color of the spotlight
-    //   2 // Intensity of the spotlight
-    // );
 
 
 
@@ -285,6 +282,8 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
       if (plateMesh) {
         plateMesh.geometry.dispose(); // Dispose of the old geometry
         plateMesh.geometry = plateGeometry; // Set the new geometry
+         // Dispose of the old material properly
+        plateMesh.material.dispose();
     
         // Create a base plate material (default color: white)
         const newPlateMaterial = new THREE.MeshPhysicalMaterial({
@@ -299,11 +298,6 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
           reflectivity: 1,
         });
     
-        // Log the current color and emissive before updating
-        console.log("Before update:");
-        console.log("Current color:", plateMesh.material.color.getHex());
-        console.log("Current emissive:", plateMesh.material.emissive.getHex());
-    
         // Only update color and emissive properties if the plate material is changing
         if (isRear) {
           // Set rear plate color and emissive properties
@@ -315,21 +309,9 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
           newPlateMaterial.emissive.set(0xD3D3D3); // Light gray for emissive
         }
     
-        // Log the updated color and emissive values after applying the new material
-        console.log("After update:");
-        console.log("New color:", newPlateMaterial.color.getHex());
-        console.log("New emissive:", newPlateMaterial.emissive.getHex());
-    
-        // Update the plate's material only if it has changed
-        if (plateMesh.material.color.getHex() !== newPlateMaterial.color.getHex()) {
-          plateMesh.material.dispose(); // Dispose of the old material
-          plateMesh.material = newPlateMaterial; // Apply the new material
-        }
-    
-        // Log the final color and emissive of the plate after updating the material
-        console.log("Final color:", plateMesh.material.color.getHex());
-        console.log("Final emissive:", plateMesh.material.emissive.getHex());
-    
+        // Apply the new material to the plate mesh
+        plateMesh.material = newPlateMaterial;
+        
         // Scale the plate for easier viewing
         const scaleFactor = 1; // Adjust this factor as needed
         plateMesh.scale.set(scaleFactor, scaleFactor, scaleFactor);
@@ -460,16 +442,7 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
             clearcoatRoughness: 0.05, // Almost no roughness for the clearcoat
             reflectivity: 1, // Maximum reflectivity for a polished look
           })
-        : new THREE.MeshBasicMaterial({ color: 0x000000,reflectivity: 1, });
-
-        const light = new THREE.PointLight(0xffffff, 1, 10);
-        light.position.set(10, 10, 10); // Adjust light position for reflections
-        scene.add(light);
-
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // Soft ambient lighting
-        scene.add(ambientLight);
-
-      
+        : new THREE.MeshBasicMaterial({ color: 0x000000,reflectivity: 1, });      
 
         textMesh.material = textMaterial; // Assign the material to the mesh
         textMesh.geometry = textGeometry; // Assign the geometry to the mesh

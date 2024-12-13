@@ -34,7 +34,7 @@ export function Start({
             <Input 
                 className="bg-white" 
                 value={plateNumber} 
-                onChange={(e) => setPlateNumber(e.target.value)} 
+                onChange={(e) => setPlateNumber(e.target.value.toLocaleUpperCase())} 
                 maxLength={8}
                 minLength={6}
             />
@@ -88,24 +88,27 @@ export function Start({
 }
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Border, getStylesByLetterCount, Plate, PlateSize } from "../../../PlateStyles";
+import { Border, GelColors, getStylesByLetterCount, Plate, PlateSize } from "../../../PlateStyles";
 import Image from "next/image";
 import { Button } from "../ui/button";
-import { useToast } from "@/hooks/use-toast";
-
 
 interface STYLEProps {
   className?: string;
   frontStyle: Plate;
   rearStyle: Plate;
   plateNumber:String,
+  frontGelColor:GelColors|null,
+  setFrontGelColor:any,
+  rearGelColor:GelColors|null,
+  setRearGelColor:any,
   setFrontStyle: (style: Plate) => void;
   setRearStyle: (style: Plate) => void;
 }
 
-export function STYLE({ className, frontStyle, rearStyle,plateNumber, setFrontStyle, setRearStyle }: STYLEProps) {
+export function STYLE({ className, frontStyle, rearStyle,plateNumber, setFrontStyle, setRearStyle, rearGelColor,setRearGelColor,frontGelColor,setFrontGelColor }: STYLEProps) {
   const [plateStyles,setPlateSetyles] = useState<Plate[]>(getStylesByLetterCount(7)); // Assuming getStylesByLetterCount is a function that returns plate styles
   const [sameAsFront, setSameAsFront] = useState(true);
+
 
   useEffect(()=>{
     setPlateSetyles(getStylesByLetterCount(plateNumber.replace(/ /g, "").length))
@@ -138,7 +141,8 @@ export function STYLE({ className, frontStyle, rearStyle,plateNumber, setFrontSt
 
       {/* Front Style Tab */}
       <TabsContent value="front" className="flex flex-col gap-3 col-span-2 px-2 rounded-sm">
-        {plateStyles.map((p: Plate,index) => (
+        {plateStyles.map((p: Plate,index) =>{
+          return (
           <div
             className={` pb-2 rounded-sm  pt-[2px] px-[2px] ${frontStyle.name === p.name ? "bg-black text-white" : "bg-white"}`}
             key={index}
@@ -146,9 +150,15 @@ export function STYLE({ className, frontStyle, rearStyle,plateNumber, setFrontSt
           >
             <div className=" relative h-[140px]"><Image src={p.image?p.image:"/178348.jpg"} alt="img" className=" rounded-t-sm" fill priority /></div>
             <p className=" h-[60px] px-2 py-2">{p.name}</p>
-            
+            <div className="px-2 flex flex-wrap gap-2">
+                  {
+                    p.gelColors&&p.gelColors.map((color)=>(
+                      <Button onClick={()=>setFrontGelColor(color)} className={`text-black bg-white p-1 ${frontGelColor==color?" bg-yellow border-black ":""}`} key={color.name}>{color.name}</Button>
+                    ))
+                  }
+              </div>
           </div>
-        ))}
+        )})}
       </TabsContent>
 
       {/* Rear Style Tab */}
@@ -169,6 +179,14 @@ export function STYLE({ className, frontStyle, rearStyle,plateNumber, setFrontSt
               >
                 <div className=" relative h-[140px]"><Image src={p.image?p.image:"/178348.jpg"} className=" rounded-t-sm" alt="img" fill priority /></div>
                 <p className="h-[60px]  px-2 py-2">{p.name}</p>
+
+                <div className="px-2 flex flex-wrap gap-2">
+                  {
+                    p.gelColors&&p.gelColors.map((color)=>(
+                      <Button onClick={()=>setRearGelColor(color)} className={`bg-white p-1 ${rearGelColor==color?" bg-yellow ":""}`} key={color.name}>{color.name}</Button>
+                    ))
+                  }
+                </div>
               </div>
             ))}
           </div>

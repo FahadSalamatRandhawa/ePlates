@@ -6,7 +6,7 @@ import PlateSummary from "@/components/PlateBuilder/PlateSummary";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useEffect, useState } from "react";
-import {  Border, getStylesByLetterCount, Plate, PlateSize, plateStyles } from "../../../PlateStyles";
+import {  Border, GelColors, getStylesByLetterCount, Plate, PlateSize, plateStyles } from "../../../PlateStyles";
 import { useToast } from "@/hooks/use-toast";
 
 
@@ -15,7 +15,7 @@ export default function PlateBuilder() {
   const { toast } = useToast()
 
 
-  const [plateNumber, setPlateNumber] = useState("");
+  const [plateNumber, setPlateNumber] = useState("MD 2222");
   const [roadLegalSpacing, setRoadLegalSpacing] = useState(true);
   const [iWantFrontPlate, setIWantFrontPlate] = useState(true);
   const [iWantBackPlate, setIWantBackPlate] = useState(true);
@@ -23,6 +23,8 @@ export default function PlateBuilder() {
   const [rearStyle, setRearStyle] = useState<Plate>(plateStyles[0]);
   const [frontPrice, setFrontPrice] = useState(23.99);
   const [rearPrice, setRearPrice] = useState(23.99);
+  const [frontGelColor,setFrontGelColor]=useState<GelColors|null>(null)
+  const [rearGelColor,setRearGelColor]=useState<GelColors|null>(null)
 
   const [isValidPlate,setIsValidPlate]=useState(false)
 
@@ -69,13 +71,13 @@ export default function PlateBuilder() {
 const [frontBorder, setFrontBorder] = useState<Border>(() => ({
   name: 'Standard Border',  // Default based on frontStyle
   type: 'solid',  // Default based on frontStyle
-  material: { type: 'metal', thickness: 1 },  // Default material
+  material: { type: 'metal', thickness: 0 },  // Default material
 }));
 
 const [rearBorder, setRearBorder] = useState<Border>(() => ({
   name: 'Standard Border',  // Default based on rearStyle
   type: 'solid',  // Default based on rearStyle
-  material: { type: 'metal', thickness: 1 },  // Default material
+  material: { type: 'metal', thickness: 0 },  // Default material
 }));
 
 // Update border states if frontStyle or rearStyle changes
@@ -176,7 +178,7 @@ const [rearBorder, setRearBorder] = useState<Border>(() => ({
                 />
               </TabsContent>
               <TabsContent value="style" className="col-span-2 h-[390px]">
-                <STYLE rearStyle={rearStyle} frontStyle={frontStyle} plateNumber={plateNumber} setRearStyle={setRearStyle} setFrontStyle={setFrontStyle} />
+                <STYLE frontGelColor={frontGelColor} setFrontGelColor={setFrontGelColor} rearGelColor={rearGelColor} setRearGelColor={setRearGelColor} rearStyle={rearStyle} frontStyle={frontStyle} plateNumber={plateNumber} setRearStyle={setRearStyle} setFrontStyle={setFrontStyle} />
               </TabsContent>
               <TabsContent value="sizing" className="col-span-2 h-[390px]">
                 <SIZING rearStyle={rearStyle} frontStyle={frontStyle} rearSize={rearSize} frontSize={frontSize} setRearSize={setRearSize} setFrontSize={setFrontSize} />
@@ -196,9 +198,9 @@ const [rearBorder, setRearBorder] = useState<Border>(() => ({
                 </div>
                 {
                   isRear?
-                  <ThreeDRectangle border={rearBorder} isRear={true} size={rearSize} plateNumber={plateNumber} plateStyle={rearStyle} />
+                  <ThreeDRectangle frontGelColor={frontGelColor} rearGelColor={rearGelColor} border={rearBorder} isRear={true} size={rearSize} plateNumber={plateNumber} plateStyle={rearStyle} />
                   :
-                  <ThreeDRectangle border={frontBorder} isRear={false} size={frontSize} plateNumber={plateNumber} plateStyle={frontStyle}  />
+                  <ThreeDRectangle frontGelColor={frontGelColor} rearGelColor={rearGelColor} border={frontBorder} isRear={false} size={frontSize} plateNumber={plateNumber} plateStyle={frontStyle}  />
                 }
               </div>
             </div>
