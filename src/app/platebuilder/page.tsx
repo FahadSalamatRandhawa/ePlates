@@ -15,7 +15,7 @@ export default function PlateBuilder() {
   const { toast } = useToast()
 
 
-  const [plateNumber, setPlateNumber] = useState("MD 2222");
+  const [plateNumber, setPlateNumber] = useState("MD 222");
   const [roadLegalSpacing, setRoadLegalSpacing] = useState(true);
   const [iWantFrontPlate, setIWantFrontPlate] = useState(true);
   const [iWantBackPlate, setIWantBackPlate] = useState(true);
@@ -32,7 +32,6 @@ export default function PlateBuilder() {
     const pl=plateNumber.replace(/ /g, "").length
     if((pl)>4 &&(pl)<8){
         setIsValidPlate(true)
-        console.log("Plate length : ",pl)
         if([5,6,7].includes(pl)){
 
 

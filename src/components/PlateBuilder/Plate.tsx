@@ -102,8 +102,6 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
   const [scene, setScene] = useState<THREE.Scene | null>(null);
   const [textMesh, setTextMesh] = useState<THREE.Mesh | null>(null);
 
-  console.log(rearGelColor," Rear Gel Color")
-  console.log(frontGelColor, " Front Gel Color")
 
   useEffect(() => {
     if (!mountRef.current) return;
@@ -351,9 +349,7 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
     if (textMesh && plateStyle && plateNumber) {
     
       // Dispose of the old text mesh geometry and material
-      if (textMesh.geometry) {
-        textMesh.geometry.dispose();
-      }
+      textMesh.geometry.dispose();
       if (textMesh.material) {
         if (Array.isArray(textMesh.material)) {
           textMesh.material.forEach((mat) => mat.dispose());
@@ -362,13 +358,13 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
         }
       }
     
-      // Dispose of the old black layer mesh if it exists
-      const existingBlackLayer = scene.children.find(child => child.name === "blackLayerMesh");
-      if (existingBlackLayer) {
-        existingBlackLayer.geometry.dispose();
-        existingBlackLayer.material.dispose();
-        scene.remove(existingBlackLayer); // Remove it from the scene
-      }
+      // Dispose of old black layers
+      const blackLayerMeshes = scene.children.filter(child => child.name === "blackLayerMesh");
+      blackLayerMeshes.forEach(mesh => {
+        mesh.geometry.dispose();
+        mesh.material.dispose();
+        scene.remove(mesh);
+      });
     
       // Load the font and create new geometry
       const fontLoader = new FontLoader();
@@ -429,12 +425,15 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
 
         // Check if the plate style is GEL
         const isGelPlate = /GEL/i.test(plateStyle.name);
+        // Handle Acrylic plates with a black layer
+        const isAcrylicPlate = /ACRYLIC/i.test(plateStyle.name);
+        const isNeonPlate = /NEON/i.test(plateStyle.name);
 
         // Assign material for GEL or default plates
         const textMaterial = isGelPlate
         ? new THREE.MeshPhysicalMaterial({
-            color: 0x000000, // Black base color
-            emissive: 0xffffff, // Subtle white glow
+            color: frontGelColor?frontGelColor.botton:0x000000, // Black base color
+            emissive: frontGelColor?frontGelColor.botton:0x000000, // Subtle white glow
             emissiveIntensity: 0.3, // Moderate glow
             roughness: 0.05, // Extremely smooth surface
             metalness: 0.95, // Highly reflective
@@ -442,17 +441,12 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
             clearcoatRoughness: 0.05, // Almost no roughness for the clearcoat
             reflectivity: 1, // Maximum reflectivity for a polished look
           })
-        : new THREE.MeshBasicMaterial({ color: 0x000000,reflectivity: 1, });      
+        : new THREE.MeshBasicMaterial({ color: frontGelColor?frontGelColor.botton:0x000000,reflectivity: 1, });      
 
-        textMesh.material = textMaterial; // Assign the material to the mesh
-        textMesh.geometry = textGeometry; // Assign the geometry to the mesh
-
-        // Handle Acrylic plates with a black layer
-        const isAcrylicPlate = /ACRYLIC/i.test(plateStyle.name);
         let blackLayerMesh: THREE.Mesh | null = null;
 
         // Show only the black layer if both isGel and isAcrylic are true
-        if (isGelPlate && isAcrylicPlate) {
+        if ((isGelPlate && isAcrylicPlate) || (isAcrylicPlate&&isNeonPlate)) {
           // Only show the text geometry and the black text layer
           textMesh.geometry = textGeometry; // Ensure the correct geometry is set
           textMesh.material = textMaterial; // Apply material as per gel plate
@@ -461,17 +455,16 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
           blackLayerMesh = new THREE.Mesh(
             blackLayerGeometry,
             new THREE.MeshStandardMaterial({
-              color: 0x000000, // Black color
+              color: frontGelColor?frontGelColor.top:0x000000, // Apply color if available otherwise bkacj
               metalness: 0.9, // High reflectivity
               roughness: 0.1, // Smooth surface for reflection
-              emissive: 0x000000, // No glow, keeps it dark
+              emissive: frontGelColor?frontGelColor.top:0x000000, // No glow, keeps it dark
               clearcoat: 1, // Glossy finish
               clearcoatRoughness: 0.05, // Slight roughness for realistic highlights
             })
           );
-            blackLayerMesh.position.set(0, 0, plateStyle.material.thickness ? plateStyle.material.thickness / 20 + 0.1 : 0.1);
+            // blackLayerMesh.position.set(0, 0, plateStyle.material.thickness ? plateStyle.material.thickness / 20 + 0.1 : 0.1);
           blackLayerMesh.name = "blackLayerMesh";
-          scene.add(blackLayerMesh); // Add black layer to the scene
         } else if (isAcrylicPlate) {
           // If only Acrylic plate is true, show only the text geometry (no black layer)
           textMesh.geometry = textGeometry; // Set geometry for acrylic plate
@@ -513,15 +506,16 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
           textMesh.position.set(offsetX, offsetY, 0.2);
           if (blackLayerMesh) {
             blackLayerMesh.position.set(offsetX, offsetY, plateStyle.material.thickness ? plateStyle.material.thickness / 20 + 0.24 : 0.24);
+            scene.add(blackLayerMesh); // Add black layer to the scene
           }
         } else {
           console.warn("Bounding box calculation failed for text geometry.");
         }
 
       });
-    }
-       
-  }, [scene, size, plateNumber, plateStyle, textMesh, border, isRear]); // Add isRear to dependency array
+    };
+    
+  }, [scene, size, plateNumber, plateStyle, textMesh, border, isRear,frontGelColor,rearGelColor]); // Add isRear to dependency array
   
 
   return <div ref={mountRef} style={{ backgroundColor:'white',width: "100%", height: "100%" }} />;

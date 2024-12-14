@@ -7,8 +7,8 @@ export interface PlateSize {
 export interface GelColors{
   image?:string,
   name:string,
-  botton:string,
-  top:string
+  botton:number,
+  top:number
 }
 
 export interface Material {
@@ -205,7 +205,7 @@ const plateStyles: Plate[] = [
     name: '4D Neon Acrylic',
     material: { type: '4D Neon Acrylic', thickness: 3 },
     gelColors:[
-      {name:"Red on blue",botton:'0x0000FF',top:'0xFF0000', image:"/plateImages/Blue-Neon-Gel-white-640x360.jpg",},
+      {name:"Red on blue",botton:0x0000ff,top:0xFF0000, image:"/plateImages/Blue-Neon-Gel-white-640x360.jpg",},
     ],
     frontPlate: {
       sizes: [
@@ -230,7 +230,7 @@ const plateStyles: Plate[] = [
     name: '4D Neon Acrylic and Gel ',
     material: { type: '4D Neon Acrylic and Gel ', thickness: 3 },
     gelColors:[
-      {name:"Red on blue",botton:'0x0000FF',top:'0xFF0000',image:"/plateImages/Red-4D-Krystal-white-640x360.jpg"},
+      {name:"Red on blue",botton:0x0000ff,top:0xFF0000,image:"/plateImages/Red-4D-Krystal-white-640x360.jpg"},
     ],
     frontPlate: {
       sizes: [
@@ -255,7 +255,7 @@ const plateStyles: Plate[] = [
     name: 'Bubble',
     material: { type: 'Bubble', thickness: 3 },
     gelColors:[
-      {name:"Red on blue",botton:'0xFF0000',top:'0x0000FF'},
+      {name:"Red on blue",botton:0xFF0000,top:0x0000ff},
     ],
     frontPlate: {
       sizes: [
@@ -490,9 +490,9 @@ const plateStyles: Plate[] = [
     name: '4D Neon Acrylic',
     material: { type: '4D Neon Acrylic', thickness: 3 },
     gelColors:[
-      {name:"Black on Red",top:'0x000000',botton:'0xFF0000'},
-      {name:"Black on Blue",top:'0x000000',botton:'0x0000FF'},
-      {name:"Black on Green",top:'0x000000',botton:'0x008000'},
+      {name:"Black on Red",top:0x000000,botton:0xFF0000},
+      {name:"Black on Blue",top:0x000000,botton:0x0000ff},
+      {name:"Black on Green",top:0x000000,botton:0x008000},
     ],
     frontPlate: {
       sizes: [
@@ -519,9 +519,9 @@ const plateStyles: Plate[] = [
     name: '4D Neon Acrylic and Gel ',
     material: { type: '4D Neon Acrylic and Gel ', thickness: 3 },
     gelColors:[
-      {name:"Black on Red",top:'0x000000',botton:'0xFF0000'},
-      {name:"Black on Blue",top:'0x000000',botton:'0x0000FF'},
-      {name:"Black on Green",top:'0x000000',botton:'0x008000'},
+      {name:"Black on Red",top:0x000000,botton:0xFF0000},
+      {name:"Black on Blue",top:0x000000,botton:0x0000ff},
+      {name:"Black on Green",top:0x000000,botton:0x008000},
     ],
     frontPlate: {
       sizes: [
@@ -792,9 +792,9 @@ const plateStyles: Plate[] = [
     name: '4D Neon Acrylic',
     material: { type: '4D Neon Acrylic', thickness: 3 },
     gelColors:[
-      {name:"Black on Red",top:'0x000000',botton:'0xFF0000'},
-      {name:"Black on Blue",top:'0x000000',botton:'0x0000FF'},
-      {name:"Black on Green",top:'0x000000',botton:'0x008000'},
+      {name:"Black on Red",top:0x000000,botton:0xFF0000},
+      {name:"Black on Blue",top:0x000000,botton:0x0000ff},
+      {name:"Black on Green",top:0x000000,botton:0x008000},
     ],
     frontPlate: {
       sizes: [
@@ -823,9 +823,9 @@ const plateStyles: Plate[] = [
     name: '4D Neon Acrylic and Gel ',
     material: { type: '4D Neon Acrylic and Gel ', thickness: 3 },
     gelColors:[
-      {name:"Black on Red",top:'0x000000',botton:'0xFF0000'},
-      {name:"Black on Blue",top:'0x000000',botton:'0x0000FF'},
-      {name:"Black on Green",top:'0x000000',botton:'0x008000'},    
+      {name:"Black on Red",top:0x000000,botton:0xFF0000},
+      {name:"Black on Blue",top:0x000000,botton:0x0000ff},
+      {name:"Black on Green",top:0x000000,botton:0x008000},    
     ],
     frontPlate: {
       sizes: [

@@ -114,11 +114,12 @@ export function STYLE({ className, frontStyle, rearStyle,plateNumber, setFrontSt
     setPlateSetyles(getStylesByLetterCount(plateNumber.replace(/ /g, "").length))
   },[plateNumber])
 
-  useEffect(()=>{
-    if(sameAsFront){
-      setRearStyle(frontStyle)
-    }
-  },[sameAsFront])
+  // useEffect(()=>{
+  //   if(sameAsFront){
+  //     setRearStyle(frontStyle)
+  //     setRearGelColor(frontGelColor)
+  //   }
+  // },[sameAsFront])
 
   const handleFrontStyleClick = (style: Plate) => {
     setFrontStyle(style); // This will update the state in the parent component
@@ -127,6 +128,27 @@ export function STYLE({ className, frontStyle, rearStyle,plateNumber, setFrontSt
   const handleRearStyleClick = (style: Plate) => {
     setRearStyle(style); // This will update the state in the parent component
   };
+
+  useEffect(()=>{
+    if(frontStyle.gelColors){
+      setFrontGelColor(frontStyle.gelColors[0])
+    }else{
+      setFrontGelColor(null)
+    }
+    if(sameAsFront){
+      setRearStyle(frontStyle)
+      setRearGelColor(frontGelColor)
+    }
+  },[frontStyle])
+
+  useEffect(()=>{
+    if(rearStyle.gelColors){
+      setRearGelColor(rearStyle.gelColors[0])
+    }else{
+      setRearGelColor(null)
+    } 
+  },[rearStyle])
+
 
   return (
     <Tabs defaultValue="front" className={`flex flex-col overflow-y-scroll items-stretch bg-yellow rounded-sm h-full ${className}`}>
@@ -180,7 +202,7 @@ export function STYLE({ className, frontStyle, rearStyle,plateNumber, setFrontSt
                 <div className=" relative h-[140px]"><Image src={p.image?p.image:"/178348.jpg"} className=" rounded-t-sm" alt="img" fill priority /></div>
                 <p className="h-[60px]  px-2 py-2">{p.name}</p>
 
-                <div className="px-2 flex flex-wrap gap-2">
+                <div className="px-2 flex flex-wrap gap-2 text-black">
                   {
                     p.gelColors&&p.gelColors.map((color)=>(
                       <Button onClick={()=>setRearGelColor(color)} className={`bg-white p-1 ${rearGelColor==color?" bg-yellow ":""}`} key={color.name}>{color.name}</Button>
