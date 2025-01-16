@@ -21,8 +21,8 @@ export default function PlateBuilder() {
   const [iWantBackPlate, setIWantBackPlate] = useState(true);
   const [frontStyle, setFrontStyle] = useState<Plate>(plateStyles[0]);
   const [rearStyle, setRearStyle] = useState<Plate>(plateStyles[0]);
-  const [frontPrice, setFrontPrice] = useState(23.99);
-  const [rearPrice, setRearPrice] = useState(23.99);
+  const [frontPrice, setFrontPrice] = useState(0);
+  const [rearPrice, setRearPrice] = useState(0);
   const [frontGelColor,setFrontGelColor]=useState<GelColors|null>(null)
   const [rearGelColor,setRearGelColor]=useState<GelColors|null>(null)
 
@@ -63,8 +63,15 @@ export default function PlateBuilder() {
   useEffect(()=>{
     setFrontSize(frontStyle.frontPlate.sizes[0])
     setRearSize(rearStyle.rearPlate.sizes[0])
+
   },[rearStyle,frontStyle])
 
+  useEffect(()=>{
+    setRearPrice(rearSize.price)
+  },[rearSize])
+  useEffect(()=>{
+    setFrontPrice(frontSize.price)
+  },[frontSize])
 
   // Border states - Set dynamically based on frontStyle and rearStyle
 const [frontBorder, setFrontBorder] = useState<Border>(() => ({
@@ -197,9 +204,9 @@ const [rearBorder, setRearBorder] = useState<Border>(() => ({
                 </div>
                 {
                   isRear?
-                  <ThreeDRectangle frontGelColor={frontGelColor} rearGelColor={rearGelColor} border={rearBorder} isRear={true} size={rearSize} plateNumber={plateNumber} plateStyle={rearStyle} />
+                  <ThreeDRectangle roadLegalSpacing={roadLegalSpacing} frontGelColor={frontGelColor} rearGelColor={rearGelColor} border={rearBorder} isRear={true} size={rearSize} plateNumber={plateNumber} plateStyle={rearStyle} />
                   :
-                  <ThreeDRectangle frontGelColor={frontGelColor} rearGelColor={rearGelColor} border={frontBorder} isRear={false} size={frontSize} plateNumber={plateNumber} plateStyle={frontStyle}  />
+                  <ThreeDRectangle roadLegalSpacing={roadLegalSpacing} frontGelColor={frontGelColor} rearGelColor={rearGelColor} border={frontBorder} isRear={false} size={frontSize} plateNumber={plateNumber} plateStyle={frontStyle}  />
                 }
               </div>
             </div>

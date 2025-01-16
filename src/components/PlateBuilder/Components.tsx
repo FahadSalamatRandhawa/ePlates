@@ -170,7 +170,7 @@ export function STYLE({ className, frontStyle, rearStyle,plateNumber, setFrontSt
             key={index}
             onClick={() => handleFrontStyleClick(p)} // Trigger state change for front style
           >
-            <div className=" relative h-[140px]"><Image src={p.image?p.image:"/178348.jpg"} alt="img" className=" rounded-t-sm" fill priority /></div>
+            <div className=" relative h-[140px]"><Image src={p.frontImage?p.frontImage:"/178348.jpg"} alt="img" className=" rounded-t-sm" fill priority /></div>
             <p className=" h-[60px] px-2 py-2">{p.name}</p>
             <div className="px-2 flex flex-wrap gap-2">
                   {
@@ -199,7 +199,7 @@ export function STYLE({ className, frontStyle, rearStyle,plateNumber, setFrontSt
                 key={p.name}
                 onClick={() => handleRearStyleClick(p)} // Trigger state change for rear style
               >
-                <div className=" relative h-[140px]"><Image src={p.image?p.image:"/178348.jpg"} className=" rounded-t-sm" alt="img" fill priority /></div>
+                <div className=" relative h-[140px]"><Image src={p.frontImage?p.frontImage:"/178348.jpg"} className=" rounded-t-sm" alt="img" fill priority /></div>
                 <p className="h-[60px]  px-2 py-2">{p.name}</p>
 
                 <div className="px-2 flex flex-wrap gap-2 text-black">

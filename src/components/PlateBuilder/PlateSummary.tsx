@@ -50,7 +50,7 @@ const PlateSummary: React.FC<PlateSummaryProps> = ({
         </div>
         <div className="flex justify-between text-sm">
           <p>Price</p>
-          <p className="font-bold">£{frontPrice.toFixed(2)}</p>
+          <p className="font-bold">£{frontPrice}</p>
         </div>
       </div>
 
@@ -67,7 +67,7 @@ const PlateSummary: React.FC<PlateSummaryProps> = ({
         </div>
         <div className="flex justify-between text-sm">
           <p>Price</p>
-          <p className="font-bold">£{rearPrice.toFixed(2)}</p>
+          <p className="font-bold">£{rearPrice}</p>
         </div>
       </div>
 
@@ -75,7 +75,7 @@ const PlateSummary: React.FC<PlateSummaryProps> = ({
       <div className="border-t border-gray-300 pt-4 mb-4">
         <div className="flex justify-between text-lg font-bold text-gray-800">
           <p>Total</p>
-          <p>£{(frontPrice + rearPrice).toFixed(2)}</p>
+          <p>£{(frontPrice + rearPrice)}</p>
         </div>
       </div>
 

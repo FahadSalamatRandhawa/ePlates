@@ -90,6 +90,7 @@ const addSpotlight = (scene: THREE.Scene, position: { x: number, y: number, z: n
 interface PlateProps{
   plateStyle: Plate;
   plateNumber:string,
+  roadLegalSpacing:boolean,
   isRear:boolean,
   size:PlateSize,
   border:Border,
@@ -97,7 +98,7 @@ interface PlateProps{
   rearGelColor:GelColors|null,
 }
 
-const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,border,frontGelColor,rearGelColor }: PlateProps) => {
+const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,border,frontGelColor,rearGelColor,roadLegalSpacing }: PlateProps) => {
   const mountRef = useRef<HTMLDivElement | null>(null);
   const [scene, setScene] = useState<THREE.Scene | null>(null);
   const [textMesh, setTextMesh] = useState<THREE.Mesh | null>(null);
@@ -423,6 +424,20 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
           bevelThickness:0.05,
         });
 
+        if (roadLegalSpacing) {
+          const letterSpacing = -0.05; // Adjust as needed
+  
+          // Adjust position of each letter shape for both textGeometry and blackLayerGeometry
+          [textGeometry, blackLayerGeometry].forEach(geometry => {
+            geometry.shapes&&geometry.shapes.forEach((shape, index) => {
+                  if (index > 0) {
+                      const offset = new THREE.Vector3(letterSpacing, 0, 0);
+                      shape.translate(offset.x, offset.y, offset.z);
+                  }
+              });
+          });
+      }
+
         // Check if the plate style is GEL
         const isGelPlate = /GEL/i.test(plateStyle.name);
         // Handle Acrylic plates with a black layer
@@ -515,7 +530,7 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
       });
     };
     
-  }, [scene, size, plateNumber, plateStyle, textMesh, border, isRear,frontGelColor,rearGelColor]); // Add isRear to dependency array
+  }, [scene, size, plateNumber, plateStyle, textMesh, border, isRear,frontGelColor,rearGelColor,roadLegalSpacing]); // Add isRear to dependency array
   
 
   return <div ref={mountRef} style={{ backgroundColor:'white',width: "100%", height: "100%" }} />;
