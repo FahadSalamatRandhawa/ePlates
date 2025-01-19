@@ -31,8 +31,8 @@ export default function RootLayout({
       <body
         className={` antialiased min-h-screen font-rubik`}
       >
-        <NotificationBar/>
-        <Header/>
+        {/* <NotificationBar/> */}
+        {/* <Header/> */}
         <div className=" mt-5">
         {children}
         <Toaster />

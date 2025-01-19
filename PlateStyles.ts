@@ -37,7 +37,7 @@ export interface Plate {
   rearPlate: {
     sizes: PlateSize[];
   };
-  border: Border;
+  borders: Border[];
   preview: boolean;
 }
   
@@ -64,7 +64,7 @@ const plateStyles: Plate[] = [
         { key: 'square', width: 11, height: 8,price:5 }
       ]
     },
-    border: { name: '4D 3mm Acrylic', type: 'Printed', material: { type: '4D Acrylic', thickness: 3 } },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: true
   },
   {
@@ -89,7 +89,7 @@ const plateStyles: Plate[] = [
         { key: 'square', width: 11, height: 8,price:5 }
       ]
     },
-    border: { name: '4D 5mm Acrylic', type: 'Printed', material: { type: '4D Acrylic', thickness: 5 } },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: true
   },
   {
@@ -114,7 +114,7 @@ const plateStyles: Plate[] = [
         { key: 'square', width: 20.5, height: 4.5,price:-5 }
       ]
     },
-    border: { name: '4D 3mm Acrylic', type: 'Printed', material: { type: '4D Acrylic', thickness: 3 } },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: false
   },
   {
@@ -143,7 +143,7 @@ const plateStyles: Plate[] = [
         { key: 'square', width: 20.5, height: 4.5 }
       ]
     },
-    border: { name: '4D 3mm Acrylic', type: 'Printed', material: { type: '4D Acrylic', thickness: 3 } },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: true
   },
   {
@@ -172,32 +172,32 @@ const plateStyles: Plate[] = [
         { key: 'square', width: 20.5, height: 4.5,price:0 }
       ]
     },
-    border: { name: '4D 3mm Acrylic', type: 'Printed', material: { type: '4D Acrylic', thickness: 3 } },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: false
   },
-  {
-    letters: 7,
-    name: '4D 5mm Gel',
-    frontImage:"/plateImages/4D-Gel-5mm-Main-Image-Pair-Web-v2-white-640x360.webp",
-    material: { type: 'Gel', thickness: 5 },
-    frontPlate: {
-      sizes: [
-        { key: '18"', width: 18, height: 4.5 },
-        { key: 'standard', width: 18, height: 4.5 },
-        { key: 'hex', width: 20.5, height: 4.5 }
-      ]
-    },
-    rearPlate: {
-      sizes: [
-        { key: '18"', width: 18, height: 4.5 },
-        { key: 'standard', width: 18, height: 4.5 },
-        { key: 'hex', width: 20.5, height: 4.5 },
-        { key: 'square', width: 20.5, height: 4.5 }
-      ]
-    },
-    border: { name: '4D 5mm Acrylic', type: 'Printed', material: { type: '4D Acrylic', thickness: 5 } },
-    preview: true
-  },
+  // {
+  //   letters: 7,
+  //   name: '4D 5mm Gel',
+  //   frontImage:"/plateImages/4D-Gel-5mm-Main-Image-Pair-Web-v2-white-640x360.webp",
+  //   material: { type: 'Gel', thickness: 5 },
+  //   frontPlate: {
+  //     sizes: [
+  //       { key: '18"', width: 18, height: 4.5 },
+  //       { key: 'standard', width: 18, height: 4.5 },
+  //       { key: 'hex', width: 20.5, height: 4.5 }
+  //     ]
+  //   },
+  //   rearPlate: {
+  //     sizes: [
+  //       { key: '18"', width: 18, height: 4.5 },
+  //       { key: 'standard', width: 18, height: 4.5 },
+  //       { key: 'hex', width: 20.5, height: 4.5 },
+  //       { key: 'square', width: 20.5, height: 4.5 }
+  //     ]
+  //   },
+  //   border: { name: '4D 5mm Acrylic', type: 'Printed', material: { type: '4D Acrylic', thickness: 5 } },
+  //   preview: true
+  // },
   {
     letters: 7,
     name: 'Printed',
@@ -219,18 +219,70 @@ const plateStyles: Plate[] = [
         { key: 'square', width: 11, height: 8,price:7 }
       ]
     },
-    border: { name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: true
   },
   {
     letters: 7,
-    name: '4D Neon Acrylic',
+    name: '4D Neon Acrylic Red',
     material: { type: '4D Neon Acrylic', thickness: 3 },
     frontImage:"/Neon 4D/Neon 4D.png",
     sideImage:"/Neon 4D/Neon 4D (Side View).png",
     gelColors:[
       {name:"Black on Red",botton:0xFF0000,top:0x000000, image:"/Neon 4D/NEON Red 4D/Neon 4D Red (Side View).png",},
+    ],
+    frontPlate: {
+      sizes: [
+        { key: '18"', width: 18, height: 4.5 },
+        { key: 'standard', width: 20.5, height: 4.5 },
+        { key: 'hex', width: 20.5, height: 4.5 }
+      ]
+    },
+    rearPlate: {
+      sizes: [
+        { key: '18"', width: 18, height: 4.5 },
+        { key: 'standard', width: 20.5, height: 4.5 },
+        { key: 'hex', width: 20.5, height: 4.5 },
+        { key: 'square', width: 11, height: 8 }
+      ]
+    },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
+    preview: true
+  },
+  {
+    letters: 7,
+    name: '4D Neon Acrylic Blue',
+    material: { type: '4D Neon Acrylic', thickness: 3 },
+    frontImage:"/Neon 4D/Neon 4D.png",
+    sideImage:"/Neon 4D/Neon 4D (Side View).png",
+    gelColors:[
       {name:"Black on Blue",botton:0x0000FF,top:0x000000, image:"/Neon 4D/NEON - Blue 4D/Blue Neon 4D Depth.png",},
+    ],
+    frontPlate: {
+      sizes: [
+        { key: '18"', width: 18, height: 4.5 },
+        { key: 'standard', width: 20.5, height: 4.5 },
+        { key: 'hex', width: 20.5, height: 4.5 }
+      ]
+    },
+    rearPlate: {
+      sizes: [
+        { key: '18"', width: 18, height: 4.5 },
+        { key: 'standard', width: 20.5, height: 4.5 },
+        { key: 'hex', width: 20.5, height: 4.5 },
+        { key: 'square', width: 11, height: 8 }
+      ]
+    },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
+    preview: true
+  },
+  {
+    letters: 7,
+    name: '4D Neon Acrylic Green',
+    material: { type: '4D Neon Acrylic', thickness: 3 },
+    frontImage:"/Neon 4D/NEON Green 4D/Green 4D Depth.png",
+    sideImage:"/Neon 4D/Neon 4D (Side View).png",
+    gelColors:[
       {name:"Black on Green",botton:0x008000,top:0x000000, image:"/Neon 4D/NEON Green 4D/Geen 4D (Side View).png",},
     ],
     frontPlate: {
@@ -248,16 +300,16 @@ const plateStyles: Plate[] = [
         { key: 'square', width: 11, height: 8 }
       ]
     },
-    border: { name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 3 } },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: true
   },
   {
     letters: 7,
-    name: '4D Neon Acrylic and Gel ',
+    name: '4D Neon Acrylic and Gel Red',
     material: { type: '4D Neon Acrylic and Gel ', thickness: 3 },
-    frontImage:"/Neon 4D/Neon 4D.png",
+    frontImage:"/Neon 4D/NEON Red 4D/Neon 4D Red Depth.png",
     gelColors:[
-      {name:"Red on blue",botton:0x0000ff,top:0xFF0000,image:"/plateImages/Red-4D-Krystal-white-640x360.jpg"},
+      {name:"Black on Red",botton:0xFF0000,top:0x000000,image:"/plateImages/Red-4D-Krystal-white-640x360.jpg"},
     ],
     frontPlate: {
       sizes: [
@@ -274,7 +326,62 @@ const plateStyles: Plate[] = [
         { key: 'square', width: 11, height: 8 }
       ]
     },
-    border: { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },
+
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
+    preview: true
+  },
+  {
+    letters: 7,
+    name: '4D Neon Acrylic and Gel Blue ',
+    material: { type: '4D Neon Acrylic and Gel ', thickness: 3 },
+    frontImage:"/Neon 4D/NEON - Blue 4D/Blue Neon 4D Depth.png",
+    gelColors:[
+      {name:"Black on Blue",botton:0x0000ff,top:0x000000,image:"/plateImages/Red-4D-Krystal-white-640x360.jpg"},
+    ],
+    frontPlate: {
+      sizes: [
+        { key: '18"', width: 18, height: 4.5 },
+        { key: 'standard', width: 20.5, height: 4.5 },
+        { key: 'hex', width: 20.5, height: 4.5 }
+      ]
+    },
+    rearPlate: {
+      sizes: [
+        { key: '18"', width: 18, height: 4.5 },
+        { key: 'standard', width: 20.5, height: 4.5 },
+        { key: 'hex', width: 20.5, height: 4.5 },
+        { key: 'square', width: 11, height: 8 }
+      ]
+    },
+
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
+    preview: true
+  },
+  {
+    letters: 7,
+    name: '4D Neon Acrylic and Gel Green ',
+    material: { type: '4D Neon Acrylic and Gel ', thickness: 3 },
+    frontImage:"/Neon 4D/NEON Green 4D/Green 4D Depth.png",
+    gelColors:[
+      {name:"Black on Green",botton:0x008000,top:0x000000,image:"/plateImages/Red-4D-Krystal-white-640x360.jpg"},
+    ],
+    frontPlate: {
+      sizes: [
+        { key: '18"', width: 18, height: 4.5 },
+        { key: 'standard', width: 20.5, height: 4.5 },
+        { key: 'hex', width: 20.5, height: 4.5 }
+      ]
+    },
+    rearPlate: {
+      sizes: [
+        { key: '18"', width: 18, height: 4.5 },
+        { key: 'standard', width: 20.5, height: 4.5 },
+        { key: 'hex', width: 20.5, height: 4.5 },
+        { key: 'square', width: 11, height: 8 }
+      ]
+    },
+
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: true
   },
   {
@@ -298,7 +405,7 @@ const plateStyles: Plate[] = [
         { key: 'square', width: 11, height: 8,price:5 }
       ]
     },
-    border: { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: false
   },
   {
@@ -316,17 +423,17 @@ const plateStyles: Plate[] = [
         { key: 'standard', width: 9, height: 7,price:0 }
       ]
     },
-    border: { name: 'Border Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: false
   },
   {
     letters: 7,
     name: 'Motorbike Plates 4D Acrylic',
     material: { type: 'Motorbike Plates 4D Acrylic', thickness: 2 },
-    frontImage:"/Jeep/Printed/Jeep Printed (front View).png",
+    frontImage:"/Bike/Bike 4D/Bike 4D (Side View).png",
     frontPlate: {
       sizes: [
-        { key: 'standard', width: 9, height: 7,price:20 }
+        // { key: 'standard', width: 9, height: 7,price:20 }
       ]
     },
     rearPlate: {
@@ -334,7 +441,7 @@ const plateStyles: Plate[] = [
         { key: 'standard', width: 9, height: 7,price:0 }
       ]
     },
-    border: { name: 'Motorbike Plates 4D Acrylic', type: 'Printed', material: { type: 'Printed', thickness: 1 } },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: false
   },
 
@@ -364,7 +471,7 @@ const plateStyles: Plate[] = [
         { key: 'square', width: 11, height: 8,price:0 }
       ]
     },
-    border: { name: '4D 3mm Acrylic', type: 'Printed', material: { type: '4D Acrylic', thickness: 3 } },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: true
   },
   {
@@ -391,7 +498,7 @@ const plateStyles: Plate[] = [
         { key: 'square', width: 11, height: 8,price:33 }
       ]
     },
-    border: { name: '4D 5mm Acrylic', type: 'Printed', material: { type: '4D Acrylic', thickness: 5 } },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: true
   },
   {
@@ -418,7 +525,7 @@ const plateStyles: Plate[] = [
         { key: 'square', width: 20.5, height: 4.5,price:0 }
       ]
     },
-    border: { name: '4D 3mm Acrylic', type: 'Printed', material: { type: '4D Acrylic', thickness: 3 } },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: false
   },
   {
@@ -449,7 +556,7 @@ const plateStyles: Plate[] = [
         { key: 'square', width: 20.5, height: 4.5,price:0 }
       ]
     },
-    border: { name: '4D 3mm Acrylic', type: 'Printed', material: { type: '4D Acrylic', thickness: 3 } },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: true
   },
   {
@@ -480,34 +587,34 @@ const plateStyles: Plate[] = [
         { key: 'square', width: 20.5, height: 4.5,price:0 }
       ]
     },
-    border: { name: '4D 3mm Acrylic', type: 'Printed', material: { type: '4D Acrylic', thickness: 3 } },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: false
   },
-  {
-    letters: 6,
-    name: '4D 5mm Gel',
-    frontImage:"/plateImages/4D-Gel-5mm-Main-Image-Pair-Web-v2-white-640x360.webp",
-    material: { type: 'Gel', thickness: 5 },
-    frontPlate: {
-      sizes: [
-        { key: '16"', width: 16, height: 4.5 },
-        { key: '18"', width: 18, height: 4.5 },
-        { key: 'standard', width: 18, height: 4.5 },
-        { key: 'hex', width: 20.5, height: 4.5 }
-      ]
-    },
-    rearPlate: {
-      sizes: [
-        { key: '16"', width: 16, height: 4.5 },
-        { key: '18"', width: 18, height: 4.5 },
-        { key: 'standard', width: 18, height: 4.5 },
-        { key: 'hex', width: 20.5, height: 4.5 },
-        { key: 'square', width: 20.5, height: 4.5 }
-      ]
-    },
-    border: { name: '4D 5mm Acrylic', type: 'Printed', material: { type: '4D Acrylic', thickness: 5 } },
-    preview: true
-  },
+  // {
+  //   letters: 6,
+  //   name: '4D 5mm Gel',
+  //   frontImage:"/plateImages/4D-Gel-5mm-Main-Image-Pair-Web-v2-white-640x360.webp",
+  //   material: { type: 'Gel', thickness: 5 },
+  //   frontPlate: {
+  //     sizes: [
+  //       { key: '16"', width: 16, height: 4.5 },
+  //       { key: '18"', width: 18, height: 4.5 },
+  //       { key: 'standard', width: 18, height: 4.5 },
+  //       { key: 'hex', width: 20.5, height: 4.5 }
+  //     ]
+  //   },
+  //   rearPlate: {
+  //     sizes: [
+  //       { key: '16"', width: 16, height: 4.5 },
+  //       { key: '18"', width: 18, height: 4.5 },
+  //       { key: 'standard', width: 18, height: 4.5 },
+  //       { key: 'hex', width: 20.5, height: 4.5 },
+  //       { key: 'square', width: 20.5, height: 4.5 }
+  //     ]
+  //   },
+  //   border: { name: '4D 5mm Acrylic', type: 'Printed', material: { type: '4D Acrylic', thickness: 5 } },
+  //   preview: true
+  // },
   {
     letters: 6,
     name: 'Printed',
@@ -531,7 +638,7 @@ const plateStyles: Plate[] = [
         { key: 'square', width: 11, height: 8,price:7 }
       ]
     },
-    border: { name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: true
   },
   {
@@ -562,17 +669,71 @@ const plateStyles: Plate[] = [
         { key: 'square', width: 11, height: 8,price:-5 }
       ]
     },
-    border: { name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 3 } },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: true
   },
   {
     letters: 6,
-    name: '4D Neon Acrylic and Gel ',
+    name: '4D Neon Acrylic and Gel Red',
     material: { type: '4D Neon Acrylic and Gel ', thickness: 3 },
-    frontImage:"/Neon 4D/Neon 4D.png",
+    frontImage:"/Neon 4D/NEON Red 4D/Neon 4D Red Depth.png",
     gelColors:[
       {name:"Black on Red",top:0x000000,botton:0xFF0000},
+    ],
+    frontPlate: {
+      sizes: [
+        { key: '16"', width: 16, height: 4.5 },
+        { key: '18"', width: 18, height: 4.5 },
+        { key: 'standard', width: 20.5, height: 4.5 },
+        { key: 'hex', width: 20.5, height: 4.5 }
+      ]
+    },
+    rearPlate: {
+      sizes: [
+        { key: '16"', width: 16, height: 4.5 },
+        { key: '18"', width: 18, height: 4.5 },
+        { key: 'standard', width: 20.5, height: 4.5 },
+        { key: 'hex', width: 20.5, height: 4.5 },
+        { key: 'square', width: 11, height: 8 }
+      ]
+    },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
+    preview: true
+  },
+  {
+    letters: 6,
+    name: '4D Neon Acrylic and Gel Blue',
+    material: { type: '4D Neon Acrylic and Gel ', thickness: 3 },
+    frontImage:"/Neon 4D/NEON - Blue 4D/Blue Neon 4D Depth.png",
+    gelColors:[
       {name:"Black on Blue",top:0x000000,botton:0x0000ff},
+    ],
+    frontPlate: {
+      sizes: [
+        { key: '16"', width: 16, height: 4.5 },
+        { key: '18"', width: 18, height: 4.5 },
+        { key: 'standard', width: 20.5, height: 4.5 },
+        { key: 'hex', width: 20.5, height: 4.5 }
+      ]
+    },
+    rearPlate: {
+      sizes: [
+        { key: '16"', width: 16, height: 4.5 },
+        { key: '18"', width: 18, height: 4.5 },
+        { key: 'standard', width: 20.5, height: 4.5 },
+        { key: 'hex', width: 20.5, height: 4.5 },
+        { key: 'square', width: 11, height: 8 }
+      ]
+    },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
+    preview: true
+  },
+  {
+    letters: 6,
+    name: '4D Neon Acrylic and Gel Green',
+    material: { type: '4D Neon Acrylic and Gel ', thickness: 3 },
+    frontImage:"/Neon 4D/NEON Green 4D/Green 4D Depth.png",
+    gelColors:[
       {name:"Black on Green",top:0x000000,botton:0x008000},
     ],
     frontPlate: {
@@ -592,7 +753,7 @@ const plateStyles: Plate[] = [
         { key: 'square', width: 11, height: 8 }
       ]
     },
-    border: { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: true
   },
   {
@@ -611,7 +772,7 @@ const plateStyles: Plate[] = [
         { key: 'Custom Standard', width: 20.5, height: 0,price:0 },
       ]
     },
-    border: { name: 'Unavailable ', type: 'Printed', material: { type: 'Printed', thickness: 0 } },
+    borders: [{ name: 'Unavailable ', type: 'Printed', material: { type: 'Printed', thickness: 0 } }],
     preview: false
   },
   {
@@ -629,17 +790,17 @@ const plateStyles: Plate[] = [
         { key: 'standard', width: 9, height: 7,price:0 }
       ]
     },
-    border: { name: 'Border Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: false
   },
   {
     letters: 6,
     name: 'Motorbike Plates 4D Acrylic',
     material: { type: 'Motorbike Plates 4D Acrylic', thickness: 2 },
-    frontImage:"/Jeep/Printed/Jeep Printed (front View).png",
+    frontImage:"/Bike/Bike 4D/Bike 4D (Side View).png",
     frontPlate: {
       sizes: [
-        { key: 'standard', width: 9, height: 7,price:20 }
+        // { key: 'standard', width: 9, height: 7,price:20 }
       ]
     },
     rearPlate: {
@@ -647,7 +808,7 @@ const plateStyles: Plate[] = [
         { key: 'standard', width: 9, height: 7,price:0 }
       ]
     },
-    border: { name: 'Motorbike Plates 4D Acrylic', type: 'Printed', material: { type: 'Printed', thickness: 1 } },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: false
   },
 
@@ -679,7 +840,7 @@ const plateStyles: Plate[] = [
         { key: 'square', width: 11, height: 8,price:0 }
       ]
     },
-    border: { name: '4D 3mm Acrylic', type: 'Printed', material: { type: '4D Acrylic', thickness: 3 } },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: true
   },
   {
@@ -688,7 +849,7 @@ const plateStyles: Plate[] = [
     frontImage:"/4D 5MM/4D 5MM (front View).png",
     sideImage:"/4D 5MM/4D 5MM (Side View).png",
     depthImage:"/4D 5MM/4D 5MM Depth.png",
-    material: { type: '4D Acrylic', thickness: 3 },
+    material: { type: '4D Acrylic', thickness: 5 },
     frontPlate: {
       sizes: [
         { key: '14"', width: 14, height: 4.5,price:33 },        
@@ -708,7 +869,7 @@ const plateStyles: Plate[] = [
         { key: 'square', width: 11, height: 8,price:0 }
       ]
     },
-    border: { name: '4D 5mm Acrylic', type: 'Printed', material: { type: '4D Acrylic', thickness: 5 } },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: true
   },
   {
@@ -737,7 +898,7 @@ const plateStyles: Plate[] = [
         { key: 'square', width: 20.5, height: 4.5,price:0 }
       ]
     },
-    border: { name: '4D 3mm Acrylic', type: 'Printed', material: { type: '4D Acrylic', thickness: 3 } },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: false
   },
   {
@@ -770,7 +931,7 @@ const plateStyles: Plate[] = [
         { key: 'square', width: 20.5, height: 4.5 }
       ]
     },
-    border: { name: '4D 3mm Acrylic', type: 'Printed', material: { type: '4D Acrylic', thickness: 3 } },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: true
   },
   {
@@ -803,36 +964,36 @@ const plateStyles: Plate[] = [
         { key: 'square', width: 20.5, height: 4.5,price:0 }
       ]
     },
-    border: { name: '4D 3mm Acrylic', type: 'Printed', material: { type: '4D Acrylic', thickness: 3 } },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: false
   },
-  {
-    letters: 5,
-    name: '4D 5mm Gel',
-    frontImage:"/plateImages/4D-Gel-5mm-Main-Image-Pair-Web-v2-white-640x360.webp",
-    material: { type: 'Gel', thickness: 5 },
-    frontPlate: {
-      sizes: [
-        { key: '14"', width: 14, height: 4.5 },        
-        { key: '16"', width: 16, height: 4.5 },
-        { key: '18"', width: 18, height: 4.5 },
-        { key: 'standard', width: 18, height: 4.5 },
-        { key: 'hex', width: 20.5, height: 4.5 }
-      ]
-    },
-    rearPlate: {
-      sizes: [
-        { key: '14"', width: 14, height: 4.5 },        
-        { key: '16"', width: 16, height: 4.5 },
-        { key: '18"', width: 18, height: 4.5 },
-        { key: 'standard', width: 18, height: 4.5 },
-        { key: 'hex', width: 20.5, height: 4.5 },
-        { key: 'square', width: 20.5, height: 4.5 }
-      ]
-    },
-    border: { name: '4D 5mm Acrylic', type: 'Printed', material: { type: '4D Acrylic', thickness: 5 } },
-    preview: true
-  },
+  // {
+  //   letters: 5,
+  //   name: '4D 5mm Gel',
+  //   frontImage:"/plateImages/4D-Gel-5mm-Main-Image-Pair-Web-v2-white-640x360.webp",
+  //   material: { type: 'Gel', thickness: 5 },
+  //   frontPlate: {
+  //     sizes: [
+  //       { key: '14"', width: 14, height: 4.5 },        
+  //       { key: '16"', width: 16, height: 4.5 },
+  //       { key: '18"', width: 18, height: 4.5 },
+  //       { key: 'standard', width: 18, height: 4.5 },
+  //       { key: 'hex', width: 20.5, height: 4.5 }
+  //     ]
+  //   },
+  //   rearPlate: {
+  //     sizes: [
+  //       { key: '14"', width: 14, height: 4.5 },        
+  //       { key: '16"', width: 16, height: 4.5 },
+  //       { key: '18"', width: 18, height: 4.5 },
+  //       { key: 'standard', width: 18, height: 4.5 },
+  //       { key: 'hex', width: 20.5, height: 4.5 },
+  //       { key: 'square', width: 20.5, height: 4.5 }
+  //     ]
+  //   },
+  //   border: { name: '4D 5mm Acrylic', type: 'Printed', material: { type: '4D Acrylic', thickness: 5 } },
+  //   preview: true
+  // },
   {
     letters: 5,
     name: 'Printed',
@@ -858,18 +1019,78 @@ const plateStyles: Plate[] = [
         { key: 'square', width: 11, height: 8,price:0 }
       ]
     },
-    border: { name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: true
   },
   {
     letters: 5,
-    name: '4D Neon Acrylic',
+    name: '4D Neon Acrylic Red',
     material: { type: '4D Neon Acrylic', thickness: 3 },
     frontImage:"/Neon 4D/Neon 4D.png",
     sideImage:"/Neon 4D/Neon 4D (Side View).png",
     gelColors:[
       {name:"Black on Red",botton:0xFF0000,top:0x000000, image:"/Neon 4D/NEON Red 4D/Neon 4D Red (Side View).png",},
+    ],
+    frontPlate: {
+      sizes: [
+        { key: '14"', width: 14, height: 4.5 },        
+        { key: '16"', width: 16, height: 4.5 },
+        { key: '18"', width: 18, height: 4.5 },
+        { key: 'standard', width: 20.5, height: 4.5 },
+        { key: 'hex', width: 20.5, height: 4.5 }
+      ]
+    },
+    rearPlate: {
+      sizes: [
+        { key: '14"', width: 14, height: 4.5 },        
+        { key: '16"', width: 16, height: 4.5 },
+        { key: '18"', width: 18, height: 4.5 },
+        { key: 'standard', width: 20.5, height: 4.5 },
+        { key: 'hex', width: 20.5, height: 4.5 },
+        { key: 'square', width: 11, height: 8 }
+      ]
+    },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
+    preview: true
+  },
+  {
+    letters: 5,
+    name: '4D Neon Acrylic Blue',
+    material: { type: '4D Neon Acrylic', thickness: 3 },
+    frontImage:"/Neon 4D/Neon 4D.png",
+    sideImage:"/Neon 4D/Neon 4D (Side View).png",
+    gelColors:[
       {name:"Black on Blue",botton:0x0000FF,top:0x000000, image:"/Neon 4D/NEON - Blue 4D/Blue Neon 4D Depth.png",},
+    ],
+    frontPlate: {
+      sizes: [
+        { key: '14"', width: 14, height: 4.5 },        
+        { key: '16"', width: 16, height: 4.5 },
+        { key: '18"', width: 18, height: 4.5 },
+        { key: 'standard', width: 20.5, height: 4.5 },
+        { key: 'hex', width: 20.5, height: 4.5 }
+      ]
+    },
+    rearPlate: {
+      sizes: [
+        { key: '14"', width: 14, height: 4.5 },        
+        { key: '16"', width: 16, height: 4.5 },
+        { key: '18"', width: 18, height: 4.5 },
+        { key: 'standard', width: 20.5, height: 4.5 },
+        { key: 'hex', width: 20.5, height: 4.5 },
+        { key: 'square', width: 11, height: 8 }
+      ]
+    },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
+    preview: true
+  },
+  {
+    letters: 5,
+    name: '4D Neon Acrylic Green',
+    material: { type: '4D Neon Acrylic', thickness: 3 },
+    frontImage:"/Neon 4D/NEON Green 4D/Green 4D Depth.png",
+    sideImage:"/Neon 4D/Neon 4D (Side View).png",
+    gelColors:[
       {name:"Black on Green",botton:0x008000,top:0x000000, image:"/Neon 4D/NEON Green 4D/Geen 4D (Side View).png",},
     ],
     frontPlate: {
@@ -891,17 +1112,75 @@ const plateStyles: Plate[] = [
         { key: 'square', width: 11, height: 8 }
       ]
     },
-    border: { name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 3 } },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: true
   },
   {
     letters: 5,
-    name: '4D Neon Acrylic and Gel ',
+    name: '4D Neon Acrylic and Gel Red',
     material: { type: '4D Neon Acrylic and Gel ', thickness: 3 },
-    frontImage:"/Neon 4D/Neon 4D.png",
+    frontImage:"/Neon 4D/NEON Red 4D/Neon 4D Red Depth.png",
     gelColors:[
-      {name:"Black on Red",top:0x000000,botton:0xFF0000},
+      {name:"Black on Red",top:0x000000,botton:0xFF0000},    
+    ],
+    frontPlate: {
+      sizes: [
+        { key: '14"', width: 14, height: 4.5 },        
+        { key: '16"', width: 16, height: 4.5 },
+        { key: '18"', width: 18, height: 4.5 },
+        { key: 'standard', width: 20.5, height: 4.5 },
+        { key: 'hex', width: 20.5, height: 4.5 }
+      ]
+    },
+    rearPlate: {
+      sizes: [
+        { key: '14"', width: 14, height: 4.5 },        
+        { key: '16"', width: 16, height: 4.5 },
+        { key: '18"', width: 18, height: 4.5 },
+        { key: 'standard', width: 20.5, height: 4.5 },
+        { key: 'hex', width: 20.5, height: 4.5 },
+        { key: 'square', width: 11, height: 8 }
+      ]
+    },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
+    preview: true
+  },
+  {
+    letters: 5,
+    name: '4D Neon Acrylic and Gel Blue',
+    material: { type: '4D Neon Acrylic and Gel ', thickness: 3 },
+    frontImage:"/Neon 4D/NEON - Blue 4D/Blue Neon 4D Depth.png",
+    gelColors:[
       {name:"Black on Blue",top:0x000000,botton:0x0000ff},
+    ],
+    frontPlate: {
+      sizes: [
+        { key: '14"', width: 14, height: 4.5 },        
+        { key: '16"', width: 16, height: 4.5 },
+        { key: '18"', width: 18, height: 4.5 },
+        { key: 'standard', width: 20.5, height: 4.5 },
+        { key: 'hex', width: 20.5, height: 4.5 }
+      ]
+    },
+    rearPlate: {
+      sizes: [
+        { key: '14"', width: 14, height: 4.5 },        
+        { key: '16"', width: 16, height: 4.5 },
+        { key: '18"', width: 18, height: 4.5 },
+        { key: 'standard', width: 20.5, height: 4.5 },
+        { key: 'hex', width: 20.5, height: 4.5 },
+        { key: 'square', width: 11, height: 8 }
+      ]
+    },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
+    preview: true
+  },
+  {
+    letters: 5,
+    name: '4D Neon Acrylic and Gel Green',
+    material: { type: '4D Neon Acrylic and Gel ', thickness: 3 },
+    frontImage:"/Neon 4D/NEON Green 4D/Green 4D Depth.png",
+    gelColors:[
       {name:"Black on Green",top:0x000000,botton:0x008000},    
     ],
     frontPlate: {
@@ -923,7 +1202,7 @@ const plateStyles: Plate[] = [
         { key: 'square', width: 11, height: 8 }
       ]
     },
-    border: { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: true
   },
   {
@@ -942,7 +1221,7 @@ const plateStyles: Plate[] = [
         { key: 'Custom Standard', width: 20.5, height: 0,price:0 },
       ]
     },
-    border: { name: 'Unavailable ', type: 'Printed', material: { type: 'Printed', thickness: 0 } },
+    borders: [{ name: 'Unavailable ', type: 'Printed', material: { type: 'Printed', thickness: 0 } }],
     preview: false
   },
   {
@@ -952,7 +1231,7 @@ const plateStyles: Plate[] = [
     frontImage:"/Jeep/Printed/Jeep Printed (front View).png",
     frontPlate: {
       sizes: [
-        { key: 'standard', width: 9, height: 7,price:12 }
+        // { key: 'standard', width: 9, height: 7,price:12 }
       ]
     },
     rearPlate: {
@@ -960,17 +1239,17 @@ const plateStyles: Plate[] = [
         { key: 'standard', width: 9, height: 7,price:0 }
       ]
     },
-    border: { name: 'Border Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: false
   },
   {
     letters: 5,
     name: 'Motorbike Plates 4D Acrylic',
     material: { type: 'Motorbike Plates 4D Acrylic', thickness: 2 },
-    frontImage:"/Jeep/Printed/Jeep Printed (front View).png",
+    frontImage:"/Bike/Bike 4D/Bike 4D (Side View).png",
     frontPlate: {
       sizes: [
-        { key: 'standard', width: 9, height: 7,price:20 }
+        // { key: 'standard', width: 9, height: 7,price:20 }
       ]
     },
     rearPlate: {
@@ -978,7 +1257,7 @@ const plateStyles: Plate[] = [
         { key: 'standard', width: 9, height: 7,price:0 }
       ]
     },
-    border: { name: 'Motorbike Plates 4D Acrylic', type: 'Printed', material: { type: 'Printed', thickness: 1 } },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: false
   }
 

@@ -53,7 +53,7 @@ export default function PlateBuilder() {
     return { key: 'standard', width: 18, height: 18 }; // Default fallback
   });
   const [rearSize, setRearSize] = useState<PlateSize>(() => {
-    const sizes = plateStyles[0]?.frontPlate?.sizes as PlateSize[] | undefined;
+    const sizes = plateStyles[0]?.rearPlate?.sizes as PlateSize[] | undefined;
     if (sizes && sizes.length > 0) {
       return sizes[0]; // Select the first size from the array
     }
@@ -67,10 +67,10 @@ export default function PlateBuilder() {
   },[rearStyle,frontStyle])
 
   useEffect(()=>{
-    setRearPrice(rearSize.price)
+    setRearPrice(rearSize?rearSize.price:0)
   },[rearSize])
   useEffect(()=>{
-    setFrontPrice(frontSize.price)
+    setFrontPrice(frontSize?frontSize.price:0)
   },[frontSize])
 
   // Border states - Set dynamically based on frontStyle and rearStyle

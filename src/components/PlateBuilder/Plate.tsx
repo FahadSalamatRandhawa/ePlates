@@ -409,8 +409,8 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
           depth: plateStyle.material.thickness ? plateStyle.material.thickness / 20 : 0,
           curveSegments: 16,
           bevelEnabled: true,
-          bevelSize: 0.05,
-          bevelThickness:0.05,
+          bevelSize: 0.06,
+          bevelThickness:0.08,
         });
 
         // Create the thin black layer geometry
@@ -421,11 +421,23 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
           curveSegments: 16,
           bevelEnabled: true,
           bevelSize: 0.05,
-          bevelThickness:0.05,
+          bevelThickness:0.06,
         });
 
         if (roadLegalSpacing) {
           const letterSpacing = -0.05; // Adjust as needed
+  
+          // Adjust position of each letter shape for both textGeometry and blackLayerGeometry
+          [textGeometry, blackLayerGeometry].forEach(geometry => {
+            geometry.shapes&&geometry.shapes.forEach((shape, index) => {
+                  if (index > 0) {
+                      const offset = new THREE.Vector3(letterSpacing, 0, 0);
+                      shape.translate(offset.x, offset.y, offset.z);
+                  }
+              });
+          });
+      }else{
+        const letterSpacing = 0.05; // Adjust as needed
   
           // Adjust position of each letter shape for both textGeometry and blackLayerGeometry
           [textGeometry, blackLayerGeometry].forEach(geometry => {

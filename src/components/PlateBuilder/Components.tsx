@@ -164,23 +164,31 @@ export function STYLE({ className, frontStyle, rearStyle,plateNumber, setFrontSt
       {/* Front Style Tab */}
       <TabsContent value="front" className="flex flex-col gap-3 col-span-2 px-2 rounded-sm">
         {plateStyles.map((p: Plate,index) =>{
-          return (
-          <div
-            className={` pb-2 rounded-sm  pt-[2px] px-[2px] ${frontStyle.name === p.name ? "bg-black text-white" : "bg-white"}`}
-            key={index}
-            onClick={() => handleFrontStyleClick(p)} // Trigger state change for front style
-          >
-            <div className=" relative h-[140px]"><Image src={p.frontImage?p.frontImage:"/178348.jpg"} alt="img" className=" rounded-t-sm" fill priority /></div>
-            <p className=" h-[60px] px-2 py-2">{p.name}</p>
-            <div className="px-2 flex flex-wrap gap-2">
+          if(p.frontPlate.sizes.length>1){
+            return (
+              <div
+                className={` pb-2 rounded-sm  pt-[2px] px-[2px] ${frontStyle.name === p.name ? "bg-black text-white" : "bg-white"}`}
+                key={index}
+                onClick={() => handleFrontStyleClick(p)} // Trigger state change for front style
+              >
+                <div className=" relative h-[140px]"><Image src={p.frontImage?p.frontImage:"/178348.jpg"} alt="img" className=" rounded-t-sm" fill priority /></div>
+                <p className=" h-[60px] px-2 py-2">{p.gelColors&&p.gelColors.length==1?p.name+" "+p.gelColors[0].name:p.name}</p>
                   {
-                    p.gelColors&&p.gelColors.map((color)=>(
-                      <Button onClick={()=>setFrontGelColor(color)} className={`text-black bg-white p-1 ${frontGelColor==color?" bg-yellow border-black ":""}`} key={color.name}>{color.name}</Button>
-                    ))
+                    p.gelColors&&p.gelColors.length>1&&
+                    <div className="px-2 flex flex-wrap gap-2">
+                      {
+                        p.gelColors&&p.gelColors.map((color)=>(
+                          <Button onClick={()=>setFrontGelColor(color)} className={`text-black bg-white p-1 ${frontGelColor==color?" bg-yellow border-black ":""}`} key={color.name}>{color.name}</Button>
+                        ))
+                      }
+                  </div>
                   }
               </div>
-          </div>
-        )})}
+            )
+          }
+
+          return null
+          })}
       </TabsContent>
 
       {/* Rear Style Tab */}
@@ -367,14 +375,18 @@ export function BORDER({ className, frontBorder,rearBorder,frontStyle,rearStyle,
             <Image src={"/178348.jpg"} alt="img" className=" rounded-t-sm" fill priority /></div>
             <p className={` px-2 py-2 ${frontBorder.name==noBorder.name?" text-white":"text-black"} `}>No border</p>
           </div>
-          <div
-            onClick={()=>handleFrontBorderClick(frontStyle.border)}
-            className={` pb-2 rounded-sm  pt-[2px] px-[2px] ${frontBorder.name==frontStyle.border.name?' bg-black':'bg-white'}`}
-            >
-            <div className=" relative h-[140px]">
-            <Image src={"/178348.jpg"} alt="img" className=" rounded-t-sm" fill priority /></div>
-            <p className={` px-2 py-2 ${frontBorder.name==frontStyle.border.name?" text-white":" text-black"} `}>{frontStyle.border.name}</p>
-          </div>
+          {
+            frontStyle.borders.map((border)=>(
+              <div
+              onClick={()=>handleFrontBorderClick(border)}
+              className={` pb-2 rounded-sm  pt-[2px] px-[2px] ${frontBorder.name==border.name?' bg-black':'bg-white'}`}
+              >
+              <div className=" relative h-[140px]">
+              <Image src={"/178348.jpg"} alt="img" className=" rounded-t-sm" fill priority /></div>
+              <p className={` px-2 py-2 ${frontBorder.name==border.name?" text-white":" text-black"} `}>{border.name}</p>
+            </div>
+            ))
+          }
       </TabsContent>
 
       {/* Rear Style Tab */}
@@ -402,21 +414,25 @@ export function BORDER({ className, frontBorder,rearBorder,frontStyle,rearStyle,
                   }
                 </div> */}
           </div>
-          <div
-          onClick={()=>handleRearBorderClick(rearStyle.border)}
-          className={` pb-2 rounded-sm  pt-[2px] px-[2px] ${rearBorder.name==rearStyle.border.name?' bg-black':'bg-white'}`}
-          >
-            <div className=" relative h-[140px] ">
-            <Image src={"/178348.jpg"} alt="img" className=" rounded-t-sm" fill priority /></div>
-            <p className="px-2 py-2">{rearStyle.border.name}</p>
-            {/* <div className="px-2 flex flex-wrap gap-1">
-                  {
-                    rearStyle.rearPlate.sizes.map((size)=>(
-                      <Button onClick={()=>handleRearSizeClick(size)} className={`bg-white p-1  border-2 ${rearSize.key==size.key?"border-black ":""}`}  key={size.key}>{size.width +"x"+ size.height}</Button>
-                    ))
-                  }
-                </div> */}
-          </div>
+          {
+            rearStyle.borders.map((border)=>(
+              <div
+              onClick={()=>handleRearBorderClick(border)}
+              className={` pb-2 rounded-sm  pt-[2px] px-[2px] ${rearBorder.name==border.name?' bg-black':'bg-white'}`}
+              >
+                <div className=" relative h-[140px] ">
+                <Image src={"/178348.jpg"} alt="img" className=" rounded-t-sm" fill priority /></div>
+                <p className="px-2 py-2">{border.name}</p>
+                {/* <div className="px-2 flex flex-wrap gap-1">
+                      {
+                        rearStyle.rearPlate.sizes.map((size)=>(
+                          <Button onClick={()=>handleRearSizeClick(size)} className={`bg-white p-1  border-2 ${rearSize.key==size.key?"border-black ":""}`}  key={size.key}>{size.width +"x"+ size.height}</Button>
+                        ))
+                      }
+                    </div> */}
+              </div>
+            ))
+          }
           </>
         )}
       </TabsContent>
