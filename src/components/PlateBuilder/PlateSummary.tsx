@@ -18,6 +18,12 @@ const PlateSummary: React.FC<PlateSummaryProps> = ({
   frontPrice,
   rearPrice,
 }) => {
+
+  function addToBasket(){
+    window.parent.postMessage(plateNumber, "https://plateguy.co.uk");
+    console.log("platenumber sent to plateGuy")
+  }
+
   return (
     <div className="bg-gray-100 p-6 rounded-lg shadow-md max-w-sm mx-auto border border-gray-300">
       {/* Header */}
@@ -80,7 +86,7 @@ const PlateSummary: React.FC<PlateSummaryProps> = ({
       </div>
 
       {/* Add to Basket Button */}
-      <button className="w-full bg-yellow text-black font-bold py-3 rounded hover:bg-yellow/80 transition">
+      <button onClick={addToBasket} className="w-full bg-yellow text-black font-bold py-3 rounded hover:bg-yellow/80 transition">
         ADD TO BASKET
       </button>
     </div>
