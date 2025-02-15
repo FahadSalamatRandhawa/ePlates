@@ -20,7 +20,7 @@ const PlateSummary: React.FC<PlateSummaryProps> = ({
 }) => {
 
   function addToBasket(){
-    window.parent.postMessage(plateNumber, "https://plateguy.co.uk");
+    window.parent.postMessage({plateNumber:plateNumber,product_id:"random-plate"}, "https://plateguy.co.uk");
     console.log("platenumber sent to plateGuy")
   }
 
