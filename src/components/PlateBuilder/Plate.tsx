@@ -233,6 +233,8 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
         camera.aspect = width / height;
         camera.updateProjectionMatrix();
         renderer.setSize(width, height);
+
+        renderer.setSize(width,height)
       }
     };
     window.addEventListener("resize", handleResize);
