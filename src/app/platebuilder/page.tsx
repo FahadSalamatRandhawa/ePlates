@@ -6,16 +6,13 @@ import PlateSummary from "@/components/PlateBuilder/PlateSummary";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useEffect, useState } from "react";
-import {  Border, GelColors, getStylesByLetterCount, Plate, PlateSize, plateStyles } from "../../../PlateStyles";
+import { Border, GelColors, getStylesByLetterCount, Plate, PlateSize, plateStyles } from "../../../PlateStyles";
 import { useToast } from "@/hooks/use-toast";
 
-
 export default function PlateBuilder() {
-
   const { toast } = useToast()
 
-
-  const [plateNumber, setPlateNumber] = useState("MD 222");
+  const [plateNumber, setPlateNumber] = useState("");
   const [roadLegalSpacing, setRoadLegalSpacing] = useState(true);
   const [iWantFrontPlate, setIWantFrontPlate] = useState(true);
   const [iWantBackPlate, setIWantBackPlate] = useState(true);
@@ -23,109 +20,102 @@ export default function PlateBuilder() {
   const [rearStyle, setRearStyle] = useState<Plate>(plateStyles[0]);
   const [frontPrice, setFrontPrice] = useState(0);
   const [rearPrice, setRearPrice] = useState(0);
-  const [frontGelColor,setFrontGelColor]=useState<GelColors|null>(null)
-  const [rearGelColor,setRearGelColor]=useState<GelColors|null>(null)
+  const [frontGelColor, setFrontGelColor] = useState<GelColors | null>(null)
+  const [rearGelColor, setRearGelColor] = useState<GelColors | null>(null)
 
-  const [isValidPlate,setIsValidPlate]=useState(false)
+  const [isValidPlate, setIsValidPlate] = useState(false)
 
-  useEffect(()=>{
-    const pl=plateNumber.replace(/ /g, "").length
-    if((pl)>4 &&(pl)<8){
-        setIsValidPlate(true)
-        if([5,6,7].includes(pl)){
-
-
-        const style=getStylesByLetterCount((pl))[0]
+  useEffect(() => {
+    const pl = plateNumber.replace(/ /g, "").length
+    if (pl > 4 && pl < 8) {
+      setIsValidPlate(true)
+      if ([5, 6, 7].includes(pl)) {
+        const style = getStylesByLetterCount(pl)[0]
         console.log(style)
         setFrontStyle(style)
         setRearStyle(style)
       }
-    }else{
+    } else {
       setIsValidPlate(false)
     }
-  },[plateNumber])
+  }, [plateNumber])
 
   const [frontSize, setFrontSize] = useState<PlateSize>(() => {
     const sizes = plateStyles[0]?.frontPlate?.sizes as PlateSize[] | undefined;
     if (sizes && sizes.length > 0) {
-      return sizes[0]; // Select the first size from the array
+      // Find the size with key 'standard'
+      const standardSize = sizes.find(size => size.key === 'standard');
+      return standardSize || sizes[0]; // fallback to first element if not found
     }
-    return { key: 'standard', width: 18, height: 18 }; // Default fallback
+    return { key: 'standard', width: 20.5, height: 4.5, price: 0 }; // Default fallback
   });
+  
   const [rearSize, setRearSize] = useState<PlateSize>(() => {
     const sizes = plateStyles[0]?.rearPlate?.sizes as PlateSize[] | undefined;
     if (sizes && sizes.length > 0) {
-      return sizes[0]; // Select the first size from the array
+      const standardSize = sizes.find(size => size.key === 'standard');
+      return standardSize || sizes[0];
     }
-    return { key: 'standard', width: 18, height: 18 }; // Default fallback
+    return { key: 'standard', width: 20.5, height: 4.5, price: 0 }; // Default fallback
   });
+  
+  useEffect(() => {
+    // When frontStyle or rearStyle changes, update the sizes using the same logic
+    const frontSizes = frontStyle.frontPlate.sizes;
+    const rearSizes = rearStyle.rearPlate.sizes;
+    
+    if (frontSizes && frontSizes.length > 0) {
+      const standardFront = frontSizes.find(size => size.key === 'standard') || frontSizes[0];
+      setFrontSize(standardFront);
+    }
+    
+    if (rearSizes && rearSizes.length > 0) {
+      const standardRear = rearSizes.find(size => size.key === 'standard') || rearSizes[0];
+      setRearSize(standardRear);
+    }
+  }, [frontStyle, rearStyle]);
+  
 
-  useEffect(()=>{
-    setFrontSize(frontStyle.frontPlate.sizes[0])
-    setRearSize(rearStyle.rearPlate.sizes[0])
-
-  },[rearStyle,frontStyle])
-
-  useEffect(()=>{
-    setRearPrice(rearSize?rearSize.price:0)
-  },[rearSize])
-  useEffect(()=>{
-    setFrontPrice(frontSize?frontSize.price:0)
-  },[frontSize])
+  useEffect(() => {
+    setRearPrice(rearSize ? rearSize.price : 0)
+  }, [rearSize])
+  useEffect(() => {
+    setFrontPrice(frontSize ? frontSize.price : 0)
+  }, [frontSize])
 
   // Border states - Set dynamically based on frontStyle and rearStyle
-const [frontBorder, setFrontBorder] = useState<Border>(() => ({
-  name: 'Standard Border',  // Default based on frontStyle
-  type: 'solid',  // Default based on frontStyle
-  material: { type: 'metal', thickness: 0 },  // Default material
-}));
+  const [frontBorder, setFrontBorder] = useState<Border>(() => ({
+    name: 'Standard Border',  // Default based on frontStyle
+    type: 'solid',            // Default based on frontStyle
+    material: { type: 'metal', thickness: 0 },  // Default material
+  }));
 
-const [rearBorder, setRearBorder] = useState<Border>(() => ({
-  name: 'Standard Border',  // Default based on rearStyle
-  type: 'solid',  // Default based on rearStyle
-  material: { type: 'metal', thickness: 0 },  // Default material
-}));
+  const [rearBorder, setRearBorder] = useState<Border>(() => ({
+    name: 'Standard Border',  // Default based on rearStyle
+    type: 'solid',            // Default based on rearStyle
+    material: { type: 'metal', thickness: 0 },  // Default material
+  }));
 
-// Update border states if frontStyle or rearStyle changes
-// useEffect(() => {
-//   setFrontBorder({
-//     name: frontStyle.border?.name || 'Standard Border',
-//     type: frontStyle.border?.type || 'solid',
-//     material: frontStyle.border?.material || { type: 'metal', thickness: 2 },
-//   });
-// }, [frontStyle]);  // Runs when frontStyle changes
-
-// useEffect(() => {
-//   setRearBorder({
-//     name: rearStyle.border?.name || 'Standard Border',
-//     type: rearStyle.border?.type || 'solid',
-//     material: rearStyle.border?.material || { type: 'metal', thickness: 2 },
-//   });
-// }, [rearStyle]);  // Runs when rearStyle changes
-  
-  
-  useEffect(()=>{
-
-    if(!roadLegalSpacing){
+  useEffect(() => {
+    if (!roadLegalSpacing) {
       toast({
-        title:"Not legal",
-        description:"This plate will not be road legal",
-        variant:"destructive"
+        title: "Not legal",
+        description: "This plate will not be road legal",
+        variant: "destructive"
       })
     }
-  },[roadLegalSpacing])
-  
+  }, [roadLegalSpacing])
 
-  const [isRear,setIsRear]=useState(false)
+  const [isRear, setIsRear] = useState(false)
 
   return (
     <div className="h-full flex justify-center">
       {/* Container for Tabs and PlateSummary */}
-      <div className="flex gap-6 items-start w-full max-w-7xl p-6">
+      <div className="flex flex-col md:flex-row gap-6 items-start w-full max-w-7xl p-6">
         {/* Tabs Section */}
-        <div className="flex-grow rounded-lg shadow-lg p-4">
+        <div className="flex-grow rounded-lg shadow-lg p-4 w-full">
           <Tabs defaultValue="start">
-            <TabsList className="border-b-yellow border-b-4">
+            <TabsList className="border-b-yellow border-b-4 flex flex-wrap gap-2">
               <TabsTrigger
                 className="w-[140px] text-lg"
                 disabled={plateNumber === ""}
@@ -163,12 +153,12 @@ const [rearBorder, setRearBorder] = useState<Border>(() => ({
               </TabsTrigger>
             </TabsList>
 
-            {/* Layout for Tabs and Plate */}
-            <div className="grid grid-cols-6 gap-3 min-w-[800px] h-[400px] py-5 ">
+            {/* Layout for Tabs Content and Plate Displayer */}
+            <div className="grid grid-cols-1 md:grid-cols-6 gap-3 py-5">
               {/* Tabs Content */}
               <TabsContent
                 value="start"
-                className="col-span-2 bg-yellow px-3 rounded-sm"
+                className="bg-yellow py-1 px-3 rounded-sm md:col-span-2 h-[400px]"
               >
                 <Start
                   isValidPlate={isValidPlate}
@@ -183,38 +173,99 @@ const [rearBorder, setRearBorder] = useState<Border>(() => ({
                   className="w-full grid gap-3"
                 />
               </TabsContent>
-              <TabsContent value="style" className="col-span-2 h-[390px]">
-                <STYLE frontGelColor={frontGelColor} setFrontGelColor={setFrontGelColor} rearGelColor={rearGelColor} setRearGelColor={setRearGelColor} rearStyle={rearStyle} frontStyle={frontStyle} plateNumber={plateNumber} setRearStyle={setRearStyle} setFrontStyle={setFrontStyle} />
+              <TabsContent
+                value="style"
+                className="md:col-span-2 h-[390px]"
+              >
+                <STYLE 
+                  frontGelColor={frontGelColor} 
+                  setFrontGelColor={setFrontGelColor} 
+                  rearGelColor={rearGelColor} 
+                  setRearGelColor={setRearGelColor} 
+                  rearStyle={rearStyle} 
+                  frontStyle={frontStyle} 
+                  plateNumber={plateNumber} 
+                  setRearStyle={setRearStyle} 
+                  setFrontStyle={setFrontStyle} 
+                />
               </TabsContent>
-              <TabsContent value="sizing" className="col-span-2 h-[390px]">
-                <SIZING rearStyle={rearStyle} frontStyle={frontStyle} rearSize={rearSize} frontSize={frontSize} setRearSize={setRearSize} setFrontSize={setFrontSize} />
+              <TabsContent
+                value="sizing"
+                className="md:col-span-2 h-[390px]"
+              >
+                <SIZING 
+                  rearStyle={rearStyle} 
+                  frontStyle={frontStyle} 
+                  rearSize={rearSize} 
+                  frontSize={frontSize} 
+                  setRearSize={setRearSize} 
+                  setFrontSize={setFrontSize} 
+                />
               </TabsContent>
-              <TabsContent value="border" className="col-span-2 h-[390px]">
-                <BORDER rearStyle={rearStyle} frontStyle={frontStyle} setFrontBorder={setFrontBorder} setRearBorder={setRearBorder} rearBorder={rearBorder} frontBorder={frontBorder} />
+              <TabsContent
+                value="border"
+                className="md:col-span-2  h-[390px]"
+              >
+                <BORDER 
+                  rearStyle={rearStyle} 
+                  frontStyle={frontStyle} 
+                  setFrontBorder={setFrontBorder} 
+                  setRearBorder={setRearBorder} 
+                  rearBorder={rearBorder} 
+                  frontBorder={frontBorder} 
+                />
               </TabsContent>
 
               {/* Plate Displayer */}
-              <div
-                className="col-span-4 rounded-sm mt-2"
-                style={{ height: "300px", width: "100%" }}
-              >
-                <div className="  grid grid-cols-2 gap-2 py-2 text-black" >
-                    {iWantFrontPlate&&<Button className={isRear?" bg-transparent":""} onClick={()=>setIsRear(false)} >FRONT PLATE</Button>}
-                    {iWantBackPlate&&<Button className={!isRear?" bg-transparent":""} onClick={()=>setIsRear(true)}>REAR PLATE</Button>}
+              <div className="md:col-span-4 rounded-sm mt-2 w-full" style={{ minHeight: '300px' }}>
+                <div className="grid grid-cols-2 gap-2 py-2 text-black">
+                  {iWantFrontPlate && (
+                    <Button 
+                      className={isRear ? "bg-transparent" : ""}
+                      onClick={() => setIsRear(false)}
+                    >
+                      FRONT PLATE
+                    </Button>
+                  )}
+                  {iWantBackPlate && (
+                    <Button 
+                      className={!isRear ? "bg-transparent" : ""}
+                      onClick={() => setIsRear(true)}
+                    >
+                      REAR PLATE
+                    </Button>
+                  )}
                 </div>
-                {
-                  isRear?
-                  <ThreeDRectangle roadLegalSpacing={roadLegalSpacing} frontGelColor={frontGelColor} rearGelColor={rearGelColor} border={rearBorder} isRear={true} size={rearSize} plateNumber={plateNumber} plateStyle={rearStyle} />
-                  :
-                  <ThreeDRectangle roadLegalSpacing={roadLegalSpacing} frontGelColor={frontGelColor} rearGelColor={rearGelColor} border={frontBorder} isRear={false} size={frontSize} plateNumber={plateNumber} plateStyle={frontStyle}  />
-                }
+                {isRear ? (
+                  <ThreeDRectangle 
+                    roadLegalSpacing={roadLegalSpacing} 
+                    frontGelColor={frontGelColor} 
+                    rearGelColor={rearGelColor} 
+                    border={rearBorder} 
+                    isRear={true} 
+                    size={rearSize} 
+                    plateNumber={plateNumber} 
+                    plateStyle={rearStyle} 
+                  />
+                ) : (
+                  <ThreeDRectangle 
+                    roadLegalSpacing={roadLegalSpacing} 
+                    frontGelColor={frontGelColor} 
+                    rearGelColor={rearGelColor} 
+                    border={frontBorder} 
+                    isRear={false} 
+                    size={frontSize} 
+                    plateNumber={plateNumber} 
+                    plateStyle={frontStyle}  
+                  />
+                )}
               </div>
             </div>
           </Tabs>
         </div>
 
         {/* Plate Summary */}
-        <div className="w-[300px] bg-white rounded-lg shadow-lg">
+        <div className="w-full md:w-[300px] bg-white h-[300px] lg:h-auto rounded-lg shadow-lg">
           <PlateSummary
             plateNumber={plateNumber}
             roadLegalSpacing={roadLegalSpacing}
