@@ -124,10 +124,6 @@ const plateStyles: Plate[] = [
     sideImage:"/4D Gel/4D Gel (Side View).png",
     depthImage:"/4D Gel/4D Gel Depth.png",
     material: { type: '4D Acrylic and Gel', thickness: 3 },
-    gelColors:[
-      {name:"Black on Blue",top:0x000000,botton:0x0000ff,image:"/4D Gel/Blue Gel Depth.png"},
-      {name:"Black on Green",top:0x000000,botton:0x008000,image:"/4D Gel/Green 4D Depth.png"},
-    ],
     frontPlate: {
       sizes: [
         { key: '18"', width: 18, height: 4.5 },
@@ -153,10 +149,6 @@ const plateStyles: Plate[] = [
     sideImage:"/4D Gel/4D Gel (Side View).png",
     depthImage:"/4D Gel/4D Gel Depth.png",
     material: { type: '4D Acrylic and Gel', thickness: 5 },
-    gelColors:[
-      {name:"Black on Blue",top:0x000000,botton:0x0000ff,image:"/4D Gel/Blue Gel Depth.png"},
-      {name:"Black on Green",top:0x000000,botton:0x008000,image:"/4D Gel/Green 4D Depth.png"},
-    ],
     frontPlate: {
       sizes: [
         { key: '18"', width: 18, height: 4.5,price:28 },
@@ -535,10 +527,6 @@ const plateStyles: Plate[] = [
     sideImage:"/4D Gel/4D Gel (Side View).png",
     depthImage:"/4D Gel/4D Gel Depth.png",
     material: { type: '4D Acrylic and Gel', thickness: 3 },
-    gelColors:[
-      {name:"Black on Blue",top:0x000000,botton:0x0000ff,image:"/4D Gel/Blue Gel Depth.png"},
-      {name:"Black on Green",top:0x000000,botton:0x008000,image:"/4D Gel/Green 4D Depth.png"},
-    ],
     frontPlate: {
       sizes: [
         { key: '16"', width: 16, height: 4.5,price:35 },
@@ -566,10 +554,6 @@ const plateStyles: Plate[] = [
     sideImage:"/4D Gel/4D Gel (Side View).png",
     depthImage:"/4D Gel/4D Gel Depth.png",
     material: { type: '4D Acrylic and Gel', thickness: 5 },
-    gelColors:[
-      {name:"Black on Blue",top:0x000000,botton:0x0000ff,image:"/4D Gel/Blue Gel Depth.png"},
-      {name:"Black on Green",top:0x000000,botton:0x008000,image:"/4D Gel/Green 4D Depth.png"},
-    ],
     frontPlate: {
       sizes: [
         { key: '16"', width: 16, height: 4.5,price:33 },
@@ -908,10 +892,6 @@ const plateStyles: Plate[] = [
     sideImage:"/4D Gel/4D Gel (Side View).png",
     depthImage:"/4D Gel/4D Gel Depth.png",
     material: { type: '4D Acrylic and Gel', thickness: 3 },
-    gelColors:[
-      {name:"Black on Blue",top:0x000000,botton:0x0000ff,image:"/4D Gel/Blue Gel Depth.png"},
-      {name:"Black on Green",top:0x000000,botton:0x008000,image:"/4D Gel/Green 4D Depth.png"},
-    ],
     frontPlate: {
       sizes: [
         { key: '14"', width: 14, height: 4.5 },        
@@ -941,10 +921,6 @@ const plateStyles: Plate[] = [
     sideImage:"/4D Gel/4D Gel (Side View).png",
     depthImage:"/4D Gel/4D Gel Depth.png",
     material: { type: '4D Acrylic and Gel', thickness: 5 },
-    gelColors:[
-      {name:"Black on Blue",top:0x000000,botton:0x0000ff,image:"/4D Gel/Blue Gel Depth.png"},
-      {name:"Black on Green",top:0x000000,botton:0x008000,image:"/4D Gel/Green 4D Depth.png"},
-    ],
     frontPlate: {
       sizes: [
         { key: '14"', width: 14, height: 4.5,price:33 },        
