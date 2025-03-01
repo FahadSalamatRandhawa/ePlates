@@ -425,7 +425,7 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
         });
 
         if (roadLegalSpacing) {
-          const letterSpacing = -0.05; // Adjust as needed
+          const letterSpacing = -0.1; // Adjust as needed
   
           // Adjust position of each letter shape for both textGeometry and blackLayerGeometry
           [textGeometry, blackLayerGeometry].forEach(geometry => {
@@ -437,7 +437,7 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
               });
           });
       }else{
-        const letterSpacing = 0.05; // Adjust as needed
+        const letterSpacing = 0.1; // Adjust as needed
   
           // Adjust position of each letter shape for both textGeometry and blackLayerGeometry
           [textGeometry, blackLayerGeometry].forEach(geometry => {
@@ -506,8 +506,8 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
 
 
           // Plate dimensions
-          const plateWidth = size.width * 0.7; // Adjust the multiplier for tighter margins
-          const plateHeight = size.height * 0.7;
+          const plateWidth = size.width * 1; // Adjust the multiplier for tighter margins
+          const plateHeight = size.height * 1;
 
           let scaleFactor = 1;
 
