@@ -1,5 +1,5 @@
 import React from "react";
-import { PlateStyleOption } from "../../../PlateStyles";
+import { PlateSize, PlateStyleOption } from "../../../PlateStyles";
 
 interface PlateSummaryProps {
   plateNumber: string;
@@ -8,6 +8,8 @@ interface PlateSummaryProps {
   rearStyle: PlateStyleOption;
   frontPrice: number;
   rearPrice: number;
+  frontSize:PlateSize;
+  rearSize:PlateSize;
 }
 
 const PlateSummary: React.FC<PlateSummaryProps> = ({
@@ -17,10 +19,12 @@ const PlateSummary: React.FC<PlateSummaryProps> = ({
   rearStyle,
   frontPrice,
   rearPrice,
+  frontSize,
+  rearSize,
 }) => {
 
   function addToBasket(){
-    window.parent.postMessage({"product_id": 20, "plateNumber": "XYZ-1234"}, "https://plateguy.co.uk");
+    window.parent.postMessage({"product_id": frontSize.key+"-"+rearSize.key, "plateNumber": "XYZ-1234"}, "https://plateguy.co.uk");
     console.log("platenumber sent to plateGuy")
   }
 

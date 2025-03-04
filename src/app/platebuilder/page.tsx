@@ -283,6 +283,8 @@ export default function PlateBuilder() {
             rearStyle={rearStyle}
             frontPrice={frontPrice}
             rearPrice={rearPrice}
+            frontSize={frontSize}
+            rearSize={rearSize}
           />
         </div>
       </div>
