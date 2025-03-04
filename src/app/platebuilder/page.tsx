@@ -118,6 +118,18 @@ export default function PlateBuilder() {
 
   const [isRear, setIsRear] = useState(false)
 
+  useEffect(() => {
+    const handleMessage = (event) => {
+      console.log("📩 Received plate number:", event.data);
+      if (event.data.plateNumber) {
+        setPlateNumber(event.data.plateNumber);
+      }
+    };
+  
+    window.addEventListener("message", handleMessage);
+    return () => window.removeEventListener("message", handleMessage);
+  }, []);
+
   return (
     <div className="h-full flex justify-center">
       {/* Container for Tabs and PlateSummary */}
