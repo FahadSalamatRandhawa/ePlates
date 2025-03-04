@@ -116,7 +116,7 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
       0.2,
       100
     );
-    camera.position.set(0, 0, 11); // Camera positioned to view the plate and text
+    camera.position.set(0, 0, 15); // Camera positioned to view the plate and text
 
     const renderer = new THREE.WebGLRenderer({ antialias: true });  // Enable antialiasing
     renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
