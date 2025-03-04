@@ -152,13 +152,13 @@ export default function PlateBuilder() {
               >
                 Style
               </TabsTrigger>
-              {/* <TabsTrigger
+              <TabsTrigger
                 className="w-[140px] text-lg"
                 disabled={!isValidPlate}
                 value="sizing"
               >
                 Sizing
-              </TabsTrigger> */}
+              </TabsTrigger>
               <TabsTrigger
                 className="w-[140px] text-lg"
                 disabled={!isValidPlate}
@@ -211,7 +211,7 @@ export default function PlateBuilder() {
                   setFrontStyle={setFrontStyle} 
                 />
               </TabsContent>
-              {/* <TabsContent
+              <TabsContent
                 value="sizing"
                 className="md:col-span-2 h-[390px]"
               >
@@ -223,7 +223,7 @@ export default function PlateBuilder() {
                   setRearSize={setRearSize} 
                   setFrontSize={setFrontSize} 
                 />
-              </TabsContent> */}
+              </TabsContent>
               <TabsContent
                 value="border"
                 className="md:col-span-2  h-[390px]"
