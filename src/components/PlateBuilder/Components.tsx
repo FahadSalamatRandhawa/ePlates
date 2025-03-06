@@ -299,7 +299,7 @@ export function SIZING({ className, frontSize,rearSize,frontStyle,rearStyle,setF
             <div className="px-2 flex flex-wrap gap-1">
                   {
                     frontStyle.frontPlate.sizes.map((size)=>(
-                      <Button onClick={()=>handleFrontSizeClick(size)} className={`bg-white p-1  border-2 ${frontSize.key==size.key?"border-black ":""}`} key={size.key}>{size.width +"x"+ size.height}</Button>
+                      <Button onClick={()=>handleFrontSizeClick(size)} className={`bg-white p-1  border-2 ${frontSize.key==size.key?"border-black ":""}`} key={size.key}>{ size.key+"-"+ size.width +"x"+ size.height}</Button>
                     ))
                   }
                 </div>
@@ -323,7 +323,7 @@ export function SIZING({ className, frontSize,rearSize,frontStyle,rearStyle,setF
           <div className="px-2 flex flex-wrap gap-1">
                 {
                   rearStyle.rearPlate.sizes.map((size)=>(
-                    <Button onClick={()=>handleRearSizeClick(size)} className={`bg-white p-1  border-2 ${rearSize.key==size.key?"border-black ":""}`}  key={size.key}>{size.width +"x"+ size.height}</Button>
+                    <Button onClick={()=>handleRearSizeClick(size)} className={`bg-white p-1  border-2 ${rearSize.key==size.key?"border-black ":""}`}  key={size.key}>{ size.key+"-"+ size.width +"x"+ size.height}</Button>
                   ))
                 }
               </div>
