@@ -24,7 +24,7 @@ const PlateSummary: React.FC<PlateSummaryProps> = ({
 }) => {
 
   function addToBasket(){
-    window.parent.postMessage({"product_id": frontSize.key+"-"+rearSize.key, "plateNumber": "XYZ-1234"}, "https://plateguy.co.uk");
+    window.parent.postMessage({"product_id": frontStyle.name+"-"+frontSize.key+"_"+rearStyle.name+"-"+rearSize.key, "plateNumber": plateNumber}, "https://plateguy.co.uk");
     console.log("platenumber sent to plateGuy")
   }
 

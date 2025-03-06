@@ -151,17 +151,17 @@ const plateStyles: Plate[] = [
     material: { type: '4D Acrylic and Gel', thickness: 5 },
     frontPlate: {
       sizes: [
-        { key: '18"', width: 18, height: 4.5,price:28 },
-        { key: 'standard', width: 18, height: 4.5,price:28 },
-        { key: 'hex', width: 20.5, height: 4.5,price:30 }
+        { key: '18"', width: 18, height: 4.5,price:16 },
+        { key: 'standard', width: 18, height: 4.5,price:14 },
+        { key: 'hex', width: 20.5, height: 4.5,price:16 }
       ]
     },
     rearPlate: {
       sizes: [
-        { key: '18"', width: 18, height: 4.5,price:0 },
-        { key: 'standard', width: 18, height: 4.5,price:0 },
-        { key: 'hex', width: 20.5, height: 4.5,price:5 },
-        { key: 'square', width: 20.5, height: 4.5,price:0 }
+        { key: '18"', width: 18, height: 4.5,price:16 },
+        { key: 'standard', width: 18, height: 4.5,price:14 },
+        { key: 'hex', width: 20.5, height: 4.5,price:16 },
+        { key: 'square', width: 20.5, height: 4.5,price:16 }
       ]
     },
     borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
@@ -487,11 +487,11 @@ const plateStyles: Plate[] = [
     },
     rearPlate: {
       sizes: [
-        { key: '16"', width: 16, height: 4.5,price:0 },
-        { key: '18"', width: 18, height: 4.5,price:0 },
-        { key: 'standard', width: 18, height: 4.5,price:0 },
-        { key: 'hex', width: 20.5, height: 4.5,price:0 },
-        { key: 'square', width: 20.5, height: 4.5,price:0 }
+        { key: '16"', width: 16, height: 4.5,price:14.50 },
+        { key: '18"', width: 18, height: 4.5,price:14.50 },
+        { key: 'standard', width: 18, height: 4.5,price:12.50 },
+        { key: 'hex', width: 20.5, height: 4.5,price:14.50 },
+        { key: 'square', width: 20.5, height: 4.5,price:14.50 }
       ]
     },
     borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
@@ -506,19 +506,19 @@ const plateStyles: Plate[] = [
     material: { type: '4D Acrylic and Gel', thickness: 3 },
     frontPlate: {
       sizes: [
-        { key: '16"', width: 16, height: 4.5,price:35 },
-        { key: '18"', width: 18, height: 4.5,price:35 },
-        { key: 'standard', width: 18, height: 4.5,price:35 },
-        { key: 'hex', width: 20.5, height: 4.5,price:35 }
+        { key: '16"', width: 16, height: 4.5,price:12 },
+        { key: '18"', width: 18, height: 4.5,price:12 },
+        { key: 'standard', width: 18, height: 4.5,price:12.50 },
+        { key: 'hex', width: 20.5, height: 4.5,price:12 }
       ]
     },
     rearPlate: {
       sizes: [
-        { key: '16"', width: 16, height: 4.5,price:0 },
-        { key: '18"', width: 18, height: 4.5,price:0 },
-        { key: 'standard', width: 18, height: 4.5,price:0 },
-        { key: 'hex', width: 20.5, height: 4.5,price:0 },
-        { key: 'square', width: 20.5, height: 4.5,price:0 }
+        { key: '16"', width: 16, height: 4.5,price:12 },
+        { key: '18"', width: 18, height: 4.5,price:12 },
+        { key: 'standard', width: 18, height: 4.5,price:12.50 },
+        { key: 'hex', width: 20.5, height: 4.5,price:12 },
+        { key: 'square', width: 20.5, height: 4.5,price:12 }
       ]
     },
     borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
@@ -533,19 +533,19 @@ const plateStyles: Plate[] = [
     material: { type: '4D Acrylic and Gel', thickness: 5 },
     frontPlate: {
       sizes: [
-        { key: '16"', width: 16, height: 4.5,price:33 },
-        { key: '18"', width: 18, height: 4.5,price:33 },
-        { key: 'standard', width: 18, height: 4.5,price:33 },
-        { key: 'hex', width: 20.5, height: 4.5,price:33 }
+        { key: '16"', width: 16, height: 4.5,price:12 },
+        { key: '18"', width: 18, height: 4.5,price:12 },
+        { key: 'standard', width: 18, height: 4.5,price:12.50 },
+        { key: 'hex', width: 20.5, height: 4.5,price:12 }
       ]
     },
     rearPlate: {
       sizes: [
-        { key: '16"', width: 16, height: 4.5,price:0 },
-        { key: '18"', width: 18, height: 4.5,price:0 },
-        { key: 'standard', width: 18, height: 4.5,price:0 },
-        { key: 'hex', width: 20.5, height: 4.5,price:0 },
-        { key: 'square', width: 20.5, height: 4.5,price:0 }
+        { key: '16"', width: 16, height: 4.5,price:12 },
+        { key: '18"', width: 18, height: 4.5,price:12 },
+        { key: 'standard', width: 18, height: 4.5,price:12.50 },
+        { key: 'hex', width: 20.5, height: 4.5,price:12 },
+        { key: 'square', width: 20.5, height: 4.5,price:12 }
       ]
     },
     borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
@@ -853,12 +853,12 @@ const plateStyles: Plate[] = [
     },
     rearPlate: {
       sizes: [
-        { key: '14"', width: 14, height: 4.5,price:0 },        
-        { key: '16"', width: 16, height: 4.5,price:0 },
-        { key: '18"', width: 18, height: 4.5,price:0 },
-        { key: 'standard', width: 20.5, height: 4.5,price:0 },
-        { key: 'hex', width: 20.5, height: 4.5,price:0 },
-        { key: 'square', width: 11, height: 8,price:0 }
+        { key: '14"', width: 14, height: 4.5,price:16 },        
+        { key: '16"', width: 16, height: 4.5,price:16 },
+        { key: '18"', width: 18, height: 4.5,price:16 },
+        { key: 'standard', width: 20.5, height: 4.5,price:14 },
+        { key: 'hex', width: 20.5, height: 4.5,price:16 },
+        { key: 'square', width: 11, height: 8,price:16 }
       ]
     },
     borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
@@ -882,12 +882,12 @@ const plateStyles: Plate[] = [
     },
     rearPlate: {
       sizes: [
-        { key: '14"', width: 14, height: 4.5,price:0 },        
-        { key: '16"', width: 16, height: 4.5,price:0 },
-        { key: '18"', width: 18, height: 4.5,price:0 },
-        { key: 'standard', width: 18, height: 4.5,price:0 },
-        { key: 'hex', width: 20.5, height: 4.5,price:0 },
-        { key: 'square', width: 20.5, height: 4.5,price:0 }
+        { key: '14"', width: 14, height: 4.5,price:14.50 },        
+        { key: '16"', width: 16, height: 4.5,price:14.50 },
+        { key: '18"', width: 18, height: 4.5,price:14.50 },
+        { key: 'standard', width: 18, height: 4.5,price:12.50 },
+        { key: 'hex', width: 20.5, height: 4.5,price:14.50 },
+        { key: 'square', width: 20.5, height: 4.5,price:14.50 }
       ]
     },
     borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
@@ -931,21 +931,21 @@ const plateStyles: Plate[] = [
     material: { type: '4D Acrylic and Gel', thickness: 5 },
     frontPlate: {
       sizes: [
-        { key: '14"', width: 14, height: 4.5,price:33 },        
-        { key: '16"', width: 16, height: 4.5,price:33 },
-        { key: '18"', width: 18, height: 4.5,price:33 },
-        { key: 'standard', width: 18, height: 4.5,price:33 },
-        { key: 'hex', width: 20.5, height: 4.5,price:33 }
+        { key: '14"', width: 14, height: 4.5,price:12 },        
+        { key: '16"', width: 16, height: 4.5,price:12 },
+        { key: '18"', width: 18, height: 4.5,price:12 },
+        { key: 'standard', width: 18, height: 4.5,price:12.50 },
+        { key: 'hex', width: 20.5, height: 4.5,price:12 }
       ]
     },
     rearPlate: {
       sizes: [
-        { key: '14"', width: 14, height: 4.5,price:0 },        
-        { key: '16"', width: 16, height: 4.5,price:0 },
-        { key: '18"', width: 18, height: 4.5,price:0 },
-        { key: 'standard', width: 18, height: 4.5,price:0 },
-        { key: 'hex', width: 20.5, height: 4.5,price:0 },
-        { key: 'square', width: 20.5, height: 4.5,price:0 }
+        { key: '14"', width: 14, height: 4.5,price:12 },        
+        { key: '16"', width: 16, height: 4.5,price:12 },
+        { key: '18"', width: 18, height: 4.5,price:12 },
+        { key: 'standard', width: 18, height: 4.5,price:12.50 },
+        { key: 'hex', width: 20.5, height: 4.5,price:12 },
+        { key: 'square', width: 20.5, height: 4.5,price:12 }
       ]
     },
     borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],

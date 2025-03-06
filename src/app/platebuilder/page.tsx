@@ -66,21 +66,27 @@ export default function PlateBuilder() {
     
     if (frontSizes && frontSizes.length > 0) {
       const standardFront = frontSizes.find(size => size.key === 'standard') || frontSizes[0];
+      console.log("Frontsize ",standardFront)
+
       setFrontSize(standardFront);
     }
     
     if (rearSizes && rearSizes.length > 0) {
       const standardRear = rearSizes.find(size => size.key === 'standard') || rearSizes[0];
+      console.log("Rearsize ",standardRear)
+
       setRearSize(standardRear);
     }
+
+
   }, [frontStyle, rearStyle]);
   
 
   useEffect(() => {
-    setRearPrice(rearSize ? rearSize.price : 0)
+    setRearPrice(rearSize.price)
   }, [rearSize])
   useEffect(() => {
-    setFrontPrice(frontSize ? frontSize.price : 0)
+    setFrontPrice(frontSize.price)
   }, [frontSize])
 
   // Border states - Set dynamically based on frontStyle and rearStyle
@@ -105,16 +111,6 @@ export default function PlateBuilder() {
       })
     }
   }, [roadLegalSpacing])
-
-  useEffect(() => {
-    if (frontStyle.name.includes("4D") || frontStyle.name.includes("Neon") || rearStyle.name.includes("4D") || rearStyle.name.includes("Neon")) {
-      toast({
-        title: "Not legal",
-        description: "This plate will not be road legal",
-        variant: "destructive"
-      })
-    }
-  }, [rearStyle,frontStyle])
 
   const [isRear, setIsRear] = useState(false)
 

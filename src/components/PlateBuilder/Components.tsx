@@ -91,6 +91,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Border, GelColors, getStylesByLetterCount, Plate, PlateSize } from "../../../PlateStyles";
 import Image from "next/image";
 import { Button } from "../ui/button";
+import { toast } from "@/hooks/use-toast";
 
 interface STYLEProps {
   className?: string;
@@ -123,10 +124,26 @@ export function STYLE({ className, frontStyle, rearStyle,plateNumber, setFrontSt
 
   const handleFrontStyleClick = (style: Plate) => {
     setFrontStyle(style); // This will update the state in the parent component
+
+    if(style.name.includes("4D") || style.name.includes("Neon")){
+      toast({
+        title: "Not legal",
+        description: "This plate will not be road legal",
+        variant: "destructive"
+      })
+    }
   };
 
   const handleRearStyleClick = (style: Plate) => {
     setRearStyle(style); // This will update the state in the parent component
+
+    if(style.name.includes("4D") || style.name.includes("Neon")){
+      toast({
+        title: "Not legal",
+        description: "This plate will not be road legal",
+        variant: "destructive"
+      })
+    }
   };
 
   useEffect(()=>{
