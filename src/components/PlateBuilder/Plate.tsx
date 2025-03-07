@@ -473,7 +473,7 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
         let blackLayerMesh: THREE.Mesh | null = null;
 
         // Show only the black layer if both isGel and isAcrylic are true
-        if ((isGelPlate && isAcrylicPlate) || (isAcrylicPlate&&isNeonPlate)) {
+        if ((isGelPlate && isAcrylicPlate) || (isAcrylicPlate&&isNeonPlate) || (isGelPlate&&isNeonPlate)) {
           // Only show the text geometry and the black text layer
           textMesh.geometry = textGeometry; // Ensure the correct geometry is set
           textMesh.material = textMaterial; // Apply material as per gel plate

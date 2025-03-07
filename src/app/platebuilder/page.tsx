@@ -126,6 +126,9 @@ export default function PlateBuilder() {
     return () => window.removeEventListener("message", handleMessage);
   }, []);
 
+  console.log("front gel color",frontGelColor)
+  console.log("rear gel color ",rearGelColor)
+
   return (
     <div className="h-full flex justify-center">
       {/* Container for Tabs and PlateSummary */}
