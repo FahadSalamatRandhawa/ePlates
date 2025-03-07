@@ -260,8 +260,7 @@ export default function PlateBuilder() {
                 {isRear ? (
                   <ThreeDRectangle 
                     roadLegalSpacing={roadLegalSpacing} 
-                    frontGelColor={frontGelColor} 
-                    rearGelColor={rearGelColor} 
+                    gelColor={rearGelColor} 
                     border={rearBorder} 
                     isRear={true} 
                     size={rearSize} 
@@ -271,8 +270,7 @@ export default function PlateBuilder() {
                 ) : (
                   <ThreeDRectangle 
                     roadLegalSpacing={roadLegalSpacing} 
-                    frontGelColor={frontGelColor} 
-                    rearGelColor={rearGelColor} 
+                    gelColor={frontGelColor} 
                     border={frontBorder} 
                     isRear={false} 
                     size={frontSize} 

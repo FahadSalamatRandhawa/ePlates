@@ -94,11 +94,10 @@ interface PlateProps{
   isRear:boolean,
   size:PlateSize,
   border:Border,
-  frontGelColor:GelColors|null,
-  rearGelColor:GelColors|null,
+  gelColor:GelColors|null,
 }
 
-const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,border,frontGelColor,rearGelColor,roadLegalSpacing }: PlateProps) => {
+const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,border,gelColor,roadLegalSpacing }: PlateProps) => {
   const mountRef = useRef<HTMLDivElement | null>(null);
   const [scene, setScene] = useState<THREE.Scene | null>(null);
   const [textMesh, setTextMesh] = useState<THREE.Mesh | null>(null);
@@ -459,8 +458,8 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
         // Assign material for GEL or default plates
         const textMaterial = isGelPlate
         ? new THREE.MeshPhysicalMaterial({
-            color: frontGelColor?frontGelColor.botton:0x000000, // Black base color
-            emissive: frontGelColor?frontGelColor.botton:0x000000, // Subtle white glow
+            color: gelColor?gelColor.botton:0x000000, // Black base color
+            emissive: gelColor?gelColor.botton:0x000000, // Subtle white glow
             emissiveIntensity: 0.3, // Moderate glow
             roughness: 0.05, // Extremely smooth surface
             metalness: 0.95, // Highly reflective
@@ -468,7 +467,7 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
             clearcoatRoughness: 0.05, // Almost no roughness for the clearcoat
             reflectivity: 1, // Maximum reflectivity for a polished look
           })
-        : new THREE.MeshBasicMaterial({ color: frontGelColor?frontGelColor.botton:0x000000,reflectivity: 1, });      
+        : new THREE.MeshBasicMaterial({ color: gelColor?gelColor.botton:0x000000,reflectivity: 1, });      
 
         let blackLayerMesh: THREE.Mesh | null = null;
 
@@ -482,10 +481,10 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
           blackLayerMesh = new THREE.Mesh(
             blackLayerGeometry,
             new THREE.MeshStandardMaterial({
-              color: frontGelColor?frontGelColor.top:0x000000, // Apply color if available otherwise bkacj
+              color: gelColor?gelColor.top:0x000000, // Apply color if available otherwise bkacj
               metalness: 0.9, // High reflectivity
               roughness: 0.1, // Smooth surface for reflection
-              emissive: frontGelColor?frontGelColor.top:0x000000, // No glow, keeps it dark
+              emissive: gelColor?gelColor.top:0x000000, // No glow, keeps it dark
               clearcoat: 1, // Glossy finish
               clearcoatRoughness: 0.05, // Slight roughness for realistic highlights
             })
@@ -542,7 +541,7 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
       });
     };
     
-  }, [scene, size, plateNumber, plateStyle, textMesh, border, isRear,frontGelColor,rearGelColor,roadLegalSpacing]); // Add isRear to dependency array
+  }, [scene, size, plateNumber, plateStyle, textMesh, border, isRear,gelColor,roadLegalSpacing]); // Add isRear to dependency array
   
 
   return <div ref={mountRef} style={{ backgroundColor:'white',width: "100%", height: "100%" }} />;

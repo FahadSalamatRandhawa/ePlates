@@ -53,14 +53,14 @@ const plateStyles: Plate[] = [
       sizes: [
         { key: '18"', width: 18, height: 4.5,price:12 },
         { key: 'standard', width: 20.5, height: 4.5,price:12.50 },
-        { key: 'hex', width: 20.5, height: 4.5,price:12 }
+        // { key: 'hex', width: 20.5, height: 4.5,price:12 }
       ]
     },
     rearPlate: {
       sizes: [
         { key: '18"', width: 18, height: 4.5,price:12 },
         { key: 'standard', width: 20.5, height: 4.5,price:12.50 },
-        { key: 'hex', width: 20.5, height: 4.5,price:12 },
+        // { key: 'hex', width: 20.5, height: 4.5,price:12 },
         { key: 'square', width: 11, height: 8,price:12 }
       ]
     },
@@ -78,14 +78,14 @@ const plateStyles: Plate[] = [
       sizes: [
         { key: '18"', width: 18, height: 4.5,price:16 },
         { key: 'standard', width: 20.5, height: 4.5,price:14 },
-        { key: 'hex', width: 20.5, height: 4.5,price:16 }
+        // { key: 'hex', width: 20.5, height: 4.5,price:16 }
       ]
     },
     rearPlate: {
       sizes: [
         { key: '18"', width: 18, height: 4.5,price:16 },
         { key: 'standard', width: 20.5, height: 4.5,price:14 },
-        { key: 'hex', width: 20.5, height: 4.5,price:16 },
+        // { key: 'hex', width: 20.5, height: 4.5,price:16 },
         { key: 'square', width: 11, height: 8,price:16 }
       ]
     },
@@ -102,15 +102,15 @@ const plateStyles: Plate[] = [
     frontPlate: {
       sizes: [
         { key: '18"', width: 18, height: 4.5,price:14.50 },
-        { key: 'standard', width: 18, height: 4.5,price:12.50 },
-        { key: 'hex', width: 20.5, height: 4.5,price:14.50 }
+        { key: 'standard', width: 20.5, height: 4.5,price:12.50 },
+        // // { key: 'hex', width: 20.5, height: 4.5,price:14.50 },
       ]
     },
     rearPlate: {
       sizes: [
         { key: '18"', width: 18, height: 4.5,price:14.50 },
-        { key: 'standard', width: 18, height: 4.5,price:12.50 },
-        { key: 'hex', width: 20.5, height: 4.5,price:14.50 },
+        { key: 'standard', width: 20.5, height: 4.5,price:12.50 },
+        // // { key: 'hex', width: 20.5, height: 4.5,price:14.50 },
         { key: 'square', width: 20.5, height: 4.5,price:14.50 }
       ]
     },
@@ -127,15 +127,15 @@ const plateStyles: Plate[] = [
     frontPlate: {
       sizes: [
         { key: '18"', width: 18, height: 4.5,price:12 },
-        { key: 'standard', width: 18, height: 4.5,price:12.50 },
-        { key: 'hex', width: 20.5, height: 4.5,price:12 }
+        { key: 'standard', width: 20.5, height: 4.5,price:12.50 },
+        // { key: 'hex', width: 20.5, height: 4.5,price:12 }
       ]
     },
     rearPlate: {
       sizes: [
         { key: '18"', width: 18, height: 4.5,price:12 },
-        { key: 'standard', width: 18, height: 4.5,price:12.50 },
-        { key: 'hex', width: 20.5, height: 4.5,price:12 },
+        { key: 'standard', width: 20.5, height: 4.5,price:12.50 },
+        // // { key: 'hex', width: 20.5, height: 4.5,price:12 },
         { key: 'square', width: 20.5, height: 4.5,price:12 }
       ]
     },
@@ -152,15 +152,15 @@ const plateStyles: Plate[] = [
     frontPlate: {
       sizes: [
         { key: '18"', width: 18, height: 4.5,price:16 },
-        { key: 'standard', width: 18, height: 4.5,price:14 },
-        { key: 'hex', width: 20.5, height: 4.5,price:16 }
+        { key: 'standard', width: 20.5, height: 4.5,price:14 },
+        // { key: 'hex', width: 20.5, height: 4.5,price:16 }
       ]
     },
     rearPlate: {
       sizes: [
         { key: '18"', width: 18, height: 4.5,price:16 },
-        { key: 'standard', width: 18, height: 4.5,price:14 },
-        { key: 'hex', width: 20.5, height: 4.5,price:16 },
+        { key: 'standard', width: 20.5, height: 4.5,price:14 },
+        // { key: 'hex', width: 20.5, height: 4.5,price:16 },
         { key: 'square', width: 20.5, height: 4.5,price:16 }
       ]
     },
@@ -175,15 +175,15 @@ const plateStyles: Plate[] = [
   //   frontPlate: {
   //     sizes: [
   //       { key: '18"', width: 18, height: 4.5 },
-  //       { key: 'standard', width: 18, height: 4.5 },
-  //       { key: 'hex', width: 20.5, height: 4.5 }
+  //       { key: 'standard', width: 20.5, height: 4.5 },
+  //       // { key: 'hex', width: 20.5, height: 4.5 }
   //     ]
   //   },
   //   rearPlate: {
   //     sizes: [
   //       { key: '18"', width: 18, height: 4.5 },
-  //       { key: 'standard', width: 18, height: 4.5 },
-  //       { key: 'hex', width: 20.5, height: 4.5 },
+  //       { key: 'standard', width: 20.5, height: 4.5 },
+  //       // { key: 'hex', width: 20.5, height: 4.5 },
   //       { key: 'square', width: 20.5, height: 4.5 }
   //     ]
   //   },
@@ -200,14 +200,14 @@ const plateStyles: Plate[] = [
       sizes: [
         { key: '18"', width: 18, height: 4.5,price:12 },
         { key: 'standard', width: 20.5, height: 4.5,price:10 },
-        { key: 'hex', width: 20.5, height: 4.5,price:12 }
+        // { key: 'hex', width: 20.5, height: 4.5,price:12 }
       ]
     },
     rearPlate: {
       sizes: [
         { key: '18"', width: 18, height: 4.5,price:12 },
         { key: 'standard', width: 20.5, height: 4.5,price:10 },
-        { key: 'hex', width: 20.5, height: 4.5,price:12 },
+        // { key: 'hex', width: 20.5, height: 4.5,price:12 },
         { key: 'square', width: 11, height: 8,price:12 }
       ]
     },
@@ -229,14 +229,14 @@ const plateStyles: Plate[] = [
       sizes: [
         { key: '18"', width: 18, height: 4.5,price:16 },
         { key: 'standard', width: 20.5, height: 4.5,price:14 },
-        { key: 'hex', width: 20.5, height: 4.5,price:16 }
+        // { key: 'hex', width: 20.5, height: 4.5,price:16 }
       ]
     },
     rearPlate: {
       sizes: [
         { key: '18"', width: 18, height: 4.5,price:16 },
         { key: 'standard', width: 20.5, height: 4.5,price:14 },
-        { key: 'hex', width: 20.5, height: 4.5,price:16 },
+        // { key: 'hex', width: 20.5, height: 4.5,price:16 },
         { key: 'square', width: 11, height: 8 ,price:16}
       ]
     },
@@ -258,14 +258,14 @@ const plateStyles: Plate[] = [
       sizes: [
         { key: '18"', width: 18, height: 4.5,price:17 },
         { key: 'standard', width: 20.5, height: 4.5,price:15 },
-        { key: 'hex', width: 20.5, height: 4.5,price:17 }
+        // { key: 'hex', width: 20.5, height: 4.5,price:17 }
       ]
     },
     rearPlate: {
       sizes: [
         { key: '18"', width: 18, height: 4.5,price:17 },
         { key: 'standard', width: 20.5, height: 4.5,price:15 },
-        { key: 'hex', width: 20.5, height: 4.5,price:17 },
+        // { key: 'hex', width: 20.5, height: 4.5,price:17 },
         { key: 'square', width: 11, height: 8,price:17 }
       ]
     },
@@ -284,14 +284,14 @@ const plateStyles: Plate[] = [
   //     sizes: [
   //       { key: '18"', width: 18, height: 4.5 },
   //       { key: 'standard', width: 20.5, height: 4.5 },
-  //       { key: 'hex', width: 20.5, height: 4.5 }
+  //       // { key: 'hex', width: 20.5, height: 4.5 }
   //     ]
   //   },
   //   rearPlate: {
   //     sizes: [
   //       { key: '18"', width: 18, height: 4.5 },
   //       { key: 'standard', width: 20.5, height: 4.5 },
-  //       { key: 'hex', width: 20.5, height: 4.5 },
+  //       // { key: 'hex', width: 20.5, height: 4.5 },
   //       { key: 'square', width: 11, height: 8 }
   //     ]
   //   },
@@ -311,14 +311,14 @@ const plateStyles: Plate[] = [
   //     sizes: [
   //       { key: '18"', width: 18, height: 4.5 },
   //       { key: 'standard', width: 20.5, height: 4.5 },
-  //       { key: 'hex', width: 20.5, height: 4.5 }
+  //       // { key: 'hex', width: 20.5, height: 4.5 }
   //     ]
   //   },
   //   rearPlate: {
   //     sizes: [
   //       { key: '18"', width: 18, height: 4.5 },
   //       { key: 'standard', width: 20.5, height: 4.5 },
-  //       { key: 'hex', width: 20.5, height: 4.5 },
+  //       // { key: 'hex', width: 20.5, height: 4.5 },
   //       { key: 'square', width: 11, height: 8 }
   //     ]
   //   },
@@ -338,14 +338,14 @@ const plateStyles: Plate[] = [
   //     sizes: [
   //       { key: '18"', width: 18, height: 4.5 },
   //       { key: 'standard', width: 20.5, height: 4.5 },
-  //       { key: 'hex', width: 20.5, height: 4.5 }
+  //       // { key: 'hex', width: 20.5, height: 4.5 }
   //     ]
   //   },
   //   rearPlate: {
   //     sizes: [
   //       { key: '18"', width: 18, height: 4.5 },
   //       { key: 'standard', width: 20.5, height: 4.5 },
-  //       { key: 'hex', width: 20.5, height: 4.5 },
+  //       // { key: 'hex', width: 20.5, height: 4.5 },
   //       { key: 'square', width: 11, height: 8 }
   //     ]
   //   },
@@ -364,13 +364,13 @@ const plateStyles: Plate[] = [
     frontPlate: {
       sizes: [
         { key: 'standard', width: 20.5, height: 4.5,price:20 },
-        { key: 'hex', width: 20.5, height: 4.5,price:20 }
+        // { key: 'hex', width: 20.5, height: 4.5,price:20 }
       ]
     },
     rearPlate: {
       sizes: [
         { key: 'standard', width: 20.5, height: 4.5,price:20 },
-        { key: 'hex', width: 20.5, height: 4.5,price:20 },
+        // { key: 'hex', width: 20.5, height: 4.5,price:20 },
         { key: 'square', width: 11, height: 8,price:20 }
       ]
     },
@@ -428,7 +428,7 @@ const plateStyles: Plate[] = [
         { key: '16"', width: 16, height: 4.5,price:12 },
         { key: '18"', width: 18, height: 4.5,price:12 },
         { key: 'standard', width: 20.5, height: 4.5,price:12.50 },
-        { key: 'hex', width: 20.5, height: 4.5,price:12 }
+        // { key: 'hex', width: 20.5, height: 4.5,price:12 }
       ]
     },
     rearPlate: {
@@ -436,7 +436,7 @@ const plateStyles: Plate[] = [
         { key: '16"', width: 16, height: 4.5,price:12 },
         { key: '18"', width: 18, height: 4.5,price:12 },
         { key: 'standard', width: 20.5, height: 4.5,price:12.50 },
-        { key: 'hex', width: 20.5, height: 4.5,price:12 },
+        // { key: 'hex', width: 20.5, height: 4.5,price:12 },
         { key: 'square', width: 11, height: 8,price:12 }
       ]
     },
@@ -455,7 +455,7 @@ const plateStyles: Plate[] = [
         { key: '16"', width: 16, height: 4.5,price:16 },
         { key: '18"', width: 18, height: 4.5,price:16 },
         { key: 'standard', width: 20.5, height: 4.5,price:14 },
-        { key: 'hex', width: 20.5, height: 4.5,price:16 }
+        // { key: 'hex', width: 20.5, height: 4.5,price:16 }
       ]
     },
     rearPlate: {
@@ -463,7 +463,7 @@ const plateStyles: Plate[] = [
         { key: '16"', width: 16, height: 4.5,price:16 },
         { key: '18"', width: 18, height: 4.5,price:16 },
         { key: 'standard', width: 20.5, height: 4.5,price:14 },
-        { key: 'hex', width: 20.5, height: 4.5,price:16 },
+        // { key: 'hex', width: 20.5, height: 4.5,price:16 },
         { key: 'square', width: 11, height: 8,price:16 }
       ]
     },
@@ -481,16 +481,16 @@ const plateStyles: Plate[] = [
       sizes: [
         { key: '16"', width: 16, height: 4.5,price:14.50 },
         { key: '18"', width: 18, height: 4.5,price:14.50 },
-        { key: 'standard', width: 18, height: 4.5,price:12.50 },
-        { key: 'hex', width: 20.5, height: 4.5,price:14.50 }
+        { key: 'standard', width: 20.5, height: 4.5,price:12.50 },
+        // // { key: 'hex', width: 20.5, height: 4.5,price:14.50 },
       ]
     },
     rearPlate: {
       sizes: [
         { key: '16"', width: 16, height: 4.5,price:14.50 },
         { key: '18"', width: 18, height: 4.5,price:14.50 },
-        { key: 'standard', width: 18, height: 4.5,price:12.50 },
-        { key: 'hex', width: 20.5, height: 4.5,price:14.50 },
+        { key: 'standard', width: 20.5, height: 4.5,price:12.50 },
+        // // { key: 'hex', width: 20.5, height: 4.5,price:14.50 },
         { key: 'square', width: 20.5, height: 4.5,price:14.50 }
       ]
     },
@@ -508,16 +508,16 @@ const plateStyles: Plate[] = [
       sizes: [
         { key: '16"', width: 16, height: 4.5,price:12 },
         { key: '18"', width: 18, height: 4.5,price:12 },
-        { key: 'standard', width: 18, height: 4.5,price:12.50 },
-        { key: 'hex', width: 20.5, height: 4.5,price:12 }
+        { key: 'standard', width: 20.5, height: 4.5,price:12.50 },
+        // { key: 'hex', width: 20.5, height: 4.5,price:12 }
       ]
     },
     rearPlate: {
       sizes: [
         { key: '16"', width: 16, height: 4.5,price:12 },
         { key: '18"', width: 18, height: 4.5,price:12 },
-        { key: 'standard', width: 18, height: 4.5,price:12.50 },
-        { key: 'hex', width: 20.5, height: 4.5,price:12 },
+        { key: 'standard', width: 20.5, height: 4.5,price:12.50 },
+        // { key: 'hex', width: 20.5, height: 4.5,price:12 },
         { key: 'square', width: 20.5, height: 4.5,price:12 }
       ]
     },
@@ -535,16 +535,16 @@ const plateStyles: Plate[] = [
       sizes: [
         { key: '16"', width: 16, height: 4.5,price:12 },
         { key: '18"', width: 18, height: 4.5,price:12 },
-        { key: 'standard', width: 18, height: 4.5,price:12.50 },
-        { key: 'hex', width: 20.5, height: 4.5,price:12 }
+        { key: 'standard', width: 20.5, height: 4.5,price:12.50 },
+        // { key: 'hex', width: 20.5, height: 4.5,price:12 }
       ]
     },
     rearPlate: {
       sizes: [
         { key: '16"', width: 16, height: 4.5,price:12 },
         { key: '18"', width: 18, height: 4.5,price:12 },
-        { key: 'standard', width: 18, height: 4.5,price:12.50 },
-        { key: 'hex', width: 20.5, height: 4.5,price:12 },
+        { key: 'standard', width: 20.5, height: 4.5,price:12.50 },
+        // { key: 'hex', width: 20.5, height: 4.5,price:12 },
         { key: 'square', width: 20.5, height: 4.5,price:12 }
       ]
     },
@@ -560,16 +560,16 @@ const plateStyles: Plate[] = [
   //     sizes: [
   //       { key: '16"', width: 16, height: 4.5 },
   //       { key: '18"', width: 18, height: 4.5 },
-  //       { key: 'standard', width: 18, height: 4.5 },
-  //       { key: 'hex', width: 20.5, height: 4.5 }
+  //       { key: 'standard', width: 20.5, height: 4.5 },
+  //       // { key: 'hex', width: 20.5, height: 4.5 }
   //     ]
   //   },
   //   rearPlate: {
   //     sizes: [
   //       { key: '16"', width: 16, height: 4.5 },
   //       { key: '18"', width: 18, height: 4.5 },
-  //       { key: 'standard', width: 18, height: 4.5 },
-  //       { key: 'hex', width: 20.5, height: 4.5 },
+  //       { key: 'standard', width: 20.5, height: 4.5 },
+  //       // { key: 'hex', width: 20.5, height: 4.5 },
   //       { key: 'square', width: 20.5, height: 4.5 }
   //     ]
   //   },
@@ -587,7 +587,7 @@ const plateStyles: Plate[] = [
         { key: '16"', width: 16, height: 4.5,price:12 },
         { key: '18"', width: 18, height: 4.5 ,price:12},
         { key: 'standard', width: 20.5, height: 4.5,price:10 },
-        { key: 'hex', width: 20.5, height: 4.5,price:12 }
+        // { key: 'hex', width: 20.5, height: 4.5,price:12 }
       ]
     },
     rearPlate: {
@@ -595,7 +595,7 @@ const plateStyles: Plate[] = [
         { key: '16"', width: 16, height: 4.5,price:12 },
         { key: '18"', width: 18, height: 4.5,price:12 },
         { key: 'standard', width: 20.5, height: 4.5,price:10 },
-        { key: 'hex', width: 20.5, height: 4.5,price:12 },
+        // { key: 'hex', width: 20.5, height: 4.5,price:12 },
         { key: 'square', width: 11, height: 8,price:12 }
       ]
     },
@@ -618,7 +618,7 @@ const plateStyles: Plate[] = [
         { key: '16"', width: 16, height: 4.5,price:16 },
         { key: '18"', width: 18, height: 4.5,price:16 },
         { key: 'standard', width: 20.5, height: 4.5,price:14 },
-        { key: 'hex', width: 20.5, height: 4.5,price:16 }
+        // { key: 'hex', width: 20.5, height: 4.5,price:16 }
       ]
     },
     rearPlate: {
@@ -626,7 +626,7 @@ const plateStyles: Plate[] = [
         { key: '16"', width: 16, height: 4.5,price:16 },
         { key: '18"', width: 18, height: 4.5,price:16 },
         { key: 'standard', width: 20.5, height: 4.5,price:14 },
-        { key: 'hex', width: 20.5, height: 4.5,price:16 },
+        // { key: 'hex', width: 20.5, height: 4.5,price:16 },
         { key: 'square', width: 11, height: 8,price:16 }
       ]
     },
@@ -649,7 +649,7 @@ const plateStyles: Plate[] = [
         { key: '16"', width: 16, height: 4.5,price:17 },
         { key: '18"', width: 18, height: 4.5,price:17 },
         { key: 'standard', width: 20.5, height: 4.5,price:15 },
-        { key: 'hex', width: 20.5, height: 4.5,price:17 }
+        // { key: 'hex', width: 20.5, height: 4.5,price:17 }
       ]
     },
     rearPlate: {
@@ -657,7 +657,7 @@ const plateStyles: Plate[] = [
         { key: '16"', width: 16, height: 4.5,price:17 },
         { key: '18"', width: 18, height: 4.5,price:17 },
         { key: 'standard', width: 20.5, height: 4.5,price:15 },
-        { key: 'hex', width: 20.5, height: 4.5,price:17 },
+        // { key: 'hex', width: 20.5, height: 4.5,price:17 },
         { key: 'square', width: 11, height: 8,price:17 }
       ]
     },
@@ -677,7 +677,7 @@ const plateStyles: Plate[] = [
   //       { key: '16"', width: 16, height: 4.5 },
   //       { key: '18"', width: 18, height: 4.5 },
   //       { key: 'standard', width: 20.5, height: 4.5 },
-  //       { key: 'hex', width: 20.5, height: 4.5 }
+  //       // { key: 'hex', width: 20.5, height: 4.5 }
   //     ]
   //   },
   //   rearPlate: {
@@ -685,7 +685,7 @@ const plateStyles: Plate[] = [
   //       { key: '16"', width: 16, height: 4.5 },
   //       { key: '18"', width: 18, height: 4.5 },
   //       { key: 'standard', width: 20.5, height: 4.5 },
-  //       { key: 'hex', width: 20.5, height: 4.5 },
+  //       // { key: 'hex', width: 20.5, height: 4.5 },
   //       { key: 'square', width: 11, height: 8 }
   //     ]
   //   },
@@ -705,7 +705,7 @@ const plateStyles: Plate[] = [
   //       { key: '16"', width: 16, height: 4.5 },
   //       { key: '18"', width: 18, height: 4.5 },
   //       { key: 'standard', width: 20.5, height: 4.5 },
-  //       { key: 'hex', width: 20.5, height: 4.5 }
+  //       // { key: 'hex', width: 20.5, height: 4.5 }
   //     ]
   //   },
   //   rearPlate: {
@@ -713,7 +713,7 @@ const plateStyles: Plate[] = [
   //       { key: '16"', width: 16, height: 4.5 },
   //       { key: '18"', width: 18, height: 4.5 },
   //       { key: 'standard', width: 20.5, height: 4.5 },
-  //       { key: 'hex', width: 20.5, height: 4.5 },
+  //       // { key: 'hex', width: 20.5, height: 4.5 },
   //       { key: 'square', width: 11, height: 8 }
   //     ]
   //   },
@@ -733,7 +733,7 @@ const plateStyles: Plate[] = [
   //       { key: '16"', width: 16, height: 4.5 },
   //       { key: '18"', width: 18, height: 4.5 },
   //       { key: 'standard', width: 20.5, height: 4.5 },
-  //       { key: 'hex', width: 20.5, height: 4.5 }
+  //       // { key: 'hex', width: 20.5, height: 4.5 }
   //     ]
   //   },
   //   rearPlate: {
@@ -741,7 +741,7 @@ const plateStyles: Plate[] = [
   //       { key: '16"', width: 16, height: 4.5 },
   //       { key: '18"', width: 18, height: 4.5 },
   //       { key: 'standard', width: 20.5, height: 4.5 },
-  //       { key: 'hex', width: 20.5, height: 4.5 },
+  //       // { key: 'hex', width: 20.5, height: 4.5 },
   //       { key: 'square', width: 11, height: 8 }
   //     ]
   //   },
@@ -819,7 +819,7 @@ const plateStyles: Plate[] = [
         { key: '16"', width: 16, height: 4.5,price:12 },
         { key: '18"', width: 18, height: 4.5,price:12 },
         { key: 'standard', width: 20.5, height: 4.5,price:12.50 },
-        { key: 'hex', width: 20.5, height: 4.5,price:12 }
+        // { key: 'hex', width: 20.5, height: 4.5,price:12 }
       ]
     },
     rearPlate: {
@@ -828,7 +828,7 @@ const plateStyles: Plate[] = [
         { key: '16"', width: 16, height: 4.5,price:12 },
         { key: '18"', width: 18, height: 4.5,price:12 },
         { key: 'standard', width: 20.5, height: 4.5,price:12.50 },
-        { key: 'hex', width: 20.5, height: 4.5,price:12 },
+        // { key: 'hex', width: 20.5, height: 4.5,price:12 },
         { key: 'square', width: 11, height: 8,price:12 }
       ]
     },
@@ -848,7 +848,7 @@ const plateStyles: Plate[] = [
         { key: '16"', width: 16, height: 4.5,price:16 },
         { key: '18"', width: 18, height: 4.5,price:16 },
         { key: 'standard', width: 20.5, height: 4.5,price:14 },
-        { key: 'hex', width: 20.5, height: 4.5,price:16 }
+        // { key: 'hex', width: 20.5, height: 4.5,price:16 }
       ]
     },
     rearPlate: {
@@ -857,7 +857,7 @@ const plateStyles: Plate[] = [
         { key: '16"', width: 16, height: 4.5,price:16 },
         { key: '18"', width: 18, height: 4.5,price:16 },
         { key: 'standard', width: 20.5, height: 4.5,price:14 },
-        { key: 'hex', width: 20.5, height: 4.5,price:16 },
+        // { key: 'hex', width: 20.5, height: 4.5,price:16 },
         { key: 'square', width: 11, height: 8,price:16 }
       ]
     },
@@ -876,8 +876,8 @@ const plateStyles: Plate[] = [
         { key: '14"', width: 14, height: 4.5,price:14.50 },        
         { key: '16"', width: 16, height: 4.5,price:14.50 },
         { key: '18"', width: 18, height: 4.5,price:14.50 },
-        { key: 'standard', width: 18, height: 4.5,price:12.50 },
-        { key: 'hex', width: 20.5, height: 4.5,price:14.50 }
+        { key: 'standard', width: 20.5, height: 4.5,price:12.50 },
+        // // { key: 'hex', width: 20.5, height: 4.5,price:14.50 },
       ]
     },
     rearPlate: {
@@ -885,8 +885,8 @@ const plateStyles: Plate[] = [
         { key: '14"', width: 14, height: 4.5,price:14.50 },        
         { key: '16"', width: 16, height: 4.5,price:14.50 },
         { key: '18"', width: 18, height: 4.5,price:14.50 },
-        { key: 'standard', width: 18, height: 4.5,price:12.50 },
-        { key: 'hex', width: 20.5, height: 4.5,price:14.50 },
+        { key: 'standard', width: 20.5, height: 4.5,price:12.50 },
+        // // { key: 'hex', width: 20.5, height: 4.5,price:14.50 },
         { key: 'square', width: 20.5, height: 4.5,price:14.50 }
       ]
     },
@@ -902,21 +902,21 @@ const plateStyles: Plate[] = [
     material: { type: '4D Acrylic and Gel', thickness: 3 },
     frontPlate: {
       sizes: [
-        { key: '14"', width: 14, height: 4.5 },        
-        { key: '16"', width: 16, height: 4.5 },
-        { key: '18"', width: 18, height: 4.5 },
-        { key: 'standard', width: 18, height: 4.5 },
-        { key: 'hex', width: 20.5, height: 4.5 }
+        { key: '14"', width: 14, height: 4.5,price:12 },        
+        { key: '16"', width: 16, height: 4.5,price:12 },
+        { key: '18"', width: 18, height: 4.5,price:12 },
+        { key: 'standard', width: 20.5, height: 4.5,price:12.50 },
+        // { key: 'hex', width: 20.5, height: 4.5 }
       ]
     },
     rearPlate: {
       sizes: [
-        { key: '14"', width: 14, height: 4.5 },        
-        { key: '16"', width: 16, height: 4.5 },
-        { key: '18"', width: 18, height: 4.5 },
-        { key: 'standard', width: 18, height: 4.5 },
-        { key: 'hex', width: 20.5, height: 4.5 },
-        { key: 'square', width: 20.5, height: 4.5 }
+        { key: '14"', width: 14, height: 4.5,price:12 },        
+        { key: '16"', width: 16, height: 4.5,price:12 },
+        { key: '18"', width: 18, height: 4.5,price:12 },
+        { key: 'standard', width: 20.5, height: 4.5,price:12.50 },
+        // { key: 'hex', width: 20.5, height: 4.5 },
+        { key: 'square', width: 20.5, height: 4.5,price:12 }
       ]
     },
     borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
@@ -934,8 +934,8 @@ const plateStyles: Plate[] = [
         { key: '14"', width: 14, height: 4.5,price:12 },        
         { key: '16"', width: 16, height: 4.5,price:12 },
         { key: '18"', width: 18, height: 4.5,price:12 },
-        { key: 'standard', width: 18, height: 4.5,price:12.50 },
-        { key: 'hex', width: 20.5, height: 4.5,price:12 }
+        { key: 'standard', width: 20.5, height: 4.5,price:12.50 },
+        // { key: 'hex', width: 20.5, height: 4.5,price:12 }
       ]
     },
     rearPlate: {
@@ -943,8 +943,8 @@ const plateStyles: Plate[] = [
         { key: '14"', width: 14, height: 4.5,price:12 },        
         { key: '16"', width: 16, height: 4.5,price:12 },
         { key: '18"', width: 18, height: 4.5,price:12 },
-        { key: 'standard', width: 18, height: 4.5,price:12.50 },
-        { key: 'hex', width: 20.5, height: 4.5,price:12 },
+        { key: 'standard', width: 20.5, height: 4.5,price:12.50 },
+        // { key: 'hex', width: 20.5, height: 4.5,price:12 },
         { key: 'square', width: 20.5, height: 4.5,price:12 }
       ]
     },
@@ -961,8 +961,8 @@ const plateStyles: Plate[] = [
   //       { key: '14"', width: 14, height: 4.5 },        
   //       { key: '16"', width: 16, height: 4.5 },
   //       { key: '18"', width: 18, height: 4.5 },
-  //       { key: 'standard', width: 18, height: 4.5 },
-  //       { key: 'hex', width: 20.5, height: 4.5 }
+  //       { key: 'standard', width: 20.5, height: 4.5 },
+  //       // { key: 'hex', width: 20.5, height: 4.5 }
   //     ]
   //   },
   //   rearPlate: {
@@ -970,8 +970,8 @@ const plateStyles: Plate[] = [
   //       { key: '14"', width: 14, height: 4.5 },        
   //       { key: '16"', width: 16, height: 4.5 },
   //       { key: '18"', width: 18, height: 4.5 },
-  //       { key: 'standard', width: 18, height: 4.5 },
-  //       { key: 'hex', width: 20.5, height: 4.5 },
+  //       { key: 'standard', width: 20.5, height: 4.5 },
+  //       // { key: 'hex', width: 20.5, height: 4.5 },
   //       { key: 'square', width: 20.5, height: 4.5 }
   //     ]
   //   },
@@ -990,7 +990,7 @@ const plateStyles: Plate[] = [
         { key: '16"', width: 16, height: 4.5,price:12 },
         { key: '18"', width: 18, height: 4.5,price:12 },
         { key: 'standard', width: 20.5, height: 4.5,price:10 },
-        { key: 'hex', width: 20.5, height: 4.5,price:12 }
+        // { key: 'hex', width: 20.5, height: 4.5,price:12 }
       ]
     },
     rearPlate: {
@@ -999,7 +999,7 @@ const plateStyles: Plate[] = [
         { key: '16"', width: 16, height: 4.5,price:12 },
         { key: '18"', width: 18, height: 4.5,price:12 },
         { key: 'standard', width: 20.5, height: 4.5,price:10 },
-        { key: 'hex', width: 20.5, height: 4.5,price:12 },
+        // { key: 'hex', width: 20.5, height: 4.5,price:12 },
         { key: 'square', width: 11, height: 8,price:12 }
       ]
     },
@@ -1023,7 +1023,7 @@ const plateStyles: Plate[] = [
         { key: '16"', width: 16, height: 4.5,price:16 },
         { key: '18"', width: 18, height: 4.5,price:16 },
         { key: 'standard', width: 20.5, height: 4.5,price:14 },
-        { key: 'hex', width: 20.5, height: 4.5,price:16 }
+        // { key: 'hex', width: 20.5, height: 4.5,price:16 }
       ]
     },
     rearPlate: {
@@ -1032,7 +1032,7 @@ const plateStyles: Plate[] = [
         { key: '16"', width: 16, height: 4.5 ,price:16},
         { key: '18"', width: 18, height: 4.5 ,price:16},
         { key: 'standard', width: 20.5, height: 4.5 ,price:14},
-        { key: 'hex', width: 20.5, height: 4.5 ,price:16},
+        // { key: 'hex', width: 20.5, height: 4.5 ,price:16},
         { key: 'square', width: 11, height: 8 ,price:16}
       ]
     },
@@ -1056,7 +1056,7 @@ const plateStyles: Plate[] = [
         { key: '16"', width: 16, height: 4.5,price:17 },
         { key: '18"', width: 18, height: 4.5,price:17 },
         { key: 'standard', width: 20.5, height: 4.5,price:15 },
-        { key: 'hex', width: 20.5, height: 4.5 }
+        // { key: 'hex', width: 20.5, height: 4.5 }
       ]
     },
     rearPlate: {
@@ -1065,7 +1065,7 @@ const plateStyles: Plate[] = [
         { key: '16"', width: 16, height: 4.5,price:17 },
         { key: '18"', width: 18, height: 4.5,price:17 },
         { key: 'standard', width: 20.5, height: 4.5,price:15 },
-        { key: 'hex', width: 20.5, height: 4.5,price:17 },
+        // { key: 'hex', width: 20.5, height: 4.5,price:17 },
         { key: 'square', width: 11, height: 8,price:17 }
       ]
     },
@@ -1086,7 +1086,7 @@ const plateStyles: Plate[] = [
   //       { key: '16"', width: 16, height: 4.5 },
   //       { key: '18"', width: 18, height: 4.5 },
   //       { key: 'standard', width: 20.5, height: 4.5 },
-  //       { key: 'hex', width: 20.5, height: 4.5 }
+  //       // { key: 'hex', width: 20.5, height: 4.5 }
   //     ]
   //   },
   //   rearPlate: {
@@ -1095,7 +1095,7 @@ const plateStyles: Plate[] = [
   //       { key: '16"', width: 16, height: 4.5 },
   //       { key: '18"', width: 18, height: 4.5 },
   //       { key: 'standard', width: 20.5, height: 4.5 },
-  //       { key: 'hex', width: 20.5, height: 4.5 },
+  //       // { key: 'hex', width: 20.5, height: 4.5 },
   //       { key: 'square', width: 11, height: 8 }
   //     ]
   //   },
@@ -1116,7 +1116,7 @@ const plateStyles: Plate[] = [
   //       { key: '16"', width: 16, height: 4.5 },
   //       { key: '18"', width: 18, height: 4.5 },
   //       { key: 'standard', width: 20.5, height: 4.5 },
-  //       { key: 'hex', width: 20.5, height: 4.5 }
+  //       // { key: 'hex', width: 20.5, height: 4.5 }
   //     ]
   //   },
   //   rearPlate: {
@@ -1125,7 +1125,7 @@ const plateStyles: Plate[] = [
   //       { key: '16"', width: 16, height: 4.5 },
   //       { key: '18"', width: 18, height: 4.5 },
   //       { key: 'standard', width: 20.5, height: 4.5 },
-  //       { key: 'hex', width: 20.5, height: 4.5 },
+  //       // { key: 'hex', width: 20.5, height: 4.5 },
   //       { key: 'square', width: 11, height: 8 }
   //     ]
   //   },
@@ -1146,7 +1146,7 @@ const plateStyles: Plate[] = [
   //       { key: '16"', width: 16, height: 4.5 },
   //       { key: '18"', width: 18, height: 4.5 },
   //       { key: 'standard', width: 20.5, height: 4.5 },
-  //       { key: 'hex', width: 20.5, height: 4.5 }
+  //       // { key: 'hex', width: 20.5, height: 4.5 }
   //     ]
   //   },
   //   rearPlate: {
@@ -1155,7 +1155,7 @@ const plateStyles: Plate[] = [
   //       { key: '16"', width: 16, height: 4.5 },
   //       { key: '18"', width: 18, height: 4.5 },
   //       { key: 'standard', width: 20.5, height: 4.5 },
-  //       { key: 'hex', width: 20.5, height: 4.5 },
+  //       // { key: 'hex', width: 20.5, height: 4.5 },
   //       { key: 'square', width: 11, height: 8 }
   //     ]
   //   },
