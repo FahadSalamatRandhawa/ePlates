@@ -104,11 +104,12 @@ interface STYLEProps {
   setRearGelColor:any,
   setFrontStyle: (style: Plate) => void;
   setRearStyle: (style: Plate) => void;
+  sameAsFront:boolean,
+  setSameAsFront:(a:boolean)=>void
 }
 
-export function STYLE({ className, frontStyle, rearStyle,plateNumber, setFrontStyle, setRearStyle, rearGelColor,setRearGelColor,frontGelColor,setFrontGelColor }: STYLEProps) {
+export function STYLE({ className, frontStyle, rearStyle,plateNumber, setFrontStyle, setRearStyle, rearGelColor,setRearGelColor,frontGelColor,setFrontGelColor,sameAsFront,setSameAsFront }: STYLEProps) {
   const [plateStyles,setPlateSetyles] = useState<Plate[]>(getStylesByLetterCount(7)); // Assuming getStylesByLetterCount is a function that returns plate styles
-  const [sameAsFront, setSameAsFront] = useState(true);
 
 
   useEffect(()=>{

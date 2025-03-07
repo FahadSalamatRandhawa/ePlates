@@ -23,6 +23,8 @@ export default function PlateBuilder() {
   const [frontGelColor, setFrontGelColor] = useState<GelColors | null>(null)
   const [rearGelColor, setRearGelColor] = useState<GelColors | null>(null)
 
+  const [sameAsFront,setSameAsFront]=useState(true)
+
   const [isValidPlate, setIsValidPlate] = useState(false)
 
   useEffect(() => {
@@ -126,8 +128,6 @@ export default function PlateBuilder() {
     return () => window.removeEventListener("message", handleMessage);
   }, []);
 
-  console.log("front gel color",frontGelColor)
-  console.log("rear gel color ",rearGelColor)
 
   return (
     <div className="h-full flex justify-center">
@@ -208,6 +208,8 @@ export default function PlateBuilder() {
                   plateNumber={plateNumber} 
                   setRearStyle={setRearStyle} 
                   setFrontStyle={setFrontStyle} 
+                  sameAsFront={sameAsFront}
+                  setSameAsFront={setSameAsFront}
                 />
               </TabsContent>
               <TabsContent
