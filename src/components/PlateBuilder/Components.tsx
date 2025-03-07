@@ -111,9 +111,15 @@ interface STYLEProps {
 export function STYLE({ className, frontStyle, rearStyle,plateNumber, setFrontStyle, setRearStyle, rearGelColor,setRearGelColor,frontGelColor,setFrontGelColor,sameAsFront,setSameAsFront }: STYLEProps) {
   const [plateStyles,setPlateSetyles] = useState<Plate[]>(getStylesByLetterCount(7)); // Assuming getStylesByLetterCount is a function that returns plate styles
 
+  useEffect(()=>{
+    
+  },[plateStyles])
+
 
   useEffect(()=>{
-    setPlateSetyles(getStylesByLetterCount(plateNumber.replace(/ /g, "").length))
+    const styles=getStylesByLetterCount(plateNumber.replace(/ /g, "").length)
+   
+    setPlateSetyles(styles)
   },[plateNumber])
 
   // useEffect(()=>{
@@ -196,7 +202,20 @@ export function STYLE({ className, frontStyle, rearStyle,plateNumber, setFrontSt
                     <div className="px-2 flex flex-wrap gap-2">
                       {
                         p.gelColors&&p.gelColors.map((color)=>(
-                          <Button onClick={()=>setFrontGelColor(color)} className={`text-black bg-white p-1 ${frontGelColor==color?" bg-yellow border-black ":""}`} key={color.name}>{color.name}</Button>
+                          <Button
+                            onClick={() => setFrontGelColor(color)}
+                            className={`text-black bg-white p-1 ${frontGelColor === color ? " bg-yellow border-black " : ""}`}
+                            key={color.name}
+                          >
+                            {color.name.split(" on ").map((word, index) => (
+                              <span
+                                key={index}
+                                style={{ color: `#${color[index === 0 ? "top" : "botton"].toString(16).padStart(6, "0")}` }}
+                              >
+                                {word} {index === 0 ? "on " : ""}
+                              </span>
+                            ))}
+                          </Button>
                         ))
                       }
                   </div>
@@ -231,7 +250,20 @@ export function STYLE({ className, frontStyle, rearStyle,plateNumber, setFrontSt
                 <div className="px-2 flex flex-wrap gap-2 text-black">
                   {
                     p.gelColors&&p.gelColors.map((color)=>(
-                      <Button onClick={()=>setRearGelColor(color)} className={`bg-white p-1 ${rearGelColor==color?" bg-yellow ":""}`} key={color.name}>{color.name}</Button>
+                      <Button
+                        onClick={() => setFrontGelColor(color)}
+                        className={`text-black bg-white p-1 ${frontGelColor === color ? " bg-yellow border-black " : ""}`}
+                        key={color.name}
+                      >
+                        {color.name.split(" on ").map((word, index) => (
+                          <span
+                            key={index}
+                            style={{ color: `#${color[index === 0 ? "top" : "botton"].toString(16).padStart(6, "0")}` }}
+                          >
+                            {word} {index === 0 ? "on " : ""}
+                          </span>
+                        ))}
+                      </Button>
                     ))
                   }
                 </div>

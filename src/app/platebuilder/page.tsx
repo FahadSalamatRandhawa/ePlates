@@ -32,7 +32,8 @@ export default function PlateBuilder() {
     if (pl > 4 && pl < 8) {
       setIsValidPlate(true)
       if ([5, 6, 7].includes(pl)) {
-        const style = getStylesByLetterCount(pl)[0]
+        const styles = getStylesByLetterCount(pl)
+        const style=styles[0]
         console.log(style)
         setFrontStyle(style)
         setRearStyle(style)
