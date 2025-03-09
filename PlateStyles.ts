@@ -216,7 +216,7 @@ const plateStyles: Plate[] = [
   },
   {
     letters: 7,
-    name: 'Neon Gel 3mm',
+    name: '4D Neon Gel 3mm',
     material: { type: 'Neon Gel 3mm', thickness: 3 },
     frontImage:"/Neon 4D/Neon 4D.png",
     sideImage:"/Neon 4D/Neon 4D (Side View).png",
@@ -245,8 +245,37 @@ const plateStyles: Plate[] = [
   },
   {
     letters: 7,
-    name: 'Neon Gel 5mm',
+    name: '4D Neon Gel 5mm',
     material: { type: 'Neon Gel 5mm', thickness: 5 },
+    frontImage:"/Neon 4D/Neon 4D.png",
+    sideImage:"/Neon 4D/Neon 4D (Side View).png",
+    gelColors:[
+      {name:"Black on Red",botton:0xFF0000,top:0x000000, image:"/Neon 4D/NEON Red 4D/Neon 4D Red (Side View).png",},
+      {name:"Black on Blue",botton:0x0000FF,top:0x000000, image:"/Neon 4D/NEON - Blue 4D/Blue Neon 4D Depth.png",},
+      {name:"Black on Green",botton:0x008000,top:0x000000, image:"/Neon 4D/NEON Green 4D/Geen 4D (Side View).png",},
+    ],
+    frontPlate: {
+      sizes: [
+        { key: '18"', width: 18, height: 4.5,price:17 },
+        { key: 'standard', width: 20.5, height: 4.5,price:15 },
+        // { key: 'hex', width: 20.5, height: 4.5,price:17 }
+      ]
+    },
+    rearPlate: {
+      sizes: [
+        { key: '18"', width: 18, height: 4.5,price:17 },
+        { key: 'standard', width: 20.5, height: 4.5,price:15 },
+        // { key: 'hex', width: 20.5, height: 4.5,price:17 },
+        { key: 'square', width: 11, height: 8,price:17 }
+      ]
+    },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
+    preview: true
+  },
+  {
+    letters: 7,
+    name: '4D Neon Acrylic',
+    material: { type: 'Neon Gel 5mm', thickness: 3 },
     frontImage:"/Neon 4D/Neon 4D.png",
     sideImage:"/Neon 4D/Neon 4D (Side View).png",
     gelColors:[
@@ -604,7 +633,7 @@ const plateStyles: Plate[] = [
   },
   {
     letters: 6,
-    name: 'Neon Gel 3mm',
+    name: '4D Neon Gel 3mm',
     material: { type: 'Neon Gel 3mm', thickness: 3 },
     frontImage:"/Neon 4D/Neon 4D.png",
     sideImage:"/Neon 4D/Neon 4D (Side View).png",
@@ -635,8 +664,39 @@ const plateStyles: Plate[] = [
   },
   {
     letters: 6,
-    name: 'Neon Gel 5mm',
+    name: '4D Neon Gel 5mm',
     material: { type: 'Neon Gel 5mm', thickness: 5 },
+    frontImage:"/Neon 4D/Neon 4D.png",
+    sideImage:"/Neon 4D/Neon 4D (Side View).png",
+    gelColors:[
+      {name:"Black on Red",botton:0xFF0000,top:0x000000, image:"/Neon 4D/NEON Red 4D/Neon 4D Red (Side View).png",},
+      {name:"Black on Blue",botton:0x0000FF,top:0x000000, image:"/Neon 4D/NEON - Blue 4D/Blue Neon 4D Depth.png",},
+      {name:"Black on Green",botton:0x008000,top:0x000000, image:"/Neon 4D/NEON Green 4D/Geen 4D (Side View).png",},
+    ],
+    frontPlate: {
+      sizes: [
+        { key: '16"', width: 16, height: 4.5,price:17 },
+        { key: '18"', width: 18, height: 4.5,price:17 },
+        { key: 'standard', width: 20.5, height: 4.5,price:15 },
+        // { key: 'hex', width: 20.5, height: 4.5,price:17 }
+      ]
+    },
+    rearPlate: {
+      sizes: [
+        { key: '16"', width: 16, height: 4.5,price:17 },
+        { key: '18"', width: 18, height: 4.5,price:17 },
+        { key: 'standard', width: 20.5, height: 4.5,price:15 },
+        // { key: 'hex', width: 20.5, height: 4.5,price:17 },
+        { key: 'square', width: 11, height: 8,price:17 }
+      ]
+    },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
+    preview: true
+  },
+  {
+    letters: 6,
+    name: '4D Neon Acrylic',
+    material: { type: 'Neon Gel 5mm', thickness: 3 },
     frontImage:"/Neon 4D/Neon 4D.png",
     sideImage:"/Neon 4D/Neon 4D (Side View).png",
     gelColors:[
@@ -1008,7 +1068,7 @@ const plateStyles: Plate[] = [
   },
   {
     letters: 5,
-    name: 'Neon Gel 3mm',
+    name: '4D Neon Gel 3mm',
     material: { type: '4D Neon Acrylic', thickness: 3 },
     frontImage:"/Neon 4D/Neon 4D.png",
     sideImage:"/Neon 4D/Neon 4D (Side View).png",
@@ -1041,8 +1101,41 @@ const plateStyles: Plate[] = [
   },
   {
     letters: 5,
-    name: 'Neon Gel 5mm',
+    name: '4D Neon Gel 5mm',
     material: { type: '4D Neon Acrylic', thickness: 5 },
+    frontImage:"/Neon 4D/Neon 4D.png",
+    sideImage:"/Neon 4D/Neon 4D (Side View).png",
+    gelColors:[
+      {name:"Black on Red",botton:0xFF0000,top:0x000000, image:"/Neon 4D/NEON Red 4D/Neon 4D Red (Side View).png",},
+      {name:"Black on Blue",botton:0x0000FF,top:0x000000, image:"/Neon 4D/NEON - Blue 4D/Blue Neon 4D Depth.png",},
+      {name:"Black on Green",botton:0x008000,top:0x000000, image:"/Neon 4D/NEON Green 4D/Geen 4D (Side View).png",},
+    ],
+    frontPlate: {
+      sizes: [
+        { key: '14"', width: 14, height: 4.5,price:17 },        
+        { key: '16"', width: 16, height: 4.5,price:17 },
+        { key: '18"', width: 18, height: 4.5,price:17 },
+        { key: 'standard', width: 20.5, height: 4.5,price:15 },
+        // { key: 'hex', width: 20.5, height: 4.5 }
+      ]
+    },
+    rearPlate: {
+      sizes: [
+        { key: '14"', width: 14, height: 4.5,price:17 },        
+        { key: '16"', width: 16, height: 4.5,price:17 },
+        { key: '18"', width: 18, height: 4.5,price:17 },
+        { key: 'standard', width: 20.5, height: 4.5,price:15 },
+        // { key: 'hex', width: 20.5, height: 4.5,price:17 },
+        { key: 'square', width: 11, height: 8,price:17 }
+      ]
+    },
+    borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
+    preview: true
+  },
+  {
+    letters: 5,
+    name: '4D Neon Acrylic ',
+    material: { type: '4D Neon Acrylic', thickness: 3 },
     frontImage:"/Neon 4D/Neon 4D.png",
     sideImage:"/Neon 4D/Neon 4D (Side View).png",
     gelColors:[

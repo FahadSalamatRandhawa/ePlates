@@ -119,7 +119,7 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
 
     const renderer = new THREE.WebGLRenderer({ antialias: true });  // Enable antialiasing
     renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
-    renderer.setClearColor(0x202020); // Dark background color
+    renderer.setClearColor(0x101010); // Dark background color
     
     // Optional: Enable performance optimizations
     renderer.shadowMap.enabled = true;  // Enable shadows if needed
@@ -175,7 +175,7 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
   const textGeometry = new TextGeometry(plateNumber==''?"PLATE NO":plateNumber==''?"PLATE NO":plateNumber, {
     font,
     size: 2.6, // This controls the height of the letters (Y-axis)
-    height: plateStyle.material.thickness==null?0:plateStyle.material.thickness/20, // This controls the extrusion depth (Z-axis thickness)
+    height: plateStyle.material.thickness==null?0:plateStyle.material.thickness/10, // This controls the extrusion depth (Z-axis thickness)
     curveSegments: 128, // Controls curve smoothness
   });
 
@@ -326,7 +326,7 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
         if (border.material.thickness) {
           const borderGeometry = new THREE.ExtrudeGeometry(
             createHollowBorderShape((size.width - 0.5) * scaleFactor, (size.height - 0.5) * scaleFactor, 0.5, 0.15), {
-              depth: border.material.thickness / 20, // Depth of the border
+              depth: border.material.thickness / 10, // Depth of the border
               bevelEnabled: false,
             }
           );
@@ -405,7 +405,7 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
         const textGeometry = new TextGeometry(plateNumber==''?"AB12 XYZ":plateNumber, {
           font,
           size: 2.6,
-          depth: plateStyle.material.thickness ? plateStyle.material.thickness / 20 : 0,
+          height: plateStyle.material.thickness ? plateStyle.material.thickness / 10 : 0,
           curveSegments: 16,
           bevelEnabled: true,
           bevelSize: 0.06,
@@ -449,30 +449,41 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
           });
       }
 
-        // Check if the plate style is GEL
-        const isGelPlate = /GEL/i.test(plateStyle.name);
-        // Handle Acrylic plates with a black layer
-        const isAcrylicPlate = /ACRYLIC/i.test(plateStyle.name);
-        const isNeonPlate = /NEON/i.test(plateStyle.name);
-
-        // Assign material for GEL or default plates
-        const textMaterial = isGelPlate
+      const isGelPlate = /GEL/i.test(plateStyle.name);
+      const isAcrylicPlate = /ACRYLIC/i.test(plateStyle.name);
+      const isNeonPlate = /NEON/i.test(plateStyle.name);
+      const isSpecialPlate = isGelPlate || isAcrylicPlate || isNeonPlate;
+  
+      // Create default black material for non-special plates
+      const defaultBlackMaterial = new THREE.MeshBasicMaterial({ 
+        color: 0x000000,
+        reflectivity: 1 
+        
+      });
+  
+      // Material assignment logic
+      const textMaterial = isGelPlate
         ? new THREE.MeshPhysicalMaterial({
-            color: gelColor?gelColor.botton:0x000000, // Black base color
-            emissive: gelColor?gelColor.botton:0x000000, // Subtle white glow
-            emissiveIntensity: 0.3, // Moderate glow
-            roughness: 0.05, // Extremely smooth surface
-            metalness: 0.95, // Highly reflective
-            clearcoat: 1, // Full gloss
-            clearcoatRoughness: 0.05, // Almost no roughness for the clearcoat
-            reflectivity: 1, // Maximum reflectivity for a polished look
+            color: gelColor?.botton || 0x000000,
+            emissive: gelColor?.botton || 0x000000,
+            emissiveIntensity: 0.3,
+            roughness: 0.05,
+            metalness: 0.95,
+            clearcoat: 1,
+            clearcoatRoughness: 0.05,
+            reflectivity: 1,
           })
-        : new THREE.MeshBasicMaterial({ color: gelColor?gelColor.botton:0x000000,reflectivity: 1, });      
+        : isSpecialPlate
+        ? new THREE.MeshBasicMaterial({ 
+            color: gelColor?.botton || 0x000000,
+            reflectivity: 1 
+          })
+        : defaultBlackMaterial;    
 
         let blackLayerMesh: THREE.Mesh | null = null;
 
         // Show only the black layer if both isGel and isAcrylic are true
-        if ((isGelPlate && isAcrylicPlate) || (isAcrylicPlate&&isNeonPlate) || (isGelPlate&&isNeonPlate)) {
+        if ((isGelPlate && isAcrylicPlate) || (isAcrylicPlate && isNeonPlate) || (isGelPlate && isNeonPlate)) {
           // Only show the text geometry and the black text layer
           textMesh.geometry = textGeometry; // Ensure the correct geometry is set
           textMesh.material = textMaterial; // Apply material as per gel plate
@@ -489,13 +500,17 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
               clearcoatRoughness: 0.05, // Slight roughness for realistic highlights
             })
           );
-            // blackLayerMesh.position.set(0, 0, plateStyle.material.thickness ? plateStyle.material.thickness / 20 + 0.1 : 0.1);
+            // blackLayerMesh.position.set(0, 0, plateStyle.material.thickness ? plateStyle.material.thickness / 10 + 0.1 : 0.1);
           blackLayerMesh.name = "blackLayerMesh";
         } else if (isAcrylicPlate) {
           // If only Acrylic plate is true, show only the text geometry (no black layer)
           textMesh.geometry = textGeometry; // Set geometry for acrylic plate
           textMesh.material = textMaterial; // Apply the material for acrylic plate
-        }
+        } 
+        
+        // if (!isSpecialPlate) {
+        //   textMesh.material = defaultBlackMaterial;
+        // }
 
         // Centering and scaling logic
         textGeometry.computeBoundingBox();
@@ -531,7 +546,7 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
           const offsetY = isMotorbike?(textHeight * scaleFactor) / 5.0:-(textHeight * scaleFactor) / 2.2; // Adjust for vertical alignment
           textMesh.position.set(offsetX, offsetY, 0.2);
           if (blackLayerMesh) {
-            blackLayerMesh.position.set(offsetX, offsetY, plateStyle.material.thickness ? plateStyle.material.thickness / 20 + 0.24 : 0.24);
+            blackLayerMesh.position.set(offsetX, offsetY, plateStyle.material.thickness ? plateStyle.material.thickness / 10 + 0.24 : 0.24);
             scene.add(blackLayerMesh); // Add black layer to the scene
           }
         } else {
