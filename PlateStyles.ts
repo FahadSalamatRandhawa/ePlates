@@ -44,7 +44,7 @@ export interface Plate {
 const plateStyles: Plate[] = [
   {
     letters: 7,
-    name: '4D 3mm Acrylic',
+    name: '4D Acrylic 3mm ',
     material: { type: '4D Acrylic', thickness: 3 },
     frontImage:"/4D_3MM/4D 3MM (front view).png",
     sideImage:"/4D_3MM/4D 3MM (Side View).png",
@@ -69,7 +69,7 @@ const plateStyles: Plate[] = [
   },
   {
     letters: 7,
-    name: '4D 5mm Acrylic',
+    name: '4D Acrylic 5mm ',
     frontImage:"/4D 5MM/4D 5MM (front View).png",
     sideImage:"/4D 5MM/4D 5MM (Side View).png",
     depthImage:"/4D 5MM/4D 5MM Depth.png",
@@ -167,29 +167,52 @@ const plateStyles: Plate[] = [
     borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: false
   },
-  // {
-  //   letters: 7,
-  //   name: '4D 5mm Gel',
-  //   frontImage:"/plateImages/4D-Gel-5mm-Main-Image-Pair-Web-v2-white-640x360.webp",
-  //   material: { type: 'Gel', thickness: 5 },
-  //   frontPlate: {
-  //     sizes: [
-  //       { key: '18"', width: 18, height: 4.5 },
-  //       { key: 'standard', width: 20.5, height: 4.5 },
-  //       // { key: 'hex', width: 20.5, height: 4.5 }
-  //     ]
-  //   },
-  //   rearPlate: {
-  //     sizes: [
-  //       { key: '18"', width: 18, height: 4.5 },
-  //       { key: 'standard', width: 20.5, height: 4.5 },
-  //       // { key: 'hex', width: 20.5, height: 4.5 },
-  //       { key: 'square', width: 20.5, height: 4.5 }
-  //     ]
-  //   },
-  //   border: { name: '4D 5mm Acrylic', type: 'Printed', material: { type: '4D Acrylic', thickness: 5 } },
-  //   preview: true
-  // },
+  {
+    letters: 7,
+    name: '4D Gel 3mm',
+    frontImage:"/plateImages/4D-Gel-5mm-Main-Image-Pair-Web-v2-white-640x360.webp",
+    material: { type: 'Gel', thickness: 3 },
+    frontPlate: {
+      sizes: [
+        { key: '18"', width: 18, height: 4.5,price:16 },
+        { key: 'standard', width: 20.5, height: 4.5,price:14 },
+        // { key: 'hex', width: 20.5, height: 4.5 }
+      ]
+    },
+    rearPlate: {
+      sizes: [
+        { key: '18"', width: 18, height: 4.5,price:16 },
+        { key: 'standard', width: 20.5, height: 4.5,price:14 },
+        // { key: 'hex', width: 20.5, height: 4.5 },
+        { key: 'square', width: 20.5, height: 4.5,price:16 }
+      ]
+    },
+    borders: [{ name: '4D 5mm Acrylic', type: 'Printed', material: { type: '4D Acrylic', thickness: 3 } }],
+    preview: true
+  },
+  {
+    letters: 7,
+    name: '4D Gel 5mm',
+    frontImage:"/plateImages/4D-Gel-5mm-Main-Image-Pair-Web-v2-white-640x360.webp",
+    material: { type: 'Gel', thickness: 5 },
+    frontPlate: {
+      sizes: [
+        { key: '18"', width: 18, height: 4.5,price:17 },
+        { key: 'standard', width: 20.5, height: 4.5,price:15 },
+        // { key: 'hex', width: 20.5, height: 4.5 }
+      ]
+    },
+    rearPlate: {
+      sizes: [
+        { key: '18"', width: 18, height: 4.5,price:17 },
+        { key: 'standard', width: 20.5, height: 4.5,price:15 },
+        // { key: 'hex', width: 20.5, height: 4.5 },
+        { key: 'square', width: 20.5, height: 4.5,price:17 }
+      ]
+    },
+    borders: [{ name: '4D 5mm Acrylic', type: 'Printed', material: { type: '4D Acrylic', thickness: 5 } }],
+    preview: true
+  },
   {
     letters: 7,
     name: 'Printed',
@@ -447,7 +470,7 @@ const plateStyles: Plate[] = [
 
   {
     letters: 6,
-    name: '4D 3mm Acrylic',
+    name: '4D Acrylic 3mm ',
     frontImage:"/4D_3MM/4D 3MM (front view).png",
     sideImage:"/4D_3MM/4D 3MM (Side View).png",
     depthImage:"/4D_3MM/4D 3MM Depth.png",
@@ -474,7 +497,7 @@ const plateStyles: Plate[] = [
   },
   {
     letters: 6,
-    name: '4D 5mm Acrylic',
+    name: '4D Acrylic 5mm ',
     frontImage:"/4D 5MM/4D 5MM (front View).png",
     sideImage:"/4D 5MM/4D 5MM (Side View).png",
     depthImage:"/4D 5MM/4D 5MM Depth.png",
@@ -580,31 +603,56 @@ const plateStyles: Plate[] = [
     borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: false
   },
-  // {
-  //   letters: 6,
-  //   name: '4D 5mm Gel',
-  //   frontImage:"/plateImages/4D-Gel-5mm-Main-Image-Pair-Web-v2-white-640x360.webp",
-  //   material: { type: 'Gel', thickness: 5 },
-  //   frontPlate: {
-  //     sizes: [
-  //       { key: '16"', width: 16, height: 4.5 },
-  //       { key: '18"', width: 18, height: 4.5 },
-  //       { key: 'standard', width: 20.5, height: 4.5 },
-  //       // { key: 'hex', width: 20.5, height: 4.5 }
-  //     ]
-  //   },
-  //   rearPlate: {
-  //     sizes: [
-  //       { key: '16"', width: 16, height: 4.5 },
-  //       { key: '18"', width: 18, height: 4.5 },
-  //       { key: 'standard', width: 20.5, height: 4.5 },
-  //       // { key: 'hex', width: 20.5, height: 4.5 },
-  //       { key: 'square', width: 20.5, height: 4.5 }
-  //     ]
-  //   },
-  //   border: { name: '4D 5mm Acrylic', type: 'Printed', material: { type: '4D Acrylic', thickness: 5 } },
-  //   preview: true
-  // },
+  {
+    letters: 6,
+    name: '4D Gel 3mm',
+    frontImage:"/plateImages/4D-Gel-5mm-Main-Image-Pair-Web-v2-white-640x360.webp",
+    material: { type: 'Gel', thickness: 3 },
+    frontPlate: {
+      sizes: [
+        { key: '16"', width: 16, height: 4.5,price:16 },
+        { key: '18"', width: 18, height: 4.5,price:16 },
+        { key: 'standard', width: 20.5, height: 4.5,price:14 },
+        // { key: 'hex', width: 20.5, height: 4.5 }
+      ]
+    },
+    rearPlate: {
+      sizes: [
+        { key: '16"', width: 16, height: 4.5,price:16 },
+        { key: '18"', width: 18, height: 4.5,price:16 },
+        { key: 'standard', width: 20.5, height: 4.5,price:14 },
+        // { key: 'hex', width: 20.5, height: 4.5 },
+        { key: 'square', width: 20.5, height: 4.5,price:16 }
+      ]
+    },
+    borders: [{ name: '4D 5mm Acrylic', type: 'Printed', material: { type: '4D Acrylic', thickness: 3 } }],
+    preview: true
+  },
+  {
+    letters: 6,
+    name: '4D Gel 3mm',
+    frontImage:"/plateImages/4D-Gel-5mm-Main-Image-Pair-Web-v2-white-640x360.webp",
+    material: { type: 'Gel', thickness: 5 },
+    frontPlate: {
+      sizes: [
+        { key: '16"', width: 16, height: 4.5,price:17 },
+        { key: '18"', width: 18, height: 4.5,price:17 },
+        { key: 'standard', width: 20.5, height: 4.5,price:15 },
+        // { key: 'hex', width: 20.5, height: 4.5 }
+      ]
+    },
+    rearPlate: {
+      sizes: [
+        { key: '16"', width: 16, height: 4.5,price:17 },
+        { key: '18"', width: 18, height: 4.5 ,price:17},
+        { key: 'standard', width: 20.5, height: 4.5,price:15 },
+        // { key: 'hex', width: 20.5, height: 4.5 },
+        { key: 'square', width: 20.5, height: 4.5,price:17 }
+      ]
+    },
+    borders: [{ name: '4D 5mm Acrylic', type: 'Printed', material: { type: '4D Acrylic', thickness: 5 } }],
+    preview: true
+  },
   {
     letters: 6,
     name: 'Printed',
@@ -868,7 +916,7 @@ const plateStyles: Plate[] = [
 
   {
     letters: 5,
-    name: '4D 3mm Acrylic',
+    name: '4D Acrylic 3mm ',
     frontImage:"/4D_3MM/4D 3MM (front view).png",
     sideImage:"/4D_3MM/4D 3MM (Side View).png",
     depthImage:"/4D_3MM/4D 3MM Depth.png",
@@ -897,7 +945,7 @@ const plateStyles: Plate[] = [
   },
   {
     letters: 5,
-    name: '4D 5mm Acrylic',
+    name: '4D Acrylic 5mm ',
     frontImage:"/4D 5MM/4D 5MM (front View).png",
     sideImage:"/4D 5MM/4D 5MM (Side View).png",
     depthImage:"/4D 5MM/4D 5MM Depth.png",
@@ -1011,33 +1059,60 @@ const plateStyles: Plate[] = [
     borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
     preview: false
   },
-  // {
-  //   letters: 5,
-  //   name: '4D 5mm Gel',
-  //   frontImage:"/plateImages/4D-Gel-5mm-Main-Image-Pair-Web-v2-white-640x360.webp",
-  //   material: { type: 'Gel', thickness: 5 },
-  //   frontPlate: {
-  //     sizes: [
-  //       { key: '14"', width: 14, height: 4.5 },        
-  //       { key: '16"', width: 16, height: 4.5 },
-  //       { key: '18"', width: 18, height: 4.5 },
-  //       { key: 'standard', width: 20.5, height: 4.5 },
-  //       // { key: 'hex', width: 20.5, height: 4.5 }
-  //     ]
-  //   },
-  //   rearPlate: {
-  //     sizes: [
-  //       { key: '14"', width: 14, height: 4.5 },        
-  //       { key: '16"', width: 16, height: 4.5 },
-  //       { key: '18"', width: 18, height: 4.5 },
-  //       { key: 'standard', width: 20.5, height: 4.5 },
-  //       // { key: 'hex', width: 20.5, height: 4.5 },
-  //       { key: 'square', width: 20.5, height: 4.5 }
-  //     ]
-  //   },
-  //   border: { name: '4D 5mm Acrylic', type: 'Printed', material: { type: '4D Acrylic', thickness: 5 } },
-  //   preview: true
-  // },
+  {
+    letters: 5,
+    name: '4D Gel 3mm',
+    frontImage:"/plateImages/4D-Gel-5mm-Main-Image-Pair-Web-v2-white-640x360.webp",
+    material: { type: 'Gel', thickness: 3 },
+    frontPlate: {
+      sizes: [
+        { key: '14"', width: 14, height: 4.5,price: 16 },        
+        { key: '16"', width: 16, height: 4.5,price: 16 },
+        { key: '18"', width: 18, height: 4.5,price: 16 },
+        { key: 'standard', width: 20.5, height: 4.5,price: 14 },
+        // { key: 'hex', width: 20.5, height: 4.5 }
+      ]
+    },
+    rearPlate: {
+      sizes: [
+        { key: '14"', width: 14, height: 4.5,price: 16 },        
+        { key: '16"', width: 16, height: 4.5,price: 16 },
+        { key: '18"', width: 18, height: 4.5,price: 16 },
+        { key: 'standard', width: 20.5, height: 4.5,price: 14 },
+        // { key: 'hex', width: 20.5, height: 4.5 },
+        { key: 'square', width: 20.5, height: 4.5 }
+      ]
+    },
+    borders: [{ name: '4D 5mm Acrylic', type: 'Printed', material: { type: '4D Acrylic', thickness: 5 } }],
+    preview: true
+  },
+  {
+    letters: 5,
+    name: '4D Gel 5mm',
+    frontImage:"/plateImages/4D-Gel-5mm-Main-Image-Pair-Web-v2-white-640x360.webp",
+    material: { type: 'Gel', thickness: 5 },
+    frontPlate: {
+      sizes: [
+        { key: '14"', width: 14, height: 4.5,price: 17 },        
+        { key: '16"', width: 16, height: 4.5,price: 17 },
+        { key: '18"', width: 18, height: 4.5,price: 17 },
+        { key: 'standard', width: 20.5, height: 4.5,price: 15 },
+        // { key: 'hex', width: 20.5, height: 4.5 }
+      ]
+    },
+    rearPlate: {
+      sizes: [
+        { key: '14"', width: 14, height: 4.5,price: 17 },        
+        { key: '16"', width: 16, height: 4.5,price: 17 },
+        { key: '18"', width: 18, height: 4.5 ,price: 17},
+        { key: 'standard', width: 20.5, height: 4.5 ,price: 15},
+        // { key: 'hex', width: 20.5, height: 4.5 },
+        { key: 'square', width: 20.5, height: 4.5,price: 17 }
+      ]
+    },
+    borders: [{ name: '4D 5mm Acrylic', type: 'Printed', material: { type: '4D Acrylic', thickness: 5 } }],
+    preview: true
+  },
   {
     letters: 5,
     name: 'Printed',
