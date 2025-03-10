@@ -231,7 +231,7 @@ export function STYLE({ className, frontStyle, rearStyle,plateNumber, setFrontSt
       {/* Rear Style Tab */}
       <TabsContent value="back" className="flex flex-col gap-3 col-span-2 h-[390px] px-2 rounded-sm">
         <div className="mt-2">
-          <Switch className="mr-3" checked={sameAsFront} onCheckedChange={(e) => setSameAsFront(e)} />
+          <Switch className="mr-3" checked={sameAsFront} onCheckedChange={(e) => {/*setSameAsFront(e)*/}} />
           <label>Same as front</label>
         </div>
 

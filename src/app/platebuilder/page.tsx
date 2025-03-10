@@ -34,7 +34,27 @@ export default function PlateBuilder() {
       if ([5, 6, 7].includes(pl)) {
         const styles = getStylesByLetterCount(pl)
         const style=styles[0]
-        console.log(style)
+
+        // const result: string[] = [];
+        // for (const item of styles) {
+        //   for (const frontSize of item.frontPlate.sizes) {
+        //     for (const rearSize of item.rearPlate.sizes) {
+        //       for (const border of item.borders) {
+        //         const frontKey = frontSize.key.replace(/"/g, ""); // Remove double quotes
+        //         const rearKey = rearSize.key.replace(/"/g, "");   // Remove double quotes
+
+        //         result.push(
+        //           `${item.name}-${frontKey} P:${frontSize.price || 0}` +
+        //           `_${item.name}-${rearKey} P:${rearSize.price || 0}` +
+        //           `_Border:${border.name} (Type:${border.type || "N/A"})`
+        //         );
+        //       }
+        //     }
+        //   }
+        // }
+
+        // console.log("Plate styles combo")
+        // console.log(result.map((r)=>r));
         setFrontStyle(style)
         setRearStyle(style)
       }
