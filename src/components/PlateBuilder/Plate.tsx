@@ -472,6 +472,10 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
             clearcoat: 1,
             clearcoatRoughness: 0.05,
             reflectivity: 1,
+            bevelEnabled: true, // Enable bevel
+            bevelThickness: 0.1, // Thickness of the bevel
+            bevelSize: 0.05, // How much the bevel extends out
+            bevelSegments: 5,
           })
         : isSpecialPlate
         ? new THREE.MeshBasicMaterial({ 
@@ -481,11 +485,11 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
         : defaultBlackMaterial;    
 
         let blackLayerMesh: THREE.Mesh | null = null;
+        textMesh.geometry = textGeometry; // Ensure the correct geometry is set
 
         // Show only the black layer if both isGel and isAcrylic are true
         if ((isGelPlate && isAcrylicPlate) || (isAcrylicPlate && isNeonPlate) || (isGelPlate && isNeonPlate)) {
           // Only show the text geometry and the black text layer
-          textMesh.geometry = textGeometry; // Ensure the correct geometry is set
           textMesh.material = textMaterial; // Apply material as per gel plate
 
           // Show the black layer mesh as well if needed
@@ -508,9 +512,10 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
           textMesh.material = textMaterial; // Apply the material for acrylic plate
         } 
         
-        // if (!isSpecialPlate) {
-        //   textMesh.material = defaultBlackMaterial;
-        // }
+        if (!isSpecialPlate) {
+          // textMesh.geometry = textGeometry; // Ensure the correct geometry is set
+          textMesh.material = textMaterial; // Apply the material for acrylic plate
+        }
 
         // Centering and scaling logic
         textGeometry.computeBoundingBox();

@@ -122,12 +122,12 @@ export function STYLE({ className, frontStyle, rearStyle,plateNumber, setFrontSt
     setPlateSetyles(styles)
   },[plateNumber])
 
-  // useEffect(()=>{
-  //   if(sameAsFront){
-  //     setRearStyle(frontStyle)
-  //     setRearGelColor(frontGelColor)
-  //   }
-  // },[sameAsFront])
+  useEffect(()=>{
+    if(sameAsFront){
+      setRearStyle(frontStyle)
+      setRearGelColor(frontGelColor)
+    }
+  },[frontGelColor,sameAsFront])
 
   const handleFrontStyleClick = (style: Plate) => {
     setFrontStyle(style); // This will update the state in the parent component
