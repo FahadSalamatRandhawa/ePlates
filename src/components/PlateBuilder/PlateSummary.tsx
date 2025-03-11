@@ -1,5 +1,5 @@
 import React from "react";
-import { PlateSize, PlateStyleOption } from "../../../PlateStyles";
+import { Border, PlateSize, PlateStyleOption } from "../../../PlateStyles";
 
 interface PlateSummaryProps {
   plateNumber: string;
@@ -10,6 +10,8 @@ interface PlateSummaryProps {
   rearPrice: number;
   frontSize:PlateSize;
   rearSize:PlateSize;
+  frontBorder:Border;
+  rearBorder:Border;
 }
 
 const PlateSummary: React.FC<PlateSummaryProps> = ({
@@ -21,10 +23,12 @@ const PlateSummary: React.FC<PlateSummaryProps> = ({
   rearPrice,
   frontSize,
   rearSize,
+  rearBorder,
+  frontBorder,
 }) => {
 
   function addToBasket(){
-    window.parent.postMessage({"product_id": frontStyle.name+"-"+frontSize.key+"_"+rearStyle.name+"-"+rearSize.key, "plateNumber": plateNumber}, "https://plateguy.co.uk");
+    window.parent.postMessage({"product_id": frontStyle.name+"-"+frontSize.key+"-"+frontBorder.type+""+frontBorder.material.thickness+"_"+rearStyle.name+"-"+rearSize.key+"-"+frontBorder.type+""+frontBorder.material.thickness, "plateNumber": plateNumber}, "https://plateguy.co.uk");
     console.log("platenumber sent to plateGuy")
   }
 
