@@ -1,5 +1,5 @@
 import React from "react";
-import { Border, PlateSize, PlateStyleOption } from "../../../PlateStyles";
+import { Border, GelColors, PlateSize, PlateStyleOption } from "../../../PlateStyles";
 
 interface PlateSummaryProps {
   plateNumber: string;
@@ -12,6 +12,8 @@ interface PlateSummaryProps {
   rearSize:PlateSize;
   frontBorder:Border;
   rearBorder:Border;
+  frontGel:GelColors,
+  rearGel:GelColors,
 }
 
 const PlateSummary: React.FC<PlateSummaryProps> = ({
@@ -25,6 +27,8 @@ const PlateSummary: React.FC<PlateSummaryProps> = ({
   rearSize,
   rearBorder,
   frontBorder,
+  frontGel,
+  rearGel,
 }) => {
 
   function addToBasket() {
@@ -36,7 +40,8 @@ const PlateSummary: React.FC<PlateSummaryProps> = ({
           type: frontBorder.type,
           thickness: frontBorder.material.thickness
         },
-        price:frontPrice
+        price:frontPrice,
+        gel:frontGel,
       },
       rear_style: {
         name: rearStyle.name,
@@ -46,6 +51,7 @@ const PlateSummary: React.FC<PlateSummaryProps> = ({
           thickness: rearBorder.material.thickness
         },
         price:rearPrice,
+        gel:rearGel,
       },
       plateNumber: plateNumber
     };

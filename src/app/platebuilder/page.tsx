@@ -310,6 +310,8 @@ export default function PlateBuilder() {
             rearSize={rearSize}
             frontBorder={frontBorder}
             rearBorder={rearBorder}
+            frontGel={frontGelColor}
+            rearGel={rearGelColor}
           />
         </div>
       </div>
