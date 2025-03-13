@@ -28,8 +28,6 @@ const PlateSummary: React.FC<PlateSummaryProps> = ({
 }) => {
 
   function addToBasket() {
-    console.log(frontBorder)
-    console.log(rearBorder)
     const message = {
       front_style: {
         name: frontStyle.name,
@@ -49,7 +47,6 @@ const PlateSummary: React.FC<PlateSummaryProps> = ({
       },
       plateNumber: plateNumber
     };
-    console.log(message)
     window.parent.postMessage(message, "https://plateguy.co.uk");
     console.log("Plate number sent to PlateGuy");
   }
