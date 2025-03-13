@@ -35,7 +35,8 @@ const PlateSummary: React.FC<PlateSummaryProps> = ({
         border: {
           type: frontBorder.type,
           thickness: frontBorder.material.thickness
-        }
+        },
+        price:frontPrice
       },
       rear_style: {
         name: rearStyle.name,
@@ -43,7 +44,8 @@ const PlateSummary: React.FC<PlateSummaryProps> = ({
         border: {
           type: rearBorder.type,
           thickness: rearBorder.material.thickness
-        }
+        },
+        price:rearPrice,
       },
       plateNumber: plateNumber
     };

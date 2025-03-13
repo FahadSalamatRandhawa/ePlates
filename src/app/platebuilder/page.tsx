@@ -39,14 +39,13 @@ export default function PlateBuilder() {
         // for (const item of styles) {
         //   for (const frontSize of item.frontPlate.sizes) {
         //     for (const rearSize of item.rearPlate.sizes) {
-        //       for (const border of item.borders) {
+        //       for (const border of [{name:"None",material:{thickness:0,type:"None"},type:"None"},...item.borders]) {
         //         const frontKey = frontSize.key.replace(/"/g, ""); // Remove double quotes
         //         const rearKey = rearSize.key.replace(/"/g, "");   // Remove double quotes
 
         //         result.push(
-        //           `${item.name}-${frontKey} P:${frontSize.price || 0}` +
-        //           `_${item.name}-${rearKey} P:${rearSize.price || 0}` +
-        //           `_Border:${border.name} (Type:${border.type || "N/A"})`
+        //           `${item.name}_${frontKey}_${border.type}${border.material.thickness}_${frontSize.price || 0}` +
+        //           `-${item.name}_${rearKey}_${border.type}${border.material.thickness}_${rearSize.price || 0}`
         //         );
         //       }
         //     }
