@@ -113,17 +113,9 @@ export default function PlateBuilder() {
   }, [frontSize])
 
   // Border states - Set dynamically based on frontStyle and rearStyle
-  const [frontBorder, setFrontBorder] = useState<Border>(() => ({
-    name: 'Standard Border',  // Default based on frontStyle
-    type: 'solid',            // Default based on frontStyle
-    material: { type: 'metal', thickness: 0 },  // Default material
-  }));
+  const [frontBorder, setFrontBorder] = useState<Border>(() => ({name:"None",material:{thickness:0,type:"None"},type:"None"}));
 
-  const [rearBorder, setRearBorder] = useState<Border>(() => ({
-    name: 'Standard Border',  // Default based on rearStyle
-    type: 'solid',            // Default based on rearStyle
-    material: { type: 'metal', thickness: 0 },  // Default material
-  }));
+  const [rearBorder, setRearBorder] = useState<Border>(() => ({name:"None",material:{thickness:0,type:"None"},type:"None"}));
 
   useEffect(() => {
     if (!roadLegalSpacing) {
@@ -317,6 +309,8 @@ export default function PlateBuilder() {
             rearPrice={rearPrice}
             frontSize={frontSize}
             rearSize={rearSize}
+            frontBorder={frontBorder}
+            rearBorder={rearBorder}
           />
         </div>
       </div>

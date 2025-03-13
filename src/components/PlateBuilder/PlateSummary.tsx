@@ -27,9 +27,31 @@ const PlateSummary: React.FC<PlateSummaryProps> = ({
   frontBorder,
 }) => {
 
-  function addToBasket(){
-    window.parent.postMessage({"product_id": frontStyle.name+"-"+frontSize.key+"-"+frontBorder.type+""+frontBorder.material.thickness+"_"+rearStyle.name+"-"+rearSize.key+"-"+frontBorder.type+""+frontBorder.material.thickness, "plateNumber": plateNumber}, "https://plateguy.co.uk");
-    console.log("platenumber sent to plateGuy")
+  function addToBasket() {
+    console.log(frontBorder)
+    console.log(rearBorder)
+    const message = {
+      front_style: {
+        name: frontStyle.name,
+        size: frontSize.key,
+        border: {
+          type: frontBorder.type,
+          thickness: frontBorder.material.thickness
+        }
+      },
+      rear_style: {
+        name: rearStyle.name,
+        size: rearSize.key,
+        border: {
+          type: rearBorder.type,
+          thickness: rearBorder.material.thickness
+        }
+      },
+      plateNumber: plateNumber
+    };
+    console.log(message)
+    window.parent.postMessage(message, "https://plateguy.co.uk");
+    console.log("Plate number sent to PlateGuy");
   }
 
   return (

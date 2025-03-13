@@ -368,22 +368,22 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
     
       // Load the font and create new geometry
       const fontLoader = new FontLoader();
+      // Inside the fontLoader.load callback where the text geometry is created
       fontLoader.load("/fonts/Charles-WrightBold.json", (font) => {
         if (!font) {
           console.error("Font loading failed");
           return;
         }
-
-        let isMotorbike=false;
-
-        // Check if the plateStyle name contains "MotorBike"
-        if (plateStyle.name.toLowerCase().includes("motorbike")) {
-          // Split the text on space, or in half if there's no space
-
-          isMotorbike=true;
+      
+        let isMotorbike = false;
+        let isSquarePlate = size.key.toLowerCase() === 'square'; // Check if the plate is square
+      
+        let firstLine = '';
+        let secondLine = '';
+      
+        // Split the text into two parts if it's a square plate
+        if (isSquarePlate) {
           const words = plateNumber.split(" ");
-          let firstLine, secondLine;
-
           if (words.length > 1) {
             // Use the first two words if there are multiple
             firstLine = words.slice(0, words.length - 1).join(" ");
@@ -394,161 +394,148 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
             firstLine = plateNumber.slice(0, midPoint);
             secondLine = plateNumber.slice(midPoint);
           }
-
+      
           // Combine the text with a newline character for vertical alignment
           plateNumber = `${firstLine}\n${secondLine}`;
-
         }
-
-
+      
         // Create the base colored text geometry
-        const textGeometry = new TextGeometry(plateNumber==''?"AB12 XYZ":plateNumber, {
+        const textGeometry = new TextGeometry(plateNumber === '' ? "AB12 XYZ" : plateNumber, {
           font,
-          size: 2.6,
+          size: isSquarePlate ? 1.8 : 2.6, // Smaller font size for square plates
           height: plateStyle.material.thickness ? plateStyle.material.thickness / 10 : 0,
           curveSegments: 16,
           bevelEnabled: true,
           bevelSize: 0.06,
-          bevelThickness:0.08,
+          bevelThickness: 0.08,
         });
-
+      
         // Create the thin black layer geometry
-        const blackLayerGeometry = new TextGeometry(plateNumber==''?"AB12 XYZ":plateNumber, {
+        const blackLayerGeometry = new TextGeometry(plateNumber === '' ? "AB12 XYZ" : plateNumber, {
           font,
-          size: 2.6,
+          size: isSquarePlate ? 1.8 : 2.6, // Smaller font size for square plates
           depth: 0.1, // Very thin layer
           curveSegments: 16,
           bevelEnabled: true,
           bevelSize: 0.05,
-          bevelThickness:0.06,
+          bevelThickness: 0.06,
         });
-
+      
         if (roadLegalSpacing) {
           const letterSpacing = -0.1; // Adjust as needed
-  
-          // Adjust position of each letter shape for both textGeometry and blackLayerGeometry
           [textGeometry, blackLayerGeometry].forEach(geometry => {
-            geometry.shapes&&geometry.shapes.forEach((shape, index) => {
-                  if (index > 0) {
-                      const offset = new THREE.Vector3(letterSpacing, 0, 0);
-                      shape.translate(offset.x, offset.y, offset.z);
-                  }
-              });
+            geometry.shapes && geometry.shapes.forEach((shape, index) => {
+              if (index > 0) {
+                const offset = new THREE.Vector3(letterSpacing, 0, 0);
+                shape.translate(offset.x, offset.y, offset.z);
+              }
+            });
           });
-      }else{
-        const letterSpacing = 0.1; // Adjust as needed
-  
-          // Adjust position of each letter shape for both textGeometry and blackLayerGeometry
+        } else {
+          const letterSpacing = 0.1; // Adjust as needed
           [textGeometry, blackLayerGeometry].forEach(geometry => {
-            geometry.shapes&&geometry.shapes.forEach((shape, index) => {
-                  if (index > 0) {
-                      const offset = new THREE.Vector3(letterSpacing, 0, 0);
-                      shape.translate(offset.x, offset.y, offset.z);
-                  }
-              });
+            geometry.shapes && geometry.shapes.forEach((shape, index) => {
+              if (index > 0) {
+                const offset = new THREE.Vector3(letterSpacing, 0, 0);
+                shape.translate(offset.x, offset.y, offset.z);
+              }
+            });
           });
-      }
-
-      const isGelPlate = /GEL/i.test(plateStyle.name);
-      const isAcrylicPlate = /ACRYLIC/i.test(plateStyle.name);
-      const isNeonPlate = /NEON/i.test(plateStyle.name);
-      const isSpecialPlate = isGelPlate || isAcrylicPlate || isNeonPlate;
-  
-      // Create default black material for non-special plates
-      const defaultBlackMaterial = new THREE.MeshBasicMaterial({ 
-        color: 0x000000,
-        reflectivity: 1 
-        
-      });
-  
-      // Material assignment logic
-      const textMaterial = isGelPlate
-        ? new THREE.MeshPhysicalMaterial({
-            color: gelColor?.botton || 0x000000,
-            emissive: gelColor?.botton || 0x000000,
-            emissiveIntensity: 0.3,
-            roughness: 0.05,
-            metalness: 0.95,
-            clearcoat: 1,
-            clearcoatRoughness: 0.05,
-            reflectivity: 1,
-            bevelEnabled: true, // Enable bevel
-            bevelThickness: 0.1, // Thickness of the bevel
-            bevelSize: 0.05, // How much the bevel extends out
-            bevelSegments: 5,
-          })
-        : isSpecialPlate
-        ? new THREE.MeshBasicMaterial({ 
-            color: gelColor?.botton || 0x000000,
-            reflectivity: 1 
-          })
-        : defaultBlackMaterial;    
-
+        }
+      
+        const isGelPlate = /GEL/i.test(plateStyle.name);
+        const isAcrylicPlate = /ACRYLIC/i.test(plateStyle.name);
+        const isNeonPlate = /NEON/i.test(plateStyle.name);
+        const isSpecialPlate = isGelPlate || isAcrylicPlate || isNeonPlate;
+      
+        // Create default black material for non-special plates
+        const defaultBlackMaterial = new THREE.MeshBasicMaterial({ 
+          color: 0x000000,
+          reflectivity: 1 
+        });
+      
+        // Material assignment logic
+        const textMaterial = isGelPlate
+          ? new THREE.MeshPhysicalMaterial({
+              color: gelColor?.botton || 0x000000,
+              emissive: gelColor?.botton || 0x000000,
+              emissiveIntensity: 0.3,
+              roughness: 0.05,
+              metalness: 0.95,
+              clearcoat: 1,
+              clearcoatRoughness: 0.05,
+              reflectivity: 1,
+              bevelEnabled: true, // Enable bevel
+              bevelThickness: 0.1, // Thickness of the bevel
+              bevelSize: 0.05, // How much the bevel extends out
+              bevelSegments: 5,
+            })
+          : isSpecialPlate
+          ? new THREE.MeshBasicMaterial({ 
+              color: gelColor?.botton || 0x000000,
+              reflectivity: 1 
+            })
+          : defaultBlackMaterial;    
+      
         let blackLayerMesh: THREE.Mesh | null = null;
         textMesh.geometry = textGeometry; // Ensure the correct geometry is set
-
+      
         // Show only the black layer if both isGel and isAcrylic are true
         if ((isGelPlate && isAcrylicPlate) || (isAcrylicPlate && isNeonPlate) || (isGelPlate && isNeonPlate)) {
-          // Only show the text geometry and the black text layer
           textMesh.material = textMaterial; // Apply material as per gel plate
-
-          // Show the black layer mesh as well if needed
+      
           blackLayerMesh = new THREE.Mesh(
             blackLayerGeometry,
             new THREE.MeshStandardMaterial({
-              color: gelColor?gelColor.top:0x000000, // Apply color if available otherwise bkacj
+              color: gelColor ? gelColor.top : 0x000000, // Apply color if available otherwise black
               metalness: 0.9, // High reflectivity
               roughness: 0.1, // Smooth surface for reflection
-              emissive: gelColor?gelColor.top:0x000000, // No glow, keeps it dark
+              emissive: gelColor ? gelColor.top : 0x000000, // No glow, keeps it dark
               clearcoat: 1, // Glossy finish
               clearcoatRoughness: 0.05, // Slight roughness for realistic highlights
             })
           );
-            // blackLayerMesh.position.set(0, 0, plateStyle.material.thickness ? plateStyle.material.thickness / 10 + 0.1 : 0.1);
           blackLayerMesh.name = "blackLayerMesh";
         } else if (isAcrylicPlate) {
-          // If only Acrylic plate is true, show only the text geometry (no black layer)
           textMesh.geometry = textGeometry; // Set geometry for acrylic plate
           textMesh.material = textMaterial; // Apply the material for acrylic plate
         } 
-        
+      
         if (!isSpecialPlate) {
-          // textMesh.geometry = textGeometry; // Ensure the correct geometry is set
           textMesh.material = textMaterial; // Apply the material for acrylic plate
         }
-
+      
         // Centering and scaling logic
         textGeometry.computeBoundingBox();
         if (textGeometry.boundingBox) {
           const textWidth = textGeometry.boundingBox.max.x - textGeometry.boundingBox.min.x || 0;
           const textHeight = textGeometry.boundingBox.max.y - textGeometry.boundingBox.min.y || 0;
-
-
+      
           // Plate dimensions
           const plateWidth = size.width * 1; // Adjust the multiplier for tighter margins
           const plateHeight = size.height * 1;
-
+      
           let scaleFactor = 1;
-
+      
           // Scale down text if it exceeds plate width
           if (textWidth > plateWidth) {
             scaleFactor = plateWidth / textWidth;
           }
-
+      
           // Further scale down if text height exceeds plate height
           if (textHeight * scaleFactor > plateHeight) {
             scaleFactor = plateHeight / textHeight;
           }
-
+      
           // Apply scaling to text and black layer
           textMesh.scale.set(scaleFactor, scaleFactor, 1);
           if (blackLayerMesh) {
             blackLayerMesh.scale.set(scaleFactor, scaleFactor, 1);
           }
-
+      
           // Center the text and black layer
           const offsetX = -(textWidth * scaleFactor) / 2;
-          const offsetY = isMotorbike?(textHeight * scaleFactor) / 5.0:-(textHeight * scaleFactor) / 2.2; // Adjust for vertical alignment
+          const offsetY = isSquarePlate ? (textHeight * scaleFactor) / 6 : -(textHeight * scaleFactor) / 2.2; // Adjust for vertical alignment
           textMesh.position.set(offsetX, offsetY, 0.2);
           if (blackLayerMesh) {
             blackLayerMesh.position.set(offsetX, offsetY, plateStyle.material.thickness ? plateStyle.material.thickness / 10 + 0.24 : 0.24);
@@ -557,7 +544,6 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
         } else {
           console.warn("Bounding box calculation failed for text geometry.");
         }
-
       });
     };
     

@@ -402,7 +402,7 @@ export function BORDER({ className, frontBorder,rearBorder,frontStyle,rearStyle,
     setRearBorder(style); // This will update the state in the parent component
   };
 
-  const noBorder:Border={name:"None",material:{thickness:null,type:"None"},type:"None"}
+  const noBorder:Border={name:"None",material:{thickness:0,type:"None"},type:"None"}
 
   return (
     <Tabs defaultValue="front" className={`flex flex-col overflow-y-scroll items-stretch bg-yellow rounded-sm h-full ${className}`}>
