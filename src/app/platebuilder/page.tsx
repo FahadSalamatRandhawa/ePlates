@@ -36,24 +36,36 @@ export default function PlateBuilder() {
         const style=styles[0]
 
         // const result: string[] = [];
+
         // for (const item of styles) {
         //   for (const frontSize of item.frontPlate.sizes) {
         //     for (const rearSize of item.rearPlate.sizes) {
-        //       for (const border of [{name:"None",material:{thickness:0,type:"None"},type:"None"},...item.borders]) {
+        //       for (const border of [{ name: "None", material: { thickness: 0, type: "None" }, type: "None" }, ...item.borders]) {
         //         const frontKey = frontSize.key.replace(/"/g, ""); // Remove double quotes
-        //         const rearKey = rearSize.key.replace(/"/g, "");   // Remove double quotes
-
-        //         result.push(
-        //           `${item.name}_${frontKey}_${border.type}${border.material.thickness}_${frontSize.price || 0}` +
-        //           `-${item.name}_${rearKey}_${border.type}${border.material.thickness}_${rearSize.price || 0}`
-        //         );
+        //         const rearKey = rearSize.key.replace(/"/g, ""); // Remove double quotes
+        
+        //         if (item.gelColors?.length) {
+        //           for (const gel of item.gelColors) {
+        //             const gelName = gel.name.replace(/\s+/g, "_"); // Replace spaces with underscores in gel name
+        //             result.push(
+        //               `${item.name}_${frontKey}_${gelName}_${border.type}${border.material.thickness}_${frontSize.price || 0}` +
+        //               `-${item.name}_${rearKey}_${border.type}${border.material.thickness}_${rearSize.price || 0}`
+        //             );
+        //           }
+        //         } else {
+        //           result.push(
+        //             `${item.name}_${frontKey}_${border.type}${border.material.thickness}_${frontSize.price || 0}` +
+        //             `-${item.name}_${rearKey}_${border.type}${border.material.thickness}_${rearSize.price || 0}`
+        //           );
+        //         }
         //       }
         //     }
         //   }
         // }
-
-        // console.log("Plate styles combo")
-        // console.log(result.map((r)=>r));
+        
+        // console.log("Plate styles combo");
+        // console.log(result.map((r) => r));
+        
         setFrontStyle(style)
         setRearStyle(style)
       }
