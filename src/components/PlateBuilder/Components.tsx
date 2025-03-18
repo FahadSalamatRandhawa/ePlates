@@ -128,6 +128,7 @@ export function STYLE({ className, frontStyle, rearStyle,plateNumber, setFrontSt
       setRearGelColor(frontGelColor)
     }
   },[frontGelColor,sameAsFront])
+  
 
   const handleFrontStyleClick = (style: Plate) => {
     setFrontStyle(style); // This will update the state in the parent component

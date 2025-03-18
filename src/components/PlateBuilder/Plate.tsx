@@ -447,15 +447,19 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
         const isAcrylicPlate = /ACRYLIC/i.test(plateStyle.name);
         const isNeonPlate = /NEON/i.test(plateStyle.name);
         const isSpecialPlate = isGelPlate || isAcrylicPlate || isNeonPlate;
+        const hasGelColor = plateStyle.gelColors && isGelPlate
       
         // Create default black material for non-special plates
         const defaultBlackMaterial = new THREE.MeshBasicMaterial({ 
           color: 0x000000,
           reflectivity: 1 
         });
+
+        console.log("hasGelColor",hasGelColor)
+        console.log(plateStyle.gelColors)
       
         // Material assignment logic
-        const textMaterial = isGelPlate
+        const textMaterial = hasGelColor
           ? new THREE.MeshPhysicalMaterial({
               color: gelColor?.botton || 0x000000,
               emissive: gelColor?.botton || 0x000000,
@@ -472,7 +476,7 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
             })
           : isSpecialPlate
           ? new THREE.MeshBasicMaterial({ 
-              color: gelColor?.botton || 0x000000,
+              color:  0x000000,
               reflectivity: 1 
             })
           : defaultBlackMaterial;    
@@ -501,7 +505,7 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
           textMesh.material = textMaterial; // Apply the material for acrylic plate
         } 
       
-        if (!isSpecialPlate) {
+        if (!isSpecialPlate || !hasGelColor) {
           textMesh.material = textMaterial; // Apply the material for acrylic plate
         }
       
