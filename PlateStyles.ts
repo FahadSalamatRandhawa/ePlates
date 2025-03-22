@@ -98,7 +98,7 @@ const plateStyles: Plate[] = [
     frontImage:"/3D Gel/3D Gel (front View).png",
     sideImage:"/3D Gel/3D Gel (Side View).png",
     depthImage:"/3D Gel/3D Gel Depth.png",
-    material: { type: 'Gel', thickness: 1 },
+    material: { type: 'Gel', thickness: 3 },
     frontPlate: {
       sizes: [
         { key: '18"', width: 18, height: 4.5,price:14.50 },
@@ -169,7 +169,7 @@ const plateStyles: Plate[] = [
   // },
   {
     letters: 7,
-    name: '4D Gel',
+    name: '4D Acrylic Gel',
     frontImage:"/plateImages/4D-Gel-5mm-Main-Image-Pair-Web-v2-white-640x360.webp",
     material: { type: 'Gel', thickness: 3 },
     frontPlate: {
@@ -528,7 +528,7 @@ const plateStyles: Plate[] = [
     frontImage:"/3D Gel/3D Gel (front View).png",
     sideImage:"/3D Gel/3D Gel (Side View).png",
     depthImage:"/3D Gel/3D Gel Depth.png",
-    material: { type: 'Gel', thickness: 1 },
+    material: { type: 'Gel', thickness: 3 },
     frontPlate: {
       sizes: [
         { key: '16"', width: 16, height: 4.5,price:14.50 },
@@ -605,7 +605,7 @@ const plateStyles: Plate[] = [
   // },
   {
     letters: 6,
-    name: '4D Gel',
+    name: '4D Acrylic Gel',
     frontImage:"/plateImages/4D-Gel-5mm-Main-Image-Pair-Web-v2-white-640x360.webp",
     material: { type: 'Gel', thickness: 3 },
     frontPlate: {
@@ -978,7 +978,7 @@ const plateStyles: Plate[] = [
     frontImage:"/3D Gel/3D Gel (front View).png",
     sideImage:"/3D Gel/3D Gel (Side View).png",
     depthImage:"/3D Gel/3D Gel Depth.png",
-    material: { type: 'Gel', thickness: 1 },
+    material: { type: 'Gel', thickness: 3 },
     frontPlate: {
       sizes: [
         { key: '14"', width: 14, height: 4.5,price:14.50 },        
@@ -1061,7 +1061,7 @@ const plateStyles: Plate[] = [
   // },
   {
     letters: 5,
-    name: '4D Gel',
+    name: '4D Acrylic Gel',
     frontImage:"/plateImages/4D-Gel-5mm-Main-Image-Pair-Web-v2-white-640x360.webp",
     material: { type: 'Gel', thickness: 3 },
     frontPlate: {

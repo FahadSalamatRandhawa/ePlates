@@ -447,7 +447,7 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
         const isAcrylicPlate = /ACRYLIC/i.test(plateStyle.name);
         const isNeonPlate = /NEON/i.test(plateStyle.name);
         const isSpecialPlate = isGelPlate || isAcrylicPlate || isNeonPlate;
-        const hasGelColor = plateStyle.gelColors && isGelPlate
+        const hasGelColor = plateStyle.gelColors
       
         // Create default black material for non-special plates
         const defaultBlackMaterial = new THREE.MeshBasicMaterial({ 
@@ -455,14 +455,13 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
           reflectivity: 1 
         });
 
-        console.log("hasGelColor",hasGelColor)
-        console.log(plateStyle.gelColors)
+        console.log(hasGelColor,isGelPlate);
       
         // Material assignment logic
-        const textMaterial = hasGelColor
+        const textMaterial = hasGelColor || isGelPlate
           ? new THREE.MeshPhysicalMaterial({
-              color: gelColor?.botton || 0x000000,
-              emissive: gelColor?.botton || 0x000000,
+              color: hasGelColor ? gelColor?.botton : gelColor?.top || 0x000000,
+              emissive: hasGelColor ? gelColor?.botton : gelColor?.top || 0x000000,
               emissiveIntensity: 0.3,
               roughness: 0.05,
               metalness: 0.95,
@@ -470,9 +469,9 @@ const ThreeDRectangle = ({ plateNumber="YOUR PLATE", isRear,plateStyle,size,bord
               clearcoatRoughness: 0.05,
               reflectivity: 1,
               bevelEnabled: true, // Enable bevel
-              bevelThickness: 0.1, // Thickness of the bevel
-              bevelSize: 0.05, // How much the bevel extends out
-              bevelSegments: 5,
+              bevelThickness: isGelPlate ? 0.1 : 0, // Thickness of the bevel
+              bevelSize: isGelPlate ? 0.05 : 0, // How much the bevel extends out
+              bevelSegments: isGelPlate ? 5 : 0,
             })
           : isSpecialPlate
           ? new THREE.MeshBasicMaterial({ 
