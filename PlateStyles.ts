@@ -543,7 +543,7 @@ const plateStyles: Plate[] = [
         { key: '18"', width: 18, height: 4.5,price:14.50 },
         { key: 'standard', width: 20.5, height: 4.5,price:12.50 },
         // // { key: 'hex', width: 20.5, height: 4.5,price:14.50 },
-        { key: 'square', width: 1, height: 8,price:14.50 }
+        { key: 'square', width: 11, height: 8,price:14.50 }
       ]
     },
     borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
@@ -995,7 +995,7 @@ const plateStyles: Plate[] = [
         { key: '18"', width: 18, height: 4.5,price:14.50 },
         { key: 'standard', width: 20.5, height: 4.5,price:12.50 },
         // // { key: 'hex', width: 20.5, height: 4.5,price:14.50 },
-        { key: 'square', width: 1, height: 8,price:14.50 }
+        { key: 'square', width: 11, height: 8,price:14.50 }
       ]
     },
     borders:[ { name: '4D 3mm Acrylic ', type: 'Printed', material: { type: 'Printed', thickness: 3 } },{ name: 'Printed', type: 'Printed', material: { type: 'Printed', thickness: 1 } }],
