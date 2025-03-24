@@ -116,7 +116,7 @@ const PlateSummary: React.FC<PlateSummaryProps> = ({
       <div className="border-t border-gray-300 pt-4 mb-4">
         <div className="flex justify-between text-lg font-bold text-gray-800">
           <p>Total</p>
-          <p>£{(frontPrice + rearPrice)}</p>
+          <p>£{(frontPrice + rearPrice).toFixed(2)}</p>
         </div>
       </div>
 
