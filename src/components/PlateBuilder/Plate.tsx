@@ -398,6 +398,7 @@ let firstLine = '';
 let secondLine = '';
 
 // Split the text into two parts if it's a square plate
+// Split the text into two parts if it's a square plate
 if (isSquarePlate) {
   const words = plateNumber.split(" ");
   if (words.length > 1) {
@@ -409,7 +410,7 @@ if (isSquarePlate) {
     secondLine = plateNumber.slice(midPoint);
   }
 
-  // Create separate TextGeometry instances for each line
+  // Create separate TextGeometry instances for the colored text layer
   const firstLineGeometry = new TextGeometry(firstLine === '' ? "AB12" : firstLine, {
     font,
     size: 1.8,
@@ -437,13 +438,12 @@ if (isSquarePlate) {
   const isSpecialPlate = isGelPlate || isAcrylicPlate || isNeonPlate;
   const hasGelColor = plateStyle.gelColors;
 
-  // Create default black material for non-special plates
-  const defaultBlackMaterial = new THREE.MeshBasicMaterial({ 
+  const defaultBlackMaterial = new THREE.MeshBasicMaterial({
     color: 0x000000,
-    reflectivity: 1 
+    reflectivity: 1
   });
 
-  // Material assignment logic
+  // Material assignment logic for the colored text layer
   const textMaterial = hasGelColor || isGelPlate
     ? new THREE.MeshPhysicalMaterial({
         color: hasGelColor ? gelColor?.botton : gelColor?.top || 0x000000,
@@ -460,76 +460,128 @@ if (isSquarePlate) {
         bevelSegments: isGelPlate ? 5 : 0,
       })
     : isSpecialPlate
-    ? new THREE.MeshBasicMaterial({ 
+    ? new THREE.MeshBasicMaterial({
         color: 0x000000,
-        reflectivity: 1 
+        reflectivity: 1
       })
     : defaultBlackMaterial;
 
-  // Create meshes for each line
+  // Create colored text meshes for each line
   const firstLineMesh = new THREE.Mesh(firstLineGeometry, textMaterial);
   const secondLineMesh = new THREE.Mesh(secondLineGeometry, textMaterial);
-  
-  // Add user data to identify these meshes later
+
   firstLineMesh.userData.isPlateText = true;
   secondLineMesh.userData.isPlateText = true;
 
-  // Position and scale code
+  // Compute bounding boxes for positioning
   firstLineGeometry.computeBoundingBox();
   secondLineGeometry.computeBoundingBox();
 
   if (firstLineGeometry.boundingBox && secondLineGeometry.boundingBox) {
-    // Your positioning code for square plates...
     const firstLineWidth = firstLineGeometry.boundingBox.max.x - firstLineGeometry.boundingBox.min.x;
     const firstLineHeight = firstLineGeometry.boundingBox.max.y - firstLineGeometry.boundingBox.min.y;
     const secondLineWidth = secondLineGeometry.boundingBox.max.x - secondLineGeometry.boundingBox.min.x;
     const secondLineHeight = secondLineGeometry.boundingBox.max.y - secondLineGeometry.boundingBox.min.y;
 
-    // Calculate plateWidth and plateHeight
+    // Calculate plate dimensions
     const plateWidth = size.width * 0.85;
     const plateHeight = size.height * 0.8;
 
-    // Determine scale factors
     const firstLineScaleFactor = plateWidth / firstLineWidth;
     const secondLineScaleFactor = plateWidth / secondLineWidth;
-    
     let scaleFactor = Math.min(firstLineScaleFactor, secondLineScaleFactor);
-    
+
     const spacing = 1.0;
     const totalHeight = (firstLineHeight + secondLineHeight) * scaleFactor + spacing;
-    
+
     if (totalHeight > plateHeight) {
       scaleFactor = plateHeight / (firstLineHeight + secondLineHeight + spacing);
     }
 
-    // Apply scaling to both meshes
+    // Apply scaling to the colored text meshes
     firstLineMesh.scale.set(scaleFactor, scaleFactor, 1);
     secondLineMesh.scale.set(scaleFactor, scaleFactor, 1);
 
-    // Position first line
+    // Position the colored text meshes
     firstLineMesh.position.set(
       -firstLineWidth * scaleFactor / 2,
       size.height * 0.1,
       0.2
     );
-
-    // Position second line
     secondLineMesh.position.set(
       -secondLineWidth * scaleFactor / 2,
       -size.height * 0.4,
       0.2
     );
 
-    // Add both meshes to the scene
     scene.add(firstLineMesh);
     scene.add(secondLineMesh);
-    
-    // Hide the original text mesh
+
+    // Hide the original text mesh since we are using the two-line approach
     textMesh.visible = false;
-    
-    // Special plate effects handling if needed...
+
+    // --- Create Black Layers Using the Else Logic ---
+    // Instead of cloning the existing geometry, we create new TextGeometries with a fixed depth (0.1)
+    const firstLineBlackGeometry = new TextGeometry(firstLine === '' ? "AB12" : firstLine, {
+      font,
+      size: 1.8,
+      depth: 0.1, // Fixed depth for the black layer
+      curveSegments: 16,
+      bevelEnabled: true,
+      bevelSize: 0.05,
+      bevelThickness: 0.06,
+    });
+
+    const secondLineBlackGeometry = new TextGeometry(secondLine === '' ? "XYZ" : secondLine, {
+      font,
+      size: 1.8,
+      depth: 0.1, // Fixed depth for the black layer
+      curveSegments: 16,
+      bevelEnabled: true,
+      bevelSize: 0.05,
+      bevelThickness: 0.06,
+    });
+
+    const blackLayerMaterial = new THREE.MeshStandardMaterial({
+      color: gelColor ? gelColor.top : 0x000000,
+      metalness: 0.9,
+      roughness: 0.1,
+      emissive: gelColor ? gelColor.top : 0x000000,
+      clearcoat: 1,
+      clearcoatRoughness: 0.05,
+    });
+
+    const firstLineBlackMesh = new THREE.Mesh(firstLineBlackGeometry, blackLayerMaterial);
+    const secondLineBlackMesh = new THREE.Mesh(secondLineBlackGeometry, blackLayerMaterial);
+
+    // Scale black layers the same as the colored text
+    firstLineBlackMesh.scale.copy(firstLineMesh.scale);
+    secondLineBlackMesh.scale.copy(secondLineMesh.scale);
+
+    // Position the black layers with a z offset so they appear on top
+    const blackZ = plateStyle.material.thickness
+      ? plateStyle.material.thickness / 10 + 0.24
+      : 0.24;
+    firstLineBlackMesh.position.set(
+      firstLineMesh.position.x,
+      firstLineMesh.position.y,
+      blackZ
+    );
+    secondLineBlackMesh.position.set(
+      secondLineMesh.position.x,
+      secondLineMesh.position.y,
+      blackZ
+    );
+
+    firstLineBlackMesh.name = "blackLayerMesh";
+    secondLineBlackMesh.name = "blackLayerMesh";
+
+    scene.add(firstLineBlackMesh);
+    scene.add(secondLineBlackMesh);
+    // --- End Black Layers ---
   }
-} else {
+}
+ else {
   // NON-SQUARE PLATE LOGIC - Show the regular text mesh
   // Make sure the text mesh is visible for non-square plates
   textMesh.visible = true;
