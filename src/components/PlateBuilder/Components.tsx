@@ -181,9 +181,9 @@ export function STYLE({ className, frontStyle, rearStyle,plateNumber, setFrontSt
         <TabsTrigger className="text-lg" value="front">
           FRONT <span className="ml-2 font-extralight mt-2 text-base">STYLE</span>
         </TabsTrigger>
-        <TabsTrigger className="text-lg" value="back">
+        {/* <TabsTrigger className="text-lg" value="back">
           BACK <span className="ml-2 font-extralight mt-2 text-base">STYLE</span>
-        </TabsTrigger>
+        </TabsTrigger> */}
       </TabsList>
 
       {/* Front Style Tab */}
@@ -229,53 +229,178 @@ export function STYLE({ className, frontStyle, rearStyle,plateNumber, setFrontSt
           })}
       </TabsContent>
 
-      {/* Rear Style Tab */}
-      <TabsContent value="back" className="flex flex-col gap-3 col-span-2 h-[390px] px-2 rounded-sm">
-        <div className="mt-2">
-          <Switch className="mr-3" checked={sameAsFront} onCheckedChange={(e) => {/*setSameAsFront(e)*/}} />
-          <label>Same as front</label>
-        </div>
-
-        {/* Conditionally render rear style options based on sameAsFront */}
-        {!sameAsFront && (
-          <div className="flex flex-col gap-3 bg-yellow">
-            {plateStyles.map((p: Plate) => (
-              <div
-                className={`min-h-[200px] pt-[2px] pb-3 rounded-sm px-[2px] ${rearStyle.name === p.name ? "bg-black text-white" : "bg-white"}`}
-                key={p.name}
-                onClick={() => handleRearStyleClick(p)} // Trigger state change for rear style
-              >
-                <div className=" relative h-[140px]"><Image src={p.frontImage?p.frontImage:"/178348.jpg"} className=" rounded-t-sm" alt="img" fill priority /></div>
-                <p className="h-[60px]  px-2 py-2">{p.name}</p>
-
-                <div className="px-2 flex flex-wrap gap-2 text-black">
-                  {
-                    p.gelColors&&p.gelColors.map((color)=>(
-                      <Button
-                        onClick={() => setFrontGelColor(color)}
-                        className={`text-black bg-white p-1 ${frontGelColor === color ? " bg-yellow border-black " : ""}`}
-                        key={color.name}
-                      >
-                        {color.name.split(" on ").map((word, index) => (
-                          <span
-                            key={index}
-                            style={{ color: `#${color[index === 0 ? "top" : "botton"].toString(16).padStart(6, "0")}` }}
-                          >
-                            {word} {index === 0 ? "on " : ""}
-                          </span>
-                        ))}
-                      </Button>
-                    ))
-                  }
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-      </TabsContent>
     </Tabs>
   );
 }
+
+// export function STYLE({ className, frontStyle, rearStyle,plateNumber, setFrontStyle, setRearStyle, rearGelColor,setRearGelColor,frontGelColor,setFrontGelColor,sameAsFront,setSameAsFront }: STYLEProps) {
+//   const [plateStyles,setPlateSetyles] = useState<Plate[]>(getStylesByLetterCount(7)); // Assuming getStylesByLetterCount is a function that returns plate styles
+
+//   useEffect(()=>{
+    
+//   },[plateStyles])
+
+
+//   useEffect(()=>{
+//     const styles=getStylesByLetterCount(plateNumber.replace(/ /g, "").length)
+   
+//     setPlateSetyles(styles)
+//   },[plateNumber])
+
+//   useEffect(()=>{
+//     if(sameAsFront){
+//       setRearStyle(frontStyle)
+//       setRearGelColor(frontGelColor)
+//     }
+//   },[frontGelColor,sameAsFront])
+  
+
+//   const handleFrontStyleClick = (style: Plate) => {
+//     setFrontStyle(style); // This will update the state in the parent component
+
+//     if(style.name.includes("Neon")){
+//       toast({
+//         title: "Not legal",
+//         description: "This plate will not be road legal",
+//         variant: "destructive"
+//       })
+//     }
+//   };
+
+//   const handleRearStyleClick = (style: Plate) => {
+//     setRearStyle(style); // This will update the state in the parent component
+
+//     if(style.name.includes("Neon")){
+//       toast({
+//         title: "Not legal",
+//         description: "This plate will not be road legal",
+//         variant: "destructive"
+//       })
+//     }
+//   };
+
+//   useEffect(()=>{
+//     if(frontStyle.gelColors){
+//       setFrontGelColor(frontStyle.gelColors[0])
+//     }else{
+//       setFrontGelColor(null)
+//     }
+//     if(sameAsFront){
+//       setRearStyle(frontStyle)
+//       setRearGelColor(frontGelColor)
+//     }
+//   },[frontStyle])
+
+//   useEffect(()=>{
+//     if(rearStyle.gelColors){
+//       setRearGelColor(rearStyle.gelColors[0])
+//     }else{
+//       setRearGelColor(null)
+//     } 
+//   },[rearStyle])
+
+
+//   return (
+//     <Tabs defaultValue="front" className={`flex flex-col overflow-y-scroll items-stretch bg-yellow rounded-sm h-full ${className}`}>
+//       <TabsList className="grid grid-cols-2 gap-2">
+//         <TabsTrigger className="text-lg" value="front">
+//           FRONT <span className="ml-2 font-extralight mt-2 text-base">STYLE</span>
+//         </TabsTrigger>
+//         <TabsTrigger className="text-lg" value="back">
+//           BACK <span className="ml-2 font-extralight mt-2 text-base">STYLE</span>
+//         </TabsTrigger>
+//       </TabsList>
+
+//       {/* Front Style Tab */}
+//       <TabsContent value="front" className="flex flex-col gap-3 col-span-2 px-2 rounded-sm">
+//         {plateStyles.map((p: Plate,index) =>{
+//           if(p.frontPlate.sizes.length>1){
+//             return (
+//               <div
+//                 className={` pb-2 rounded-sm  pt-[2px] px-[2px] ${frontStyle.name === p.name ? "bg-black text-white" : "bg-white"}`}
+//                 key={index}
+//                 onClick={() => handleFrontStyleClick(p)} // Trigger state change for front style
+//               >
+//                 <div className=" relative h-[140px]"><Image src={p.frontImage?p.frontImage:"/178348.jpg"} alt="img" className=" rounded-t-sm" fill priority /></div>
+//                 <p className=" h-[60px] px-2 py-2">{p.gelColors&&p.gelColors.length==1?p.name+" "+p.gelColors[0].name:p.name}</p>
+//                   {
+//                     p.gelColors&&p.gelColors.length>1&&
+//                     <div className="px-2 flex flex-wrap gap-2">
+//                       {
+//                         p.gelColors&&p.gelColors.map((color)=>(
+//                           <Button
+//                             onClick={() => setFrontGelColor(color)}
+//                             className={`text-black bg-white p-1 ${frontGelColor === color ? " bg-yellow border-black " : ""}`}
+//                             key={color.name}
+//                           >
+//                             {color.name.split(" on ").map((word, index) => (
+//                               <span
+//                                 key={index}
+//                                 style={{ color: `#${color[index === 0 ? "top" : "botton"].toString(16).padStart(6, "0")}` }}
+//                               >
+//                                 {word} {index === 0 ? "on " : ""}
+//                               </span>
+//                             ))}
+//                           </Button>
+//                         ))
+//                       }
+//                   </div>
+//                   }
+//               </div>
+//             )
+//           }
+
+//           return null
+//           })}
+//       </TabsContent>
+
+//       {/* Rear Style Tab */}
+//       <TabsContent value="back" className="flex flex-col gap-3 col-span-2 h-[390px] px-2 rounded-sm">
+//         <div className="mt-2">
+//           <Switch className="mr-3" checked={sameAsFront} onCheckedChange={(e) => {/*setSameAsFront(e)*/}} />
+//           <label>Same as front</label>
+//         </div>
+
+//         {/* Conditionally render rear style options based on sameAsFront */}
+//         {!sameAsFront && (
+//           <div className="flex flex-col gap-3 bg-yellow">
+//             {plateStyles.map((p: Plate) => (
+//               <div
+//                 className={`min-h-[200px] pt-[2px] pb-3 rounded-sm px-[2px] ${rearStyle.name === p.name ? "bg-black text-white" : "bg-white"}`}
+//                 key={p.name}
+//                 onClick={() => handleRearStyleClick(p)} // Trigger state change for rear style
+//               >
+//                 <div className=" relative h-[140px]"><Image src={p.frontImage?p.frontImage:"/178348.jpg"} className=" rounded-t-sm" alt="img" fill priority /></div>
+//                 <p className="h-[60px]  px-2 py-2">{p.name}</p>
+
+//                 <div className="px-2 flex flex-wrap gap-2 text-black">
+//                   {
+//                     p.gelColors&&p.gelColors.map((color)=>(
+//                       <Button
+//                         onClick={() => setFrontGelColor(color)}
+//                         className={`text-black bg-white p-1 ${frontGelColor === color ? " bg-yellow border-black " : ""}`}
+//                         key={color.name}
+//                       >
+//                         {color.name.split(" on ").map((word, index) => (
+//                           <span
+//                             key={index}
+//                             style={{ color: `#${color[index === 0 ? "top" : "botton"].toString(16).padStart(6, "0")}` }}
+//                           >
+//                             {word} {index === 0 ? "on " : ""}
+//                           </span>
+//                         ))}
+//                       </Button>
+//                     ))
+//                   }
+//                 </div>
+//               </div>
+//             ))}
+//           </div>
+//         )}
+//       </TabsContent>
+//     </Tabs>
+//   );
+// }
 
 interface SizingProps{
   className?: string;
