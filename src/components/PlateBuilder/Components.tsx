@@ -179,7 +179,7 @@ export function STYLE({ className, frontStyle, rearStyle,plateNumber, setFrontSt
     <Tabs defaultValue="front" className={`flex flex-col overflow-y-scroll items-stretch bg-yellow rounded-sm h-full ${className}`}>
       <TabsList className="grid grid-cols-2 gap-2">
         <TabsTrigger className="text-lg" value="front">
-          FRONT <span className="ml-2 font-extralight mt-2 text-base">STYLE</span>
+          <span className="ml-2 font-extralight mt-2 text-base">STYLE</span>
         </TabsTrigger>
         {/* <TabsTrigger className="text-lg" value="back">
           BACK <span className="ml-2 font-extralight mt-2 text-base">STYLE</span>
